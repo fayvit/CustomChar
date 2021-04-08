@@ -1,0 +1,281 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: rosto
+  m_Shader: {fileID: -6465566751694194690, guid: d813393cf7ac699498fe3417b1c1d305,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_18A5812C:
+        m_Texture: {fileID: 2800000, guid: 914b09d7d41227345a043d71709d72bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_350e2091a4c14a99804b379944885d7a:
+        m_Texture: {fileID: 2800000, guid: 090ceaae0b0de874ea7f684adad0973d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3FA9F43B:
+        m_Texture: {fileID: 2800000, guid: 008a7de3489d1b24e909a4278b27985a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_651AB389:
+        m_Texture: {fileID: 2800000, guid: 529c2ea3b95c3d347a9261ecd8aa4bcc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7A67722A:
+        m_Texture: {fileID: 2800000, guid: f1e777213ddf0b4439ccba89c1c79d08, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_97C8EC94:
+        m_Texture: {fileID: 2800000, guid: ce345a467468f54428a8a57b613416da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_A39E1A04:
+        m_Texture: {fileID: 2800000, guid: debf6f3289a9f3c49b47624ce3bbf13d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BAA9D8CF:
+        m_Texture: {fileID: 2800000, guid: cce50ae9d06ba904e93e7f3b0ce8f5da, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_DB342F0C:
+        m_Texture: {fileID: 2800000, guid: d85ebdfe0abef3b4ba385eeeac9b7434, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ab01b0b15a4c42bbb06bd6f198931248:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalheDaSobrancelha:
+        m_Texture: {fileID: 2800000, guid: d0362d1f2a3cde7469262dc6de3eb50f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Detalhes:
+        m_Texture: {fileID: 2800000, guid: 0b10e657bf0255a4996560cc8273afbe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalhesBrancoDosOlhos:
+        m_Texture: {fileID: 2800000, guid: 9f6aa8917143f864a90305f972a08fbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalhesDaBarba:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalhesDaIris:
+        m_Texture: {fileID: 2800000, guid: f0969c92c16a05e4facaddbc3d52fb19, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalhesDaPupila:
+        m_Texture: {fileID: 2800000, guid: 791b7f8f9525b904c8f8a14d518a9163, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetalhesDaUmidade:
+        m_Texture: {fileID: 2800000, guid: a75b307601d9bc14cbb5868f4fd4ac00, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EfetivarRosto_1B55D585_Texture2D1D2B0522_1418467574:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EfetivarRosto_1B55D585_Texture2D20D6C8BA_1263393671:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EfetivarRosto_1B55D585_Texture2D29393A6A_2097269419:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EfetivarRosto_1B55D585_Texture2D338657AE_58120209:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EfetivarRosto_1B55D585_Texture2DD95BD7CF_3690869645:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDaBarba:
+        m_Texture: {fileID: 2800000, guid: 090ceaae0b0de874ea7f684adad0973d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDaIris:
+        m_Texture: {fileID: 2800000, guid: 914b09d7d41227345a043d71709d72bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDaPupila:
+        m_Texture: {fileID: 2800000, guid: f1e777213ddf0b4439ccba89c1c79d08, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDaSobrancelha:
+        m_Texture: {fileID: 2800000, guid: 008a7de3489d1b24e909a4278b27985a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDaUmidade:
+        m_Texture: {fileID: 2800000, guid: 529c2ea3b95c3d347a9261ecd8aa4bcc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDoBrancoDosOlhos:
+        m_Texture: {fileID: 2800000, guid: 39fde4918ad629740b2ba2e501ef3662, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MascaraDoCinto:
+        m_Texture: {fileID: 2800000, guid: 39fde4918ad629740b2ba2e501ef3662, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_518B7D6_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_B858698D_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_2D0D2EC4_Out_0:
+        m_Texture: {fileID: 2800000, guid: 791b7f8f9525b904c8f8a14d518a9163, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_9626ADB8_Out_0:
+        m_Texture: {fileID: 2800000, guid: fd3e18a18475f2840a287f522a75c265, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_98C484A8_Out_0:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TorsobaseColorConfig_ADE7752E_Texture2D10328399_607341892:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TorsobaseColorConfig_ADE7752E_Texture2D65C206BA_2861721656:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TorsobaseColorConfig_ADE7752E_Texture2D9A99290F_1906750805:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TorsobaseColorConfig_ADE7752E_Texture2DE70DCEB9_4135911981:
+        m_Texture: {fileID: 2800000, guid: 493a6b3f7300d6c43bb7dcb78200c486, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1DEF9DF4: 10
+    - Vector1_3C3B6420: -2.5
+    - Vector1_9605CCA4: 0.1
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DstBlend: 0
+    - _EnvironmentReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - Color_31562CE7: {r: 1, g: 0.98620516, b: 0.25943398, a: 0.92941177}
+    - Color_4C7B967: {r: 0.65882355, g: 0.33761644, b: 0, a: 1}
+    - Color_552BA45D: {r: 0.9716981, g: 0.7811129, b: 0.6737718, a: 0}
+    - Color_589eb657c79b492d8b0debfa2c25cddb: {r: 0.7843138, g: 0.17254902, b: 0,
+        a: 0}
+    - Color_5C329F7: {r: 1, g: 0.96807104, b: 0.3820755, a: 1}
+    - Color_6A162E48: {r: 0, g: 0, b: 0, a: 0}
+    - Color_6C9C775A: {r: 1, g: 1, b: 1, a: 0}
+    - Color_895F2EAA: {r: 1, g: 0.96878105, b: 0, a: 0}
+    - Color_9A9462B: {r: 0, g: 0, b: 0, a: 0}
+    - Color_D2A04608: {r: 1, g: 1, b: 1, a: 0}
+    - Color_D840FCE7: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+    - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _BrancoDosOlhos: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _CorDaBarba: {r: 0.7843138, g: 0.17254902, b: 0, a: 1}
+    - _CorDaGola: {r: 1, g: 0.60861325, b: 0.1462264, a: 0}
+    - _CorDaIris: {r: 0.22745098, g: 0.073295295, b: 0, a: 0}
+    - _CorDaManga: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0}
+    - _CorDaPele: {r: 0.6981132, g: 0.2042744, b: 0, a: 0}
+    - _CorDaSobrancelha: {r: 0.7843138, g: 0.17254902, b: 0, a: 1}
+    - _CorDaUmidade: {r: 0.5518868, g: 1, b: 0.9722826, a: 0}
+    - _CorDoCinto: {r: 1, g: 1, b: 1, a: 0}
+    - _CorDosBotoes: {r: 0.5518868, g: 0.8794907, b: 1, a: 0}
+    - _CorPupila: {r: 0.6226415, g: 0.38361353, b: 0.14978638, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _L1_color: {r: 1, g: 1, b: 1, a: 1}
+    - _L1_dir: {r: 0, g: 1, b: 0, a: 0}
+    - _L2_color: {r: 0, g: 0, b: 0, a: 0}
+    - _L2_dir: {r: 0, g: 0, b: 0, a: 0}
+    - _L3_color: {r: 0, g: 0, b: 0, a: 0}
+    - _L3_dir: {r: 0, g: 0, b: 0, a: 0}
+    - _L4_color: {r: 0, g: 0, b: 0, a: 0}
+    - _L4_dir: {r: 0, g: 0, b: 0, a: 0}
+    - _L5_color: {r: 0, g: 0, b: 0, a: 0}
+    - _L5_dir: {r: 0, g: 0, b: 0, a: 0}
+    - _L6_color: {r: 0, g: 0, b: 0, a: 0}
+    - _L6_dir: {r: 0, g: 0, b: 0, a: 0}
+    - _MyBaseColor: {r: 1, g: 0.8627451, b: 0.654902, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []

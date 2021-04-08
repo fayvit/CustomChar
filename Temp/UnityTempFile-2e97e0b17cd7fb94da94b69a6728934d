@@ -1,0 +1,870 @@
+/target:library
+/out:Temp/Assembly-CSharp.dll
+/nowarn:0169
+/nowarn:0649
+/refout:Temp/Assembly-CSharp.dll.ref
+/deterministic
+/debug:portable
+/optimize+
+/nostdlib+
+/preferreduilang:en-US
+/langversion:8.0
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.GraphViewModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.PackageManagerUIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.SceneTemplateModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIElementsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIElementsSamplesModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.UIServiceModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEditor.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AndroidJNIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.DSPGraphModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.GIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputLegacyModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubsystemsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsNativeModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityCurlModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.VirtualTexturingModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Numerics.Vectors.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.ComponentModel.Composition.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Core.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Data.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Drawing.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.IO.Compression.FileSystem.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Net.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Numerics.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Runtime.Serialization.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.ServiceModel.Web.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Transactions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Web.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Windows.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Linq.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.Concurrent.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.NonGeneric.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.Specialized.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.TypeConverter.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Console.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Data.Common.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Contracts.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Debug.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Process.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.StackTrace.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Tools.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.TraceSource.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Tracing.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Drawing.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Dynamic.Runtime.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.Calendars.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.Extensions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Compression.ZipFile.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Compression.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.Watcher.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.IsolatedStorage.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.MemoryMappedFiles.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Pipes.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Expressions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Parallel.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Queryable.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Http.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.NameResolution.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.NetworkInformation.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Ping.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Requests.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Security.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Sockets.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebHeaderCollection.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebSockets.Client.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebSockets.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ObjectModel.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.Extensions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.Reader.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.ResourceManager.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.Writer.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Extensions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Handles.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.InteropServices.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Numerics.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Json.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Xml.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Claims.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Csp.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Encoding.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Primitives.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Principal.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.SecureString.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.Encoding.Extensions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.Encoding.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.RegularExpressions.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Overlapped.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Tasks.Parallel.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Tasks.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Thread.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.ThreadPool.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Timer.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ValueTuple.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.ReaderWriter.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XDocument.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XPath.XDocument.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XPath.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XmlDocument.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XmlSerializer.dll
+/reference:D:/root/programasD/2020.2.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll
+/reference:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Mathematics.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Mathematics.dll
+/reference:Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll
+/reference:Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Searcher.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/define:CROSS_PLATFORM_INPUT
+/define:CSHARP_7_3_OR_NEWER
+/define:CSHARP_7_OR_LATER
+/define:DEBUG
+/define:ENABLE_AR
+/define:ENABLE_AUDIO
+/define:ENABLE_BURST_AOT
+/define:ENABLE_CACHING
+/define:ENABLE_CLOTH
+/define:ENABLE_CLOUD_LICENSE
+/define:ENABLE_CLOUD_SERVICES
+/define:ENABLE_CLOUD_SERVICES_ADS
+/define:ENABLE_CLOUD_SERVICES_ANALYTICS
+/define:ENABLE_CLOUD_SERVICES_BUILD
+/define:ENABLE_CLOUD_SERVICES_COLLAB
+/define:ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS
+/define:ENABLE_CLOUD_SERVICES_CRASH_REPORTING
+/define:ENABLE_CLOUD_SERVICES_PURCHASING
+/define:ENABLE_CLOUD_SERVICES_UNET
+/define:ENABLE_CLOUD_SERVICES_USE_WEBREQUEST
+/define:ENABLE_CLUSTERINPUT
+/define:ENABLE_CLUSTER_SYNC
+/define:ENABLE_CRUNCH_TEXTURE_COMPRESSION
+/define:ENABLE_CUSTOM_RENDER_TEXTURE
+/define:ENABLE_DIRECTOR
+/define:ENABLE_DIRECTOR_AUDIO
+/define:ENABLE_DIRECTOR_TEXTURE
+/define:ENABLE_EDITOR_HUB_LICENSE
+/define:ENABLE_EVENT_QUEUE
+/define:ENABLE_LEGACY_INPUT_MANAGER
+/define:ENABLE_LOCALIZATION
+/define:ENABLE_LZMA
+/define:ENABLE_MANAGED_ANIMATION_JOBS
+/define:ENABLE_MANAGED_AUDIO_JOBS
+/define:ENABLE_MANAGED_JOBS
+/define:ENABLE_MANAGED_TRANSFORM_JOBS
+/define:ENABLE_MICROPHONE
+/define:ENABLE_MONO
+/define:ENABLE_MONO_BDWGC
+/define:ENABLE_MOVIES
+/define:ENABLE_MULTIPLE_DISPLAYS
+/define:ENABLE_NETWORK
+/define:ENABLE_OUT_OF_PROCESS_CRASH_HANDLER
+/define:ENABLE_PHYSICS
+/define:ENABLE_PROFILER
+/define:ENABLE_RUNTIME_GI
+/define:ENABLE_SCRIPTING_GC_WBARRIERS
+/define:ENABLE_SPRITES
+/define:ENABLE_TERRAIN
+/define:ENABLE_TEXTURE_STREAMING
+/define:ENABLE_TILEMAP
+/define:ENABLE_TIMELINE
+/define:ENABLE_UNET
+/define:ENABLE_UNITYEVENTS
+/define:ENABLE_UNITYWEBREQUEST
+/define:ENABLE_UNITY_COLLECTIONS_CHECKS
+/define:ENABLE_VIDEO
+/define:ENABLE_VIRTUALTEXTURING
+/define:ENABLE_VR
+/define:ENABLE_WEBCAM
+/define:ENABLE_WEBSOCKET_CLIENT
+/define:ENABLE_WEBSOCKET_HOST
+/define:ENABLE_WWW
+/define:GFXDEVICE_WAITFOREVENT_MESSAGEPUMP
+/define:INCLUDE_DYNAMIC_GI
+/define:NET_STANDARD_2_0
+/define:PLATFORM_ARCH_64
+/define:PLATFORM_STANDALONE
+/define:PLATFORM_STANDALONE_WIN
+/define:PLATFORM_SUPPORTS_MONO
+/define:PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP
+/define:RENDER_SOFTWARE_CURSOR
+/define:SCENE_TEMPLATE_MODULE
+/define:TRACE
+/define:UNITY_2017_1_OR_NEWER
+/define:UNITY_2017_2_OR_NEWER
+/define:UNITY_2017_3_OR_NEWER
+/define:UNITY_2017_4_OR_NEWER
+/define:UNITY_2018_1_OR_NEWER
+/define:UNITY_2018_2_OR_NEWER
+/define:UNITY_2018_3_OR_NEWER
+/define:UNITY_2018_4_OR_NEWER
+/define:UNITY_2019_1_OR_NEWER
+/define:UNITY_2019_2_OR_NEWER
+/define:UNITY_2019_3_OR_NEWER
+/define:UNITY_2019_4_OR_NEWER
+/define:UNITY_2020
+/define:UNITY_2020_1_OR_NEWER
+/define:UNITY_2020_2
+/define:UNITY_2020_2_2
+/define:UNITY_2020_2_OR_NEWER
+/define:UNITY_5_3_OR_NEWER
+/define:UNITY_5_4_OR_NEWER
+/define:UNITY_5_5_OR_NEWER
+/define:UNITY_5_6_OR_NEWER
+/define:UNITY_64
+/define:UNITY_ASSERTIONS
+/define:UNITY_EDITOR
+/define:UNITY_EDITOR_64
+/define:UNITY_EDITOR_WIN
+/define:UNITY_INCLUDE_TESTS
+/define:UNITY_POST_PROCESSING_STACK_V2
+/define:UNITY_PRO_LICENSE
+/define:UNITY_STANDALONE
+/define:UNITY_STANDALONE_WIN
+/define:UNITY_TEAM_LICENSE
+/define:USE_SEARCH_ENGINE_API
+Assets\ColorPicker\CameraBgColor.cs
+Assets\ColorPicker\ColorPicker.cs
+Assets\ColorPicker\DemoGUI_ColorPickerDemo.cs
+Assets\ColorPicker\DrawGUIOrderColorPicker.cs
+Assets\ColorPicker\ObjectColor.cs
+Assets\ColorPicker\PSColor.cs
+Assets\ColorPickerTriangle\Example\example.cs
+Assets\ColorPickerTriangle\Scripts\ColorPickerTriangle.cs
+"Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs"
+Assets\Environment\Water\Water4\Models\Water\Scripts\Displace.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\GerstnerDisplace.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\MeshContainer.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\PlanarReflection.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\SpecularLighting.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\Water.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\WaterBase.cs
+Assets\Environment\Water\Water4\Models\Water\Scripts\WaterTile.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\BasicCam.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\CamMessages.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\CameraAplicator.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\DirectionalCamera.cs
+"Assets\FayvitPackagesScripts_v04_2021\Camera\ExhibitionistCam .cs"
+Assets\FayvitPackagesScripts_v04_2021\Camera\FayvitCameraSupport.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\FightCam.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\FocarAdversario.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\InducedDirection.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\ShakeCam.cs
+Assets\FayvitPackagesScripts_v04_2021\Camera\ShowSinglePointCam.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Android\ControladorDeJoystick.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Android\DragSupport.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Android\MyButtonEvents.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\AndroidCommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\ChangeController.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\CommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\CommandReaderMessages.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\CommandReaderSupport.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\ICommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\IKeyDict.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\JoystickCommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\KeyStringDict.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Keyboard\KeyboardCommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Keyboard\KeyboardKeysDict.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\N3DS\N3DSCommandReader.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\N3DS\N3DS_KeysDic.cs
+Assets\FayvitPackagesScripts_v04_2021\CommandReaderSpace\N3DS\RawCustomAxis.cs
+Assets\FayvitPackagesScripts_v04_2021\EventAgregator\EventAgregator.cs
+Assets\FayvitPackagesScripts_v04_2021\EventAgregator\GameEvent.cs
+Assets\FayvitPackagesScripts_v04_2021\EventAgregator\IGameEvent.cs
+Assets\FayvitPackagesScripts_v04_2021\MessageAgregator\MessageAgregator.cs
+Assets\FayvitPackagesScripts_v04_2021\Movimentacao\BasicMove.cs
+Assets\FayvitPackagesScripts_v04_2021\Movimentacao\ControlledMoveForCharacter.cs
+Assets\FayvitPackagesScripts_v04_2021\Movimentacao\FayvitMoveMessages.cs
+Assets\FayvitPackagesScripts_v04_2021\Movimentacao\JumpManager.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\A_MenuOption.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\AnImageOption.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\AnOption.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\BasicMenu.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\ConfirmationPanel.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\FayvitUiMessages.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\FayvitUiUtility.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\GetColorHudManager.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\GridMenu.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\InteractiveUiBase.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\BaseGridMenu.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\ColorGridMenu.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\ConfirmationPanelBehaviour.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\GridMenuBehaviour.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\InteractiveUiReference.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\SingleMessagePanelBehaviour.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\SupportCreationUi.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\MyUiObjects\TextDisplayBehaviour.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\ParentingInTheHUD.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\ResizeUI.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\SingleMessagePanel.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\TextDisplay.cs
+Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\WrapUiAnchor.cs
+Assets\FayvitPackagesScripts_v04_2021\SupportSingleton\SupportSingleton.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\BasicCam.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\CameraAplicator.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\DirectionalCamera.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\EventAgregator\FayvitCamEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\EventAgregator\FayvitCamEventAgregator.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\EventAgregator\IFayvitCamEvent.cs
+"Assets\FayvitPackagesScripts_v10_2020\Camera\ExhibitionistCam .cs"
+Assets\FayvitPackagesScripts_v10_2020\Camera\FayvitCameraSupport.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\FightCam.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\FocarAdversario.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\InducedDirection.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\ShakeCam.cs
+Assets\FayvitPackagesScripts_v10_2020\Camera\ShowSinglePointCam.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Android\ControladorDeJoystick.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Android\DragSupport.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Android\MyButtonEvents.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\AndroidCommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\CR_SupportSingleton.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\ChangeController.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\CommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\CommandReaderSupport.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\EventAgregator\FayvitCommandReaderEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\EventAgregator\FayvitCommandReaderEventAgregator.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\EventAgregator\IFayvitCommandReaderEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\ICommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\IKeyDict.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\JoystickCommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\KeyStringDict.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Keyboard\KeyboardCommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Keyboard\KeyboardKeysDict.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\N3DS\N3DSCommandReader.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\N3DS\N3DS_KeysDic.cs
+Assets\FayvitPackagesScripts_v10_2020\CommandReaderSpace\N3DS\RawCustomAxis.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\BasicMove.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\EventAgregator\FayvitMoveEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\EventAgregator\FayvitMoveEventAgregator.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\EventAgregator\IFayvitMoveEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\JumpManager.cs
+Assets\FayvitPackagesScripts_v10_2020\Movimentacao\MoveSupportSingleton.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\A_MenuOption.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\AnImageOption.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\AnOption.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\BasicMenu.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\ConfirmationPanel.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\FayvitUiEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\FayvitUiEventAgregator.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\GridMenu.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\IFayvitUiEvent.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\InteractiveUiBase.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\BaseGridMenu.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\ColorGridMenu.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\ConfirmationPanelBehaviour.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\GridMenuBehaviour.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\MenuReference.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\SingleMessagePanelBehaviour.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\SupportCreationUi.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\TextDisplayBehaviour.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\ParentingInTheHUD.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\ResizeUI.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\SingleMessagePanel.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\TextDisplay.cs
+Assets\FayvitPackagesScripts_v10_2020\MyUI_Space\UiSupportSingleton.cs
+Assets\FlexibleColorPicker\ExampleScene\FCP_ExampleScript.cs
+Assets\FlexibleColorPicker\Scripts\FCP_SpriteMeshEditor.cs
+Assets\FlexibleColorPicker\Scripts\FlexibleColorPicker.cs
+Assets\OriginUnity\Scripts\SimpleCameraController.cs
+Assets\OriginUnity\TutorialInfo\Scripts\Readme.cs
+"Assets\Orion Criatures scripts\Animacoes\AnimaBraco.cs"
+"Assets\Orion Criatures scripts\Animacoes\AnimaLuzPsiquica.cs"
+"Assets\Orion Criatures scripts\Animacoes\AnimaPoseDeCaptura.cs"
+"Assets\Orion Criatures scripts\Animacoes\AnimacaoDeSpriteParaUI.cs"
+"Assets\Orion Criatures scripts\Animacoes\AnimandoCaptura.cs"
+"Assets\Orion Criatures scripts\Animacoes\ControleDosOlhos.cs"
+"Assets\Orion Criatures scripts\Animacoes\DanoAparecendo.cs"
+"Assets\Orion Criatures scripts\Animacoes\caindoNaArmadilhaChao.cs"
+"Assets\Orion Criatures scripts\Animacoes\eletricidade\LightningBolt.cs"
+"Assets\Orion Criatures scripts\Animacoes\eletricidade\Perlin.cs"
+"Assets\Orion Criatures scripts\Animacoes\escalaParaSabre.cs"
+"Assets\Orion Criatures scripts\Animacoes\giraFuracaoDeFolhas.cs"
+"Assets\Orion Criatures scripts\Animacoes\giraGira.cs"
+"Assets\Orion Criatures scripts\Animacoes\giraTurboDagua.cs"
+"Assets\Orion Criatures scripts\Animacoes\impactoAoChao.cs"
+"Assets\Orion Criatures scripts\Animacoes\particulasAoChao.cs"
+"Assets\Orion Criatures scripts\Animacoes\poeiraAoVento.cs"
+"Assets\Orion Criatures scripts\AtivadorDeBotao.cs"
+"Assets\Orion Criatures scripts\BilboardGeneration.cs"
+"Assets\Orion Criatures scripts\BillboardParticularGenerate.cs"
+"Assets\Orion Criatures scripts\BlocsGenerate.cs"
+"Assets\Orion Criatures scripts\BuscadorDeID.cs"
+"Assets\Orion Criatures scripts\ComportamentoInimigo\DisparadorDoGolpe.cs"
+"Assets\Orion Criatures scripts\ComportamentoInimigo\IA_Agressiva.cs"
+"Assets\Orion Criatures scripts\ComportamentoInimigo\SorteadorDeGolpe.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\AnimadorCriature.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\AnimadorHumano.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\AplicadorDeCamera.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\CameraBasica.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\CameraDeLuta.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\CameraDirecionavel.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\CameraExibicionista.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\CommandReader.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\DirecaoInduzida.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\MovimentacaoBasica.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\Pulo.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\SigaOLider.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\TransformPosDeConversa.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\abrePortaInterna.cs"
+"Assets\Orion Criatures scripts\ControllsAndMoves\transporteInterno.cs"
+"Assets\Orion Criatures scripts\EncounterTriggerManager.cs"
+"Assets\Orion Criatures scripts\Eventos\BarrierEventManager.cs"
+"Assets\Orion Criatures scripts\Eventos\Bau.cs"
+"Assets\Orion Criatures scripts\Eventos\EscondeCoisa.cs"
+"Assets\Orion Criatures scripts\Eventos\EventoComGolpe.cs"
+"Assets\Orion Criatures scripts\Eventos\IniciarEncontroComGerente.cs"
+"Assets\Orion Criatures scripts\Eventos\IniciarEncontroDeLocal.cs"
+"Assets\Orion Criatures scripts\Eventos\MbMudeCena.cs"
+"Assets\Orion Criatures scripts\Eventos\MiniArmagedomPortatilNaCaverna.cs"
+"Assets\Orion Criatures scripts\Eventos\RockMovePuzzle.cs"
+"Assets\Orion Criatures scripts\Eventos\RockMovePuzzleManager.cs"
+"Assets\Orion Criatures scripts\Eventos\TriggerFinalDeCapitulo.cs"
+"Assets\Orion Criatures scripts\HUD\ActionManager.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaCiclica.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaComDerek.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaComIan.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaComOpcoes.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDaLutaComTreinador.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDoBotaoArmagedom.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDoBotaoConversa.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDoBotaoConversaComJogoDeCamera.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDoBotaoConversaCondicional.cs"
+"Assets\Orion Criatures scripts\HUD\Ativadores\AtivadorDoShop.cs"
+"Assets\Orion Criatures scripts\HUD\BtnsManager.cs"
+"Assets\Orion Criatures scripts\HUD\CriatureParaMostrador.cs"
+"Assets\Orion Criatures scripts\HUD\DadosDeMiniaturas.cs"
+"Assets\Orion Criatures scripts\HUD\DisparaTextos.cs"
+"Assets\Orion Criatures scripts\HUD\FerramentasDeHud.cs"
+"Assets\Orion Criatures scripts\HUD\HudManager.cs"
+"Assets\Orion Criatures scripts\HUD\ImageMenu.cs"
+"Assets\Orion Criatures scripts\HUD\LayoutElementQuadrado.cs"
+"Assets\Orion Criatures scripts\HUD\LoadBar.cs"
+"Assets\Orion Criatures scripts\HUD\MenuBasico.cs"
+"Assets\Orion Criatures scripts\HUD\MenuDeImagens.cs"
+"Assets\Orion Criatures scripts\HUD\MenuDeShop.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeAcoes.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeConfirmacao.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeCriature.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeEscolhaINicial.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeGolpe.cs"
+"Assets\Orion Criatures scripts\HUD\PainelDeItens.cs"
+"Assets\Orion Criatures scripts\HUD\PainelMensCriature.cs"
+"Assets\Orion Criatures scripts\HUD\PainelMostrarItem.cs"
+"Assets\Orion Criatures scripts\HUD\PainelQuantidadesParaShop.cs"
+"Assets\Orion Criatures scripts\HUD\PainelStatus.cs"
+"Assets\Orion Criatures scripts\HUD\PainelUmaMensagem.cs"
+"Assets\Orion Criatures scripts\HUD\ParentearNaHUD.cs"
+"Assets\Orion Criatures scripts\HUD\PauseMenu.cs"
+"Assets\Orion Criatures scripts\HUD\RedimensionarUI.cs"
+"Assets\Orion Criatures scripts\HUD\ReplaceCriatureHudManager.cs"
+"Assets\Orion Criatures scripts\HUD\ShopManager.cs"
+"Assets\Orion Criatures scripts\HUD\StatusHudManager.cs"
+"Assets\Orion Criatures scripts\HUD\TryToLearnHud.cs"
+"Assets\Orion Criatures scripts\HUD\UiDeOpcoes.cs"
+"Assets\Orion Criatures scripts\HUD\UmaOpcao.cs"
+"Assets\Orion Criatures scripts\HUD\UmaOpcaoDeMenu.cs"
+"Assets\Orion Criatures scripts\HUD\UmaOpcaoDeShop.cs"
+"Assets\Orion Criatures scripts\Initial_insert\ContainerDeLoadSaves.cs"
+"Assets\Orion Criatures scripts\Initial_insert\InitialSceneManager.cs"
+"Assets\Orion Criatures scripts\Initial_insert\InputTextDoCriandoNovoJogo.cs"
+"Assets\Orion Criatures scripts\Initial_insert\LanguageMenu.cs"
+"Assets\Orion Criatures scripts\Initial_insert\LanguageSwitcher.cs"
+"Assets\Orion Criatures scripts\Initial_insert\LoadButton.cs"
+"Assets\Orion Criatures scripts\Initial_insert\LoginJoltManager.cs"
+"Assets\Orion Criatures scripts\Initial_insert\UmaOpcaoDeLinguagem.cs"
+"Assets\Orion Criatures scripts\Itens\AmuletoDaCoragem.cs"
+"Assets\Orion Criatures scripts\Itens\Antidoto.cs"
+"Assets\Orion Criatures scripts\Itens\CanetaSagradaDeLog.cs"
+"Assets\Orion Criatures scripts\Itens\IntervaloDeItens.cs"
+"Assets\Orion Criatures scripts\Itens\ItemAntiStatusBase.cs"
+"Assets\Orion Criatures scripts\Itens\ItemConsumivelBase.cs"
+"Assets\Orion Criatures scripts\Itens\ItemDeAprenderGolpe.cs"
+"Assets\Orion Criatures scripts\Itens\ItemDeEnergiaBase.cs"
+"Assets\Orion Criatures scripts\Itens\ItemDeRecuperacaoBase.cs"
+"Assets\Orion Criatures scripts\Itens\ItemModificadorDeAtributoBase.cs"
+"Assets\Orion Criatures scripts\Itens\ItemModificadorDeAtributoConsumivel.cs"
+"Assets\Orion Criatures scripts\Itens\ItemModificadorDeAtributoIntrinsico.cs"
+"Assets\Orion Criatures scripts\Itens\ItemNaoUsavel.cs"
+"Assets\Orion Criatures scripts\Itens\ItemQuantitativo.cs"
+"Assets\Orion Criatures scripts\Itens\MbAdubo.cs"
+"Assets\Orion Criatures scripts\Itens\MbAguaTonica.cs"
+"Assets\Orion Criatures scripts\Itens\MbAura.cs"
+"Assets\Orion Criatures scripts\Itens\MbCartaLuva.cs"
+"Assets\Orion Criatures scripts\Itens\MbEstrela.cs"
+"Assets\Orion Criatures scripts\Itens\MbGasolina.cs"
+"Assets\Orion Criatures scripts\Itens\MbInseticida.cs"
+"Assets\Orion Criatures scripts\Itens\MbItens.cs"
+"Assets\Orion Criatures scripts\Itens\MbMaca.cs"
+"Assets\Orion Criatures scripts\Itens\MbPergaminhoDeArmagedom.cs"
+"Assets\Orion Criatures scripts\Itens\MbPergaminhoDeFuga.cs"
+"Assets\Orion Criatures scripts\Itens\MbPergaminhoDePerfeicao.cs"
+"Assets\Orion Criatures scripts\Itens\MbPilha.cs"
+"Assets\Orion Criatures scripts\Itens\MbQuartzo.cs"
+"Assets\Orion Criatures scripts\Itens\MbRegador.cs"
+"Assets\Orion Criatures scripts\Itens\MbRepolhoComOvo.cs"
+"Assets\Orion Criatures scripts\Itens\MbSeiva.cs"
+"Assets\Orion Criatures scripts\Itens\MbUsoDeItem.cs"
+"Assets\Orion Criatures scripts\Itens\MbVentilador.cs"
+"Assets\Orion Criatures scripts\Itens\MensDeUsoDeItem.cs"
+"Assets\Orion Criatures scripts\Itens\PegaCristal.cs"
+"Assets\Orion Criatures scripts\Itens\PegaUmItem.cs"
+"Assets\Orion Criatures scripts\Itens\PergDeSabre.cs"
+"Assets\Orion Criatures scripts\Itens\PergDoMultiplicar.cs"
+"Assets\Orion Criatures scripts\Itens\PergFuracaoDeFolhas.cs"
+"Assets\Orion Criatures scripts\Itens\PergGosmaAcida.cs"
+"Assets\Orion Criatures scripts\Itens\PergOlharEnfraquecedor.cs"
+"Assets\Orion Criatures scripts\Itens\PergOlharMal.cs"
+"Assets\Orion Criatures scripts\Itens\PergVentosCortantes.cs"
+"Assets\Orion Criatures scripts\Itens\PergaminhoDeAlana.cs"
+"Assets\Orion Criatures scripts\Itens\PergaminhoDeAnanda.cs"
+"Assets\Orion Criatures scripts\Itens\PergaminhoDeBoutjoi.cs"
+"Assets\Orion Criatures scripts\Itens\PergaminhoDeLaurense.cs"
+"Assets\Orion Criatures scripts\Itens\PergaminhoDeSinara.cs"
+"Assets\Orion Criatures scripts\Itens\TintaSagradaDeLog.cs"
+"Assets\Orion Criatures scripts\Itens\Tonico.cs"
+"Assets\Orion Criatures scripts\MapaPorScript.cs"
+"Assets\Orion Criatures scripts\MatrizDeBillboards.cs"
+"Assets\Orion Criatures scripts\MeuBillboard.cs"
+"Assets\Orion Criatures scripts\MyBillboard.cs"
+"Assets\Orion Criatures scripts\NPCs\ConversaComNpcMovimentandoCamera.cs"
+"Assets\Orion Criatures scripts\NPCs\MovimentoControladoParaNPC.cs"
+"Assets\Orion Criatures scripts\NPCs\NPCcomOpcoesDeConversa.cs"
+"Assets\Orion Criatures scripts\NPCs\NPCdeConversa.cs"
+"Assets\Orion Criatures scripts\NPCs\NPCdeFalasCiclicas.cs"
+"Assets\Orion Criatures scripts\NPCs\NPCfalasCondicionais.cs"
+"Assets\Orion Criatures scripts\NPCs\NpcDoPrimeiroMiniArmagedom.cs"
+"Assets\Orion Criatures scripts\NPCs\NpcIan.cs"
+"Assets\Orion Criatures scripts\NPCs\NpcLutaContraTreinador.cs"
+"Assets\Orion Criatures scripts\NPCs\VisaoDeTreinadorEspecial.cs"
+"Assets\Orion Criatures scripts\PropsPorScript.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\AdicionaStatusSimples.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\Amedrontado.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\ContainerDosStatus.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\DatesForTemporaryStatus.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\Envenenado.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\Fraco.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\RecolocadorDeStatus.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\StatusTemporarioBase.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\StatusTemporarioSimplesBase.cs"
+"Assets\Orion Criatures scripts\StatusTemporarios\VerificaAplicaStatusEnvenenado.cs"
+"Assets\Orion Criatures scripts\Suporte\AuxiliarDeInstancia.cs"
+"Assets\Orion Criatures scripts\Suporte\CriaturesPerto.cs"
+"Assets\Orion Criatures scripts\Suporte\EvitaAvancarNoTrigger.cs"
+"Assets\Orion Criatures scripts\Suporte\FadeView.cs"
+"Assets\Orion Criatures scripts\Suporte\IntervaloDeGolpeView.cs"
+"Assets\Orion Criatures scripts\Suporte\MbAlternancia.cs"
+"Assets\Orion Criatures scripts\Suporte\MelhoraInstancia.cs"
+"Assets\Orion Criatures scripts\Suporte\MusicasDeFundo.cs"
+"Assets\Orion Criatures scripts\Suporte\ParticulaDeCoisasBoas.cs"
+"Assets\Orion Criatures scripts\Suporte\ParticulasDeSubstituicao.cs"
+"Assets\Orion Criatures scripts\Suporte\RetaDelimitadora.cs"
+"Assets\Orion Criatures scripts\Suporte\melhoraPos.cs"
+"Assets\Orion Criatures scripts\Suporte\splash.cs"
+"Assets\Orion Criatures scripts\Suporte\tiraPoeFlare.cs"
+"Assets\Orion Criatures scripts\TesteMudeCena.cs"
+"Assets\Orion Criatures scripts\colisor.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\CharacterManager.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\CreatureManager.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\ArpiaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\Atributos.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\Batler.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\CaracteristicasDeCriature.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\CriatureBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\FlorestG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\GerenciadorDeExperiencia.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\GerenciadorDeGolpes.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\IGerenciadorDeExperiencia.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\IruinG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\Izicuolo.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbAladegg.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbBabaucu.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbBaratarab.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbCabecu.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbCracler.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbDogMour.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbEscorpion.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbFlam.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbMarak.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbNessei.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbOnarac.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbProjetilEletrico.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbRocketler.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbSerpente.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\MbSteal.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\PolyCharmG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\UpDeNivel.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\UrkanG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\Wisks.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\XuashG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\AplicadorDeGolpe.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\AplicadorDeProjeteis.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\AtualizadorDeImpactoAereo.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\AtualizadorDeImpactos.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\BicoG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\BolaDeFogoG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\BolaPsiquicaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ChaoQueimando.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ChicoteDeCaldaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeDano.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeDanoBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeDanoDirecional.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeDanoRigido.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeGolpe.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeStatusExpansivel.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\Dano.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\EstouEmDano.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Emissor.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\FuracaoDeFolhasG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\GarraG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\GolpeBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\GolpePersonagem.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\GosmaAcidaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\GosmaDeInsetoG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\HitNoChaoBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\IGolpeBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ImpactoAereoBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ImpactoBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\LaminaDeFolhaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbAgulhaVenenosa.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbAnelDoOlhar.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbAvalanche.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbBastao.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbBombaDeGas.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbCabecada.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbCascalho.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChicoteDeMao.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChifre.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChute.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChuvaVenenosa.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbCortinaDeFumaca.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbCortinaDeTerra.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbDentada.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbEletricidade.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbEletricidadeConcentrada.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbEspada.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbHidroBomba.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbMultiplicar.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbOndaVenenosa.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbPedregulho.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbRajadaDeGas.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbRajadaDeTerra.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbSobreSalto.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbSobreVoo.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTeletransporte.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTempestadeDeFolhas.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTempestadeEletrica.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTosteAtaque.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbVingancaDaTerra.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbcomportamentoDoMultiplicado.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\OlharEnfraquecedor.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\OlharMal.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\PegaUmGolpeG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ProjetilBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ProjetilEletricoBase.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\PsicoseG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\RajadaDeAguaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\RajadaDeFogoG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Sabre.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\TapaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\TurboDeAguaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\VentaniaG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\VentosCortantesG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Criatures\personagemG2.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\DadosDoPersonagem.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\ElementosDoJogo.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Encontravel.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\ExistenciaDoController.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\GameController.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\IA_Base.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\InfoInGame.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\InformacoesDeCarregamento.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\InicializadorDoJogo.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\KeyVar.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\LoadAndSaveGame.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\LocalizacaoDeArmagedoms.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\OnOffMoveGameObjects.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\ReplaceManager.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\SaveAndLoadInJolt.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\SaveDates.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\SaveDatesForJolt.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\SaveManager.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\SceneLoader.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\BancoDeTextos.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\InterfaceTextListEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\ListaDeTextosEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\NomeDeArmagedomEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosChaveEmEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDaCavernaInicialEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDeBarreirasEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDeInfoEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDeKatidsEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDeMarjanEN_G.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\InterfaceLanguageConverter.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\InterfaceTextKey.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\InterfaceTextList.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\ListaDeTextosPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\NomeDeArmagedomPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosChaveEmPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDaCavernaInicialPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDeBarreiraPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDeInfoPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDeKatidsPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDeMarjanPT_BR.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\Textos\StringParaChaveDeTexto.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\TriggerGerenciadorDeCena.cs"
+"Assets\Orion Criatures scripts\datesAndManagers\tipos.cs"
+"Assets\Orion Criatures scripts\encontros\ApresentaDerrota.cs"
+"Assets\Orion Criatures scripts\encontros\ApresentaFim.cs"
+"Assets\Orion Criatures scripts\encontros\ApresentadorDeAdversario.cs"
+"Assets\Orion Criatures scripts\encontros\EncounterManager.cs"
+"Assets\Orion Criatures scripts\encontros\InsereElementosDoEncontro.cs"
+"Assets\Orion Criatures scripts\encontros\InsereInimigoEmCampo.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaDeEncontraveis.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaEncontravelDaPetrolifera.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaEncontravelDeMarjan.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaEncontravelDeTempleZone.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaEncontravelDoEsgoto.cs"
+"Assets\Orion Criatures scripts\encontros\ListasEncontraveis\ListaEncontravelKatidsTerrain.cs"
+"Assets\Orion Criatures scripts\encontros\LocaisSeguros\ListaDeLocaisSeguros.cs"
+"Assets\Orion Criatures scripts\encontros\LocaisSeguros\LocaisSegurosDeKatidesTerrain.cs"
+"Assets\Orion Criatures scripts\encontros\LocaisSeguros\LocaisSegurosDeMarjan.cs"
+"Assets\Orion Criatures scripts\encontros\LocaisSeguros\LocaisSegurosDeTempleZone.cs"
+"Assets\Orion Criatures scripts\encontros\MbEncontros.cs"
+"Assets\Orion Criatures scripts\encontros\PassouDeNivelEmLuta.cs"
+"Assets\Orion Criatures scripts\encontros\reflexoCilindro.cs"
+"Assets\ShaderGraph\Awesome Toon\AwesomeToonHelper.cs"
+"Assets\ShaderGraph\Awesome Toon\Extra\LightFlicker.cs"
+"Assets\modelosMateriaisTexturas\Fantasy Skybox FREE\Scripts\FSPlayer.cs"
+Assets\testeCustomCharacter\A_GlobalColorOption.cs
+Assets\testeCustomCharacter\BarMenu.cs
+Assets\testeCustomCharacter\ColorDbManager.cs
+Assets\testeCustomCharacter\ContadorCiclico.cs
+Assets\testeCustomCharacter\CustomizationCamManager.cs
+Assets\testeCustomCharacter\DbColors.cs
+Assets\testeCustomCharacter\DisableIfSkin.cs
+Assets\testeCustomCharacter\FayvitUiUtility.cs
+Assets\testeCustomCharacter\GlobalColorMenu.cs
+Assets\testeCustomCharacter\SectionCustomizationManager.cs
+Assets\testeCustomCharacter\SectionsMenu\A_CustomizationOption.cs
+Assets\testeCustomCharacter\SectionsMenu\ColorPanelSelect.cs
+Assets\testeCustomCharacter\SectionsMenu\CustomizationContainerDates.cs
+Assets\testeCustomCharacter\SectionsMenu\CustomizationDetails.cs
+Assets\testeCustomCharacter\SectionsMenu\CustomizationManagerMenu.cs
+Assets\testeCustomCharacter\SectionsMenu\ICustomizationMenuBase.cs
+Assets\testeCustomCharacter\SectionsMenu\MaskedTextureSignature.cs
+Assets\testeCustomCharacter\SectionsMenu\PanelManager.cs
+Assets\testeCustomCharacter\SectionsMenu\SectionDataBaseContainer.cs
+Assets\testeCustomCharacter\SriptableForCustomChar\CombinedChangebleMesh.cs
+Assets\testeCustomCharacter\SriptableForCustomChar\FindClothColliderChild.cs
+Assets\testeCustomCharacter\SriptableForCustomChar\MaskedTexture.cs
+Assets\testeCustomCharacter\SriptableForCustomChar\SimpleChangebleMesh.cs
+Assets\testeCustomCharacter\TesteMeshCombiner.cs
+Assets\testeCustomCharacter\TesteMudaCabelo.cs
+Assets\testeCustomCharacter\WrapUiAnchor.cs
