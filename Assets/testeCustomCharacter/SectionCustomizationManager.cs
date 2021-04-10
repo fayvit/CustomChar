@@ -234,8 +234,9 @@ public class SectionCustomizationManager : MonoBehaviour
     {
         GameObject G;
         SignatureBase[] sbs;
+        SignatureBase[] sbs2;
 
-        SetSignatureAndGO(sdb, out sbs, out G);
+        SetSignaturesAndGO(sdb, out G,out sbs,out sbs2);
 
         return G;
     }
@@ -244,35 +245,22 @@ public class SectionCustomizationManager : MonoBehaviour
 
     #region privateVoid
 
-    void SetSignatureDbAndGO(SectionDataBase sdb, out SignatureBase[] sb, out GameObject G)
+    void SetSignatureDbAndGO(SectionDataBase sdb, out GameObject G, out SignatureBase[] sb)
     {
-        ChangebleElement[] ces = sdbc.GetChangebleElementWithId(sdb);
-        sb = null;
+        SignatureBase[] nonUseSb;
         G = null;
+        sb = null;
 
-        if (ces[0] is CombinedChangebleMesh)
-        {
-            CombinedMesh cm = GetCombinedMeshInListById(sdb);
-            sb = ces[cm.contador].coresEditaveis;
-            //sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
-            G = cm.atual;
+        SetSignaturesAndGO(sdb,out G,out nonUseSb,out sb);
+    }
 
-        }
-        else if (ces[0] is SimpleChangebleMesh)
-        {
-            SimpleMesh sm = GetMeshInListById(sdb);
-            sb = ces[sm.contador].coresEditaveis;
-            //sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
-            G = sm.atual;
-        }
-        else if (ces[0] is MaskedTexture)
-        {
-            CustomizationTextures ct = GetCustomizationTexInListByID(sdb);
-            MaskedTexture m = ces[ct.contador] as MaskedTexture;
-            G = GetGameObjectWithParentID(m.meshParent);
-            sb = ces[ct.contador].coresEditaveis;
-            //sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
-        }
+    void SetLocalSignatureAndGO(SectionDataBase sdb, out SignatureBase[] sb, out GameObject G)
+    {
+        SignatureBase[] nonUseSb;
+        G = null;
+        sb = null;
+
+        SetSignaturesAndGO(sdb, out G, out sb, out nonUseSb);
     }
 
     void SetStarterColorAssing()
@@ -422,16 +410,17 @@ public class SectionCustomizationManager : MonoBehaviour
         }
     }
 
-    void SetSignatureAndGO(SectionDataBase sdb, out SignatureBase[] sb, out GameObject G)
+    void SetSignaturesAndGO(SectionDataBase sdb, out GameObject G,out SignatureBase[] sb,out SignatureBase[] dbSb)
     {
         ChangebleElement[] ces = sdbc.GetChangebleElementWithId(sdb);
         sb = null;
+        dbSb = null;
         G = null;
 
         if (ces[0] is CombinedChangebleMesh)
         {
             CombinedMesh cm = GetCombinedMeshInListById(sdb);
-            //sb = ces[cm.contador].coresEditaveis;
+            dbSb = ces[cm.contador].coresEditaveis;
             sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
             G = cm.atual;
 
@@ -439,7 +428,7 @@ public class SectionCustomizationManager : MonoBehaviour
         else if (ces[0] is SimpleChangebleMesh)
         {
             SimpleMesh sm = GetMeshInListById(sdb);
-            //sb = ces[sm.contador].coresEditaveis;
+            dbSb = ces[sm.contador].coresEditaveis;
             sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
             G = sm.atual;
         }
@@ -448,7 +437,7 @@ public class SectionCustomizationManager : MonoBehaviour
             CustomizationTextures ct = GetCustomizationTexInListByID(sdb);
             MaskedTexture m = ces[ct.contador] as MaskedTexture;
             G = GetGameObjectWithParentID(m.meshParent);
-            //sb = ces[ct.contador].coresEditaveis;
+            dbSb = ces[ct.contador].coresEditaveis;
             sb = GetColorAssignById(sdb).VetorDeCoresEditaveis;
         }
     }
@@ -488,7 +477,7 @@ public class SectionCustomizationManager : MonoBehaviour
         {
             SignatureBase[] sb;
             GameObject G;
-            SetSignatureDbAndGO(member, out sb, out G);
+            SetSignatureDbAndGO(member, out G, out sb);
 
             ColorContainer[] cc = sb as ColorContainer[];
             UpdateColorAssingOfID(member, G, cc);
@@ -674,8 +663,9 @@ public class SectionCustomizationManager : MonoBehaviour
 
         GameObject G;
         SignatureBase[] sbs;
+        SignatureBase[] dbSbs;
 
-        SetSignatureAndGO(sdb, out sbs, out G);
+        SetSignaturesAndGO(sdb, out G, out sbs, out dbSbs);
 
         if (inIndex >= sbs.Length)
             return;
@@ -683,7 +673,7 @@ public class SectionCustomizationManager : MonoBehaviour
 
         Material material = GetMaterialForChangeElement(G, sb);
 
-        material.SetColor(((ColorContainer)sb).materialColorTarget.ToString(), c);
+        material.SetColor(((ColorContainer)dbSbs[inIndex]).materialColorTarget.ToString(), c);
         ColorContainerStruct[] ccs = GetColorAssignById(sdb).coresEditaveis;
         if (ccs.Length > inIndex)
             ccs[inIndex].cor = c;
@@ -744,12 +734,13 @@ public class SectionCustomizationManager : MonoBehaviour
                 if (ccs.registro == registrado)
                 {
                     GameObject G;
-                    SignatureBase[] sb;
-                    SetSignatureAndGO(ca.id, out sb, out G);
-                    if (sb.Length > i)
+                    SignatureBase[] dbSb;
+                    
+                    SetSignatureDbAndGO(ca.id, out G,out dbSb);
+                    if (dbSb.Length > i)
                     {
-                        Material material = GetMaterialForChangeElement(G, sb[i]);
-                        material.SetColor(ccs.ColorTargetName, skinColor);
+                        Material material = GetMaterialForChangeElement(G, dbSb[i]);
+                        material.SetColor(((ColorContainer)dbSb[i]).ColorTargetName, skinColor);
 
                         ca.coresEditaveis[i].cor = skinColor;
                     }

@@ -480,6 +480,7 @@ public class CustomizationManagerMenu : MonoBehaviour
         }
         else if (target.type == EditableType.color)
         {
+            
             ColorContainerStruct ccs = secManager.GetColorAssignById(target.member).coresEditaveis[target.inIndex];
 
             secManager.StartChangeColor(target.member, target.inIndex, ccs);

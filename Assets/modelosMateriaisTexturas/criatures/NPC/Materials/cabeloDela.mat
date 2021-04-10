@@ -21,18 +21,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cabeloDela
-  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 7c9d05b3bf428f44ca3b8f818fa75298,
+    type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
-  m_LightmapFlags: 1
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_1d3c9a37e4b74b8fb53fd69d70fe8fd8:
+        m_Texture: {fileID: 2800000, guid: bc963111838563f479a6f9e64a46c5a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: fc03def2048a3694d9a35588a1cd12c7, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -47,6 +51,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: fc03def2048a3694d9a35588a1cd12c7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MyBaseTexture:
+        m_Texture: {fileID: 2800000, guid: fa997b6937d65cd47b05440d06fd43b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -70,6 +78,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_861df08b8c8247d9a0c78d27ab28a222: 10
+    - Vector1_ea31f246deb6468c8d0dc56bf6cf7011: 0.2
+    - Vector1_ed66996be2ab497ba5fc3e07122ef235: -5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -80,6 +91,7 @@ Material:
     - _Outline: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _ShadowAttenFactor: 0.15
     - _Shininess: 0
     - _Smoothness: 0
     - _SmoothnessSource: 1
@@ -89,10 +101,15 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_2e8686daf3e0417ab3cf377e8831e1c0: {r: 1, g: 1, b: 1, a: 1}
+    - Color_5bd0438a672a4a7ab06841d5036d39b7: {r: 1, g: 1, b: 1, a: 0}
+    - Color_70d18b7a6420475a99316f2a4695c0a3: {r: 0, g: 0, b: 0, a: 0}
+    - Color_80a1cf22a1c34aa487d2f908d55f63b8: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmisColor: {r: 0.7205882, g: 0.7152898, b: 0.7152898, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MyBaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
