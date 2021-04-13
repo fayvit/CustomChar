@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6d49c452a9859444a0b075d2d514974, type: 3}
-  m_Name: Queixo1
+  m_Name: _Cabelo_3
   m_EditorClassIdentifier: 
-  subsection: 08000000
+  subsection: 
   coresEditaveis:
-  - indiceDoMaterialAlvo: 1
+  - indiceDoMaterialAlvo: 0
     meshOrChildren: 0
     materialColorTarget: 1
-    registro: 0
-  mesh: {fileID: 4051536041944567052, guid: 95f93931e62ff6a448fa5326cbe254ef, type: 3}
-  textureSign:
+    registro: 5
   - indiceDoMaterialAlvo: 1
     meshOrChildren: 0
-    id: 8
-    baseTextureID: 12
-    maskedTextureID: 13
+    materialColorTarget: 6
+    registro: 1
+  mesh: {fileID: 7125314164503552921, guid: ce918b795a381e94396e3a2b08943a5b, type: 3}
+  textureSign: []

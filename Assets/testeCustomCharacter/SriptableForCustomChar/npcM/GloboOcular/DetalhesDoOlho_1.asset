@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MaskedTexture
   subsection: 04000000
   coresEditaveis:
-  - indiceDoMaterialAlvo: 1
+  - indiceDoMaterialAlvo: 0
     meshOrChildren: 0
     materialColorTarget: 0
     registro: 1

@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Id1Pupila
   m_EditorClassIdentifier: 
   subsection: 0500000006000000
-  coresEditaveis: []
+  coresEditaveis:
+  - indiceDoMaterialAlvo: 0
+    meshOrChildren: 0
+    materialColorTarget: 2
+    registro: 1
   baseTex: {fileID: 2800000, guid: 4910463a9d4ccea4e95d026b7ebc9fa1, type: 3}
   maskTex: {fileID: 2800000, guid: 3d80ae4f8c2ec794c9852a021d0c3297, type: 3}
   meshParent: 0

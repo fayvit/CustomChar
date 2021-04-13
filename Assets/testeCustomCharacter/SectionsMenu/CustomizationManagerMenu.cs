@@ -570,9 +570,12 @@ public class CustomizationManagerMenu : MonoBehaviour
         activeEditables = ActiveEditables;
         cMenu.StartHud(secManager,MainAction, ChangeAction, (int x) => { },activeEditables);
 
-        MessageAgregator<MsgChangeMenuDb>.Publish(new MsgChangeMenuDb()
+        SupportSingleton.Instance.InvokeOnEndFrame(() =>// acontecia do evento ser publicado antes da camera estar pronta
         {
-            sdb = activeEditables[0].mySDB
+            MessageAgregator<MsgChangeMenuDb>.Publish(new MsgChangeMenuDb()
+            {
+                sdb = activeEditables[0].mySDB
+            });
         });
 
         MessageAgregator<UiDeOpcoesChangeMessage>.AddListener(OnUiChange);

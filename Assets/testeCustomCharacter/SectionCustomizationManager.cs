@@ -56,7 +56,7 @@ public class SectionCustomizationManager : MonoBehaviour
 
     private void Update()
     {
-        //cdbManager.Update();
+        /*cdbManager.Update();*/
     }
 
 
@@ -319,6 +319,7 @@ public class SectionCustomizationManager : MonoBehaviour
 
         for (int i = 0; i < ccs.Length; i++)
         {
+            
             Material material = GetMaterialForChangeElement(G, ccs[i]);
             Color corParaInserir = material.GetColor(ccs[i].ColorTargetName);
             if (ccs[i].registro != RegistroDeCores.registravel)
@@ -673,8 +674,11 @@ public class SectionCustomizationManager : MonoBehaviour
 
         Material material = GetMaterialForChangeElement(G, sb);
 
-        material.SetColor(((ColorContainer)dbSbs[inIndex]).materialColorTarget.ToString(), c);
+        if(dbSbs.Length>inIndex)
+            material.SetColor(((ColorContainer)dbSbs[inIndex]).materialColorTarget.ToString(), c);
+
         ColorContainerStruct[] ccs = GetColorAssignById(sdb).coresEditaveis;
+
         if (ccs.Length > inIndex)
             ccs[inIndex].cor = c;
 

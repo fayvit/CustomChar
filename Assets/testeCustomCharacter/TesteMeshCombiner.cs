@@ -96,7 +96,7 @@ public class TesteMeshCombiner
                 for (int i = 0; i < meshR.sharedMesh.subMeshCount; i++)
                 {
                     int triIndex = GetTrianglesIndex(meshR.sharedMaterials[i]);
-
+                    
                     int[] tris = meshR.sharedMesh.GetTriangles(i);
 
                     for (int t = 0; t < tris.Length; t++)
@@ -106,12 +106,21 @@ public class TesteMeshCombiner
                 }
 
                 //tangents.AddRange(meshR.sharedMesh.tangents);
+                int q = normals.Count;
                 uvs.AddRange(meshR.sharedMesh.uv);
-                normals.AddRange(meshR.sharedMesh.normals);
+                normals.AddRange(meshR.sharedMesh.normals);                
                 vertCount = vertices.Count;
+
+                for (int i = q; i < normals.Count; i++)
+                {
+                    normals[i] = child.TransformPoint(normals[i]) - parentObj.transform.position;
+                }
 
             }
         }
+
+        
+
 
         Mesh mesh = new Mesh();
 

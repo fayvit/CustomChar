@@ -191,7 +191,7 @@ Material:
     - Color_80a1cf22a1c34aa487d2f908d55f63b8: {r: 0, g: 0, b: 0, a: 0}
     - Color_9A9462B: {r: 0, g: 0, b: 0, a: 0}
     - Color_D2A04608: {r: 1, g: 1, b: 1, a: 0}
-    - Color_D840FCE7: {r: 1, g: 1, b: 1, a: 0}
+    - Color_D840FCE7: {r: 0.6, g: 0.6, b: 0.6, a: 0}
     - _BaseColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _BrancoDosOlhos: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}

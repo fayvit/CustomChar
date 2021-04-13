@@ -109,7 +109,7 @@ public class CustomizatioDatesForCam
         SetOfSectionDB sosDb = GetDataBaseCamSet(sdb);
         return sosDb switch
         {
-            SetOfSectionDB.cabeca => new DatesForCam() { distance = .8f, height = .7f },
+            SetOfSectionDB.cabeca => new DatesForCam() { distance = .1f, height = .7f },
             SetOfSectionDB.tronco => new DatesForCam() { distance = 1.5f, height = .32f },
             SetOfSectionDB.membros => new DatesForCam() { distance = 1.5f, height = -0.27f },
             _ => new DatesForCam() { distance = .8f, height = .7f }

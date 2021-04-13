@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subsection: 
   coresEditaveis:
-  - indiceDoMaterialAlvo: 1
+  - indiceDoMaterialAlvo: 0
     meshOrChildren: 0
     materialColorTarget: 3
     registro: 1
