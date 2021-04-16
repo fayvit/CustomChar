@@ -23,7 +23,9 @@ namespace FayvitUI
         public void StartHud(
             System.Action<int> acao,
             string[] txDeOpcoes,
-            ResizeUiType tipoDeR = ResizeUiType.vertical)
+            ResizeUiType tipoDeR = ResizeUiType.vertical,
+            int selectIndex = 0
+            )
         {
             this.opcoes = txDeOpcoes;
 
@@ -42,7 +44,7 @@ namespace FayvitUI
                     }, .05f);
                 }
             };
-            StartHud(opcoes.Length, tipoDeR);
+            StartHud(opcoes.Length, tipoDeR,selectIndex);
         }
 
         public override void SetContainerItem(GameObject G, int indice)

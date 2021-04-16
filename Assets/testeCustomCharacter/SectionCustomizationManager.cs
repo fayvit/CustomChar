@@ -668,7 +668,7 @@ public class SectionCustomizationManager : MonoBehaviour
 
         SetSignaturesAndGO(sdb, out G, out sbs, out dbSbs);
 
-        if (inIndex >= sbs.Length)
+        if (inIndex >= dbSbs.Length)
             return;
         SignatureBase sb = sbs[inIndex];
 

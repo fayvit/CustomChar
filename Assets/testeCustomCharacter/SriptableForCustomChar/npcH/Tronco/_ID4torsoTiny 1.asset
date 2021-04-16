@@ -18,6 +18,10 @@ MonoBehaviour:
     meshOrChildren: 0
     materialColorTarget: 18
     registro: 0
+  - indiceDoMaterialAlvo: 1
+    meshOrChildren: 0
+    materialColorTarget: 1
+    registro: 0
   - indiceDoMaterialAlvo: 0
     meshOrChildren: 0
     materialColorTarget: 1

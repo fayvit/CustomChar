@@ -11,6 +11,8 @@ public class CustomizationContainerDates
     [SerializeField] private List<CustomizationIdentity> texturasE;
     [SerializeField] private List<SerializableColorAssignements> colorAssign;
 
+    public string GetSid { get => toId; }
+
     public void SetDates(
         List<SimpleMesh> malhas,
         List<CombinedMesh> malhasComb,
@@ -116,6 +118,11 @@ public struct ToSaveCustomizationContainer
 
         LoadAndSaveGame.SalvarArquivo("osCustomizados.tsc", instance.ccds, Application.dataPath);
 
+    }
+
+    public void SaveLoaded()
+    {
+        LoadAndSaveGame.SalvarArquivo("osCustomizados.tsc", instance.ccds, Application.dataPath);
     }
 
     public void Load()

@@ -16,8 +16,7 @@ MonoBehaviour:
   coresEditaveis:
   - indiceDoMaterialAlvo: 0
     meshOrChildren: 1
-    meshForSend: 0
     materialColorTarget: 1
-    registro: 2
+    registro: 5
   mesh: {fileID: 4713511625918271594, guid: 2fdcfe700510c724aaca0522d3cd6e2c, type: 3}
   textureSign: []

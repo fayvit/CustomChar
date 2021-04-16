@@ -16,9 +16,8 @@ MonoBehaviour:
   coresEditaveis:
   - indiceDoMaterialAlvo: 0
     meshOrChildren: 0
-    meshForSend: 1
     materialColorTarget: 19
-    registro: 2
+    registro: 5
   baseTex: {fileID: 2800000, guid: 1d09aeaba5de45d48a3e47b5958278c9, type: 3}
   maskTex: {fileID: 2800000, guid: b8cd1c63229d35748a05101b9fbd0439, type: 3}
   meshParent: 2

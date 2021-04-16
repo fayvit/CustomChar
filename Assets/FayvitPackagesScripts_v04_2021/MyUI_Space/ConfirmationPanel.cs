@@ -32,16 +32,26 @@ namespace FayvitUI
             ConfirmationAction no,
             string textoDoPainel,
             bool selectedYes = false,
-            bool cancelIsNo = true)
+            bool cancelIsNo = true,
+            bool hideSelections = false
+            )
         {
 
             gameObject.SetActive(true);
             yesBtn += yes;
             noBtn += no;
-            selectedYes = !selectedYes;
-            ChangeSelectedOption();
+            //selectedYes = !selectedYes;
 
-            Debug.Log(selectedYes);
+            if (hideSelections)
+            {
+                btnNoSelector.enabled = false;
+                btnYesSelector.enabled = false;
+            }
+            else
+                ChangeSelectedOption(selectedYes);
+
+
+            Debug.Log("Seleção é: "+selectedYes);
 
             this.selectedYes = selectedYes;
             this.panelText.text = textoDoPainel;
@@ -54,7 +64,10 @@ namespace FayvitUI
         {
 
             if (changeOption)
-                ChangeSelectedOption();
+            {
+                selectedYes = !selectedYes;
+                ChangeSelectedOption(selectedYes);
+            }
 
             if (inputSelectedButton)
             {
@@ -74,7 +87,7 @@ namespace FayvitUI
             }
         }
 
-        void ChangeSelectedOption()
+        void ChangeSelectedOption(bool selection)
         {
 
             #region Suprimido
@@ -91,10 +104,8 @@ namespace FayvitUI
             //}
             #endregion
 
-            selectedYes = !selectedYes;
-
-            btnYesSelector.enabled = selectedYes;
-            btnNoSelector.enabled = !selectedYes;
+            btnYesSelector.enabled = selection;
+            btnNoSelector.enabled = !selection;
         }
 
         

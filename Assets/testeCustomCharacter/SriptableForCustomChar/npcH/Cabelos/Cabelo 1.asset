@@ -17,6 +17,6 @@ MonoBehaviour:
   - indiceDoMaterialAlvo: 0
     meshOrChildren: 1
     materialColorTarget: 1
-    registro: 2
+    registro: 5
   mesh: {fileID: 1943482075985635648, guid: 5e0aa6c880f938043814fa41cf0ef525, type: 3}
   textureSign: []

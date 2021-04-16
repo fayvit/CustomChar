@@ -1,18 +1,19 @@
-using FayvitUI_10_2020;
-using JetBrains.Annotations;
-using System.Collections;
+using FayvitSupportSingleton;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class TesteMeshCombiner
 {
-    [SerializeField] private SectionCustomizationManager target;
+    [SerializeField] private SectionCustomizationManager myBase;
+    [SerializeField] private float deltaVertex;
 
+    private SectionCustomizationManager target;
     private GameObject parentObj;
     private GameObject gameObject;// target GameObject
     private List<Vector3> vertices = new List<Vector3>();
+    private List<Vector3> weldVertices = new List<Vector3>();
     private List<Vector2> uvs = new List<Vector2>();
     private List<Vector3> normals = new List<Vector3>();
     //private List<Vector4> tangents = new List<Vector4>();
@@ -26,6 +27,7 @@ public class TesteMeshCombiner
 
     public void StartCombiner(SectionCustomizationManager source)
     {
+        target = MonoBehaviour.Instantiate(myBase, myBase.transform.position, myBase.transform.rotation);
         target.gameObject.SetActive(true);
 
         triangles.Clear();
@@ -34,13 +36,16 @@ public class TesteMeshCombiner
         boneWeights.Clear();
         normals.Clear();
         vertices.Clear();
+        weldVertices.Clear();
+        vertCount = 0;
 
         CustomizationContainerDates ccd =  source.GetCustomDates();
-        UiSupportSingleton.Instance.InvokeOnEndFrame(() =>
+        
+        SupportSingleton.Instance.InvokeOnEndFrame(() =>
         {
             target.SetCustomDates(ccd);
 
-            UiSupportSingleton.Instance.InvokeOnEndFrame(() =>
+            SupportSingleton.Instance.InvokeOnEndFrame(() =>
             {
 
                 CombinerReallyStart();
@@ -53,6 +58,7 @@ public class TesteMeshCombiner
 
     void CombinerReallyStart()
     {
+        
         GameObject paiDeTodos = new GameObject("PaiDeTodos");
         paiDeTodos.transform.position = target.transform.position;
         gameObject = new GameObject();
@@ -67,12 +73,26 @@ public class TesteMeshCombiner
         Transform[] children = parentObj.GetComponentsInChildren<Transform>();
 
         SkinnedMeshRenderer meshRr = null;
+
         foreach (var child in children)
         {
             SkinnedMeshRenderer meshR = child.GetComponent<SkinnedMeshRenderer>();
+            
 
-            if (meshR != null && !meshR.gameObject.CompareTag("skCabelo"))
+            if (meshR!=null && meshR.CompareTag("WeldVertex"))
             {
+                foreach (var V in meshR.sharedMesh.vertices)
+                {
+                    
+                    weldVertices.Add(child.TransformPoint(V) - parentObj.transform.position);
+                }
+
+                Debug.Log(weldVertices.Count + " são weld vertex");
+            }
+
+            if (meshR != null && !meshR.gameObject.CompareTag("skCabelo") && !meshR.gameObject.CompareTag("WeldVertex"))
+            {
+                
                 meshRr = meshR;
                 foreach (var mat in meshR.sharedMaterials)
                 {
@@ -95,6 +115,7 @@ public class TesteMeshCombiner
 
                 for (int i = 0; i < meshR.sharedMesh.subMeshCount; i++)
                 {
+                    
                     int triIndex = GetTrianglesIndex(meshR.sharedMaterials[i]);
                     
                     int[] tris = meshR.sharedMesh.GetTriangles(i);
@@ -106,11 +127,12 @@ public class TesteMeshCombiner
                 }
 
                 //tangents.AddRange(meshR.sharedMesh.tangents);
-                int q = normals.Count;
+
                 uvs.AddRange(meshR.sharedMesh.uv);
-                normals.AddRange(meshR.sharedMesh.normals);                
                 vertCount = vertices.Count;
 
+                int q = normals.Count;                
+                normals.AddRange(meshR.sharedMesh.normals);
                 for (int i = q; i < normals.Count; i++)
                 {
                     normals[i] = child.TransformPoint(normals[i]) - parentObj.transform.position;
@@ -119,13 +141,10 @@ public class TesteMeshCombiner
             }
         }
 
-        
-
-
         Mesh mesh = new Mesh();
 
         if (vertices.Count > 65535)
-            mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            mesh.indexFormat = IndexFormat.UInt32;
 
         mesh.subMeshCount = triangles.Count;
         mesh.vertices = vertices.ToArray();
@@ -152,12 +171,24 @@ public class TesteMeshCombiner
         mesh.bindposes = bindPoses;
         
         mR.sharedMaterials = materials.ToArray();
-        
+
+        RemoveDuplicateVertices(mesh);
+
+        #region tentativasDaqui
         //mesh.tangents = tangents.ToArray();
 
-        //RemoveDuplicateVertices(mesh);
+        //mesh.GetSubMesh(0).;
+
+        //mesh.CombineMeshes(lm.ToArray(),);
+        //MeshWelder mw = new MeshWelder(mesh);
+
+        //mw.Weld();
+
+        //mesh = mw.GetMesh;
+        #endregion
 
         mR.sharedMesh = mesh;
+
 
         foreach (var child in children)
         {
@@ -172,7 +203,7 @@ public class TesteMeshCombiner
         gameObject.transform.SetParent(parentObj.transform);
         parentObj.GetComponent<Animator>().enabled = true;
         parentObj.SetActive(false);
-        UiSupportSingleton.Instance.InvokeOnEndFrame(() =>
+        SupportSingleton.Instance.InvokeOnEndFrame(() =>
         {
             parentObj.SetActive(true);
         });
@@ -181,23 +212,57 @@ public class TesteMeshCombiner
     class MeshDates
     {
         public List<Vector3> lV = new List<Vector3>();
+        public List<Vector2> lUV = new List<Vector2>();
         public List<BoneWeight> lB = new List<BoneWeight>();
         public List<List<int>> lT = new List<List<int>>();
 
     }
+
     void RemoveDuplicateVertices(Mesh mesh)
     {
         MeshDates M = new MeshDates();
         
         M.lV.AddRange(mesh.vertices);
+        M.lUV.AddRange(mesh.uv);
         M.lB.AddRange(mesh.boneWeights);
         M.lT.AddRange(triangles);
 
-        bool repita;
-        do
+
+        #region umaOutraTentativa
+        //bool repita;
+        //do
+        //{
+
+        //    repita = VerifiqueIgualdade(M);
+        //} while (repita);
+        #endregion
+
+        //SubMeshDescriptor smd = mesh.GetSubMesh(3);
+        //int max = smd.indexStart + smd.indexCount;
+
+        for (int i = 0; i < M.lV.Count; i++)
         {
-            repita = VerifiqueIgualdade(M);
-        } while (repita);
+            for (int j = i+1; j < M.lV.Count; j++)
+            {
+                if (M.lV[i] == M.lV[j])
+                {
+                    foreach (var V in weldVertices)
+                    {
+                        if (Vector3.SqrMagnitude(V - M.lV[i]) <= deltaVertex)
+                        {
+                            //if (weldVertices.Contains(M.lV[i]))
+                            //if (!EstaoNaMesmaSub(mesh, i, j))
+
+                            Debug.Log("contem");
+                            SubstituaNosTriangulos(i, j, M);
+                            M.lUV[j] = M.lUV[i];
+
+                        }
+                    }
+                    
+                }
+            }
+        }
 
 
         Debug.Log("numero de vertices: " + M.lV.Count+" numero de ossos: "+M.lB.Count);
@@ -210,6 +275,45 @@ public class TesteMeshCombiner
         }
 
     }
+
+    #region tentativas
+    //bool EstaoNaMesmaSub(Mesh m,int i, int j)
+    //{
+    //    for (int I = 0; I < m.subMeshCount; I++)
+    //    {
+    //        SubMeshDescriptor smd = m.GetSubMesh(I);
+    //        int end = smd.indexStart + smd.indexCount;
+    //        if (
+    //            smd.indexStart <= i 
+    //            && i < end 
+    //            && smd.indexStart <= j 
+    //            && j < end)
+    //        {
+    //            Debug.Log("Os indices: " + i + " e " + j + " estão na sub: " + I);
+    //            return true;
+    //        }
+
+    //    }
+    //    return false;
+    //}
+    #endregion
+
+    void SubstituaNosTriangulos(int i, int j,MeshDates M)
+    {
+        
+        for (int I = 0; I < M.lT.Count; I++)
+        {
+            for (int J = 0; J < M.lT[I].Count; J++)
+            {
+                if (M.lT[I][J] == j)
+                {
+                    M.lT[I][J] = i;
+                }
+            }
+        }
+    }
+
+
 
     bool VerifiqueIgualdade(MeshDates M)
     {
@@ -301,3 +405,106 @@ public class TesteMeshCombiner
         return index;
     }
 }
+
+public static class UmaStaticClass
+{
+    private class Vertices
+    {
+        List<Vector3> verts = null;
+        List<Vector2> uv1 = null;
+        List<Vector2> uv2 = null;
+        List<Vector2> uv3 = null;
+        List<Vector2> uv4 = null;
+        List<Vector3> normals = null;
+        List<Vector4> tangents = null;
+        List<Color32> colors = null;
+        List<BoneWeight> boneWeights = null;
+
+        public Vertices()
+        {
+            verts = new List<Vector3>();
+        }
+        public Vertices(Mesh aMesh)
+        {
+            verts = CreateList(aMesh.vertices);
+            uv1 = CreateList(aMesh.uv);
+            uv2 = CreateList(aMesh.uv2);
+            uv3 = CreateList(aMesh.uv3);
+            uv4 = CreateList(aMesh.uv4);
+            normals = CreateList(aMesh.normals);
+            tangents = CreateList(aMesh.tangents);
+            colors = CreateList(aMesh.colors32);
+            boneWeights = CreateList(aMesh.boneWeights);
+        }
+
+        private List<T> CreateList<T>(T[] aSource)
+        {
+            if (aSource == null || aSource.Length == 0)
+                return null;
+            return new List<T>(aSource);
+        }
+        private void Copy<T>(ref List<T> aDest, List<T> aSource, int aIndex)
+        {
+            if (aSource == null)
+                return;
+            if (aDest == null)
+                aDest = new List<T>();
+            aDest.Add(aSource[aIndex]);
+        }
+        public int Add(Vertices aOther, int aIndex)
+        {
+            int i = verts.Count;
+            Copy(ref verts, aOther.verts, aIndex);
+            Copy(ref uv1, aOther.uv1, aIndex);
+            Copy(ref uv2, aOther.uv2, aIndex);
+            Copy(ref uv3, aOther.uv3, aIndex);
+            Copy(ref uv4, aOther.uv4, aIndex);
+            Copy(ref normals, aOther.normals, aIndex);
+            Copy(ref tangents, aOther.tangents, aIndex);
+            Copy(ref colors, aOther.colors, aIndex);
+            Copy(ref boneWeights, aOther.boneWeights, aIndex);
+            return i;
+        }
+        public void AssignTo(Mesh aTarget)
+        {
+            if (verts.Count > 65535)
+                aTarget.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            aTarget.SetVertices(verts);
+            if (uv1 != null) aTarget.SetUVs(0, uv1);
+            if (uv2 != null) aTarget.SetUVs(1, uv2);
+            if (uv3 != null) aTarget.SetUVs(2, uv3);
+            if (uv4 != null) aTarget.SetUVs(3, uv4);
+            if (normals != null) aTarget.SetNormals(normals);
+            if (tangents != null) aTarget.SetTangents(tangents);
+            if (colors != null) aTarget.SetColors(colors);
+            if (boneWeights != null) aTarget.boneWeights = boneWeights.ToArray();
+        }
+    }
+
+    public static Mesh GetSubmesh(this Mesh aMesh, int aSubMeshIndex)
+    {
+        if (aSubMeshIndex < 0 || aSubMeshIndex >= aMesh.subMeshCount)
+            return null;
+        int[] indices = aMesh.GetTriangles(aSubMeshIndex);
+        Vertices source = new Vertices(aMesh);
+        Vertices dest = new Vertices();
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        int[] newIndices = new int[indices.Length];
+        for (int i = 0; i < indices.Length; i++)
+        {
+            int o = indices[i];
+            int n;
+            if (!map.TryGetValue(o, out n))
+            {
+                n = dest.Add(source, o);
+                map.Add(o, n);
+            }
+            newIndices[i] = n;
+        }
+        Mesh m = new Mesh();
+        dest.AssignTo(m);
+        m.triangles = newIndices;
+        return m;
+    }
+}
+

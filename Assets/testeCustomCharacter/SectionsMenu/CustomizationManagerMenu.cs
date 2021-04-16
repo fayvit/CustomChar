@@ -1,15 +1,15 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using FayvitUI;
-using System.Collections.Generic;
 using FayvitSupportSingleton;
 using FayvitMessageAgregator;
-using FayvitCommandReader;
 using FayvitEventAgregator;
-using System;
+using FayvitCommandReader;
+
 
 public class CustomizationManagerMenu : MonoBehaviour
 {
+    [SerializeField] private ConfirmationPanel confirmation;
     [SerializeField] private CustomizationMenu cMenu;
     [SerializeField] private SectionCustomizationManager secManager;
     [SerializeField] private SectionDataBaseContainer sdbc;
@@ -32,7 +32,9 @@ public class CustomizationManagerMenu : MonoBehaviour
         colorGrid,
         colorCircle,
         globalizationColors,
-        globalizationMenu
+        globalizationMenu,
+        confirmacaoAberta,
+        characterSaveChanges
     }
     
 
@@ -318,17 +320,22 @@ public class CustomizationManagerMenu : MonoBehaviour
             });
         }
 
+        int contCores = 0;
         for (int i = 0; i < changeE.coresEditaveis.Length; i++)
         {
-            forInsert.Add(new EditableElements()
+            if (changeE.coresEditaveis[i].registro != RegistroDeCores.skin)
             {
-                mySDB = target,
-                displayName = DeepView(deep) + "Cor " + (i + 1),
-                inIndex = i,
-                outIndex = dbIndex,
-                member = target,
-                type = EditableType.color
-            });
+                contCores++;
+                forInsert.Add(new EditableElements()
+                {
+                    mySDB = target,
+                    displayName = DeepView(deep) + "Cor " + contCores,
+                    inIndex = i,
+                    outIndex = dbIndex,
+                    member = target,
+                    type = EditableType.color
+                });
+            }
         }
 
         SectionDataBase[] s = changeE.subsection;
@@ -552,7 +559,7 @@ public class CustomizationManagerMenu : MonoBehaviour
 
         cMenu.FinishHud();
         int indexOfElement = GetElementIndexOf(target);
-        cMenu.StartHud(secManager,MainAction, ChangeAction, (int x) => { }, activeEditables, selectIndex: indexOfElement);
+        cMenu.StartHud(secManager,MainAction, ChangeAction, EscapeAction, activeEditables, selectIndex: indexOfElement);
     }
 
     // Use this for initialization
@@ -568,7 +575,7 @@ public class CustomizationManagerMenu : MonoBehaviour
 
         //string[] StartOptions = GetActiveOption(ActiveEditables);
         activeEditables = ActiveEditables;
-        cMenu.StartHud(secManager,MainAction, ChangeAction, (int x) => { },activeEditables);
+        cMenu.StartHud(secManager,MainAction, ChangeAction, EscapeAction, activeEditables);
 
         SupportSingleton.Instance.InvokeOnEndFrame(() =>// acontecia do evento ser publicado antes da camera estar pronta
         {
@@ -607,47 +614,121 @@ public class CustomizationManagerMenu : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            CustomizationContainerDates ccd = secManager.GetCustomDates();
-            ccd.Save();
+            #region SloteSaveCOnfirmation
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(() =>
+            {
+                CustomizationContainerDates ccd = secManager.GetCustomDates();
+                ccd.Save();
+                estado = EstadoDoMenu.main;
+            }, () =>
+            {
+                estado = EstadoDoMenu.main;
+            }, "Deseja salvar esse personagem no slote de salvamento único?", hideSelections: true);
+            #endregion
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            CustomizationContainerDates ccd = new CustomizationContainerDates();
-            ccd.Load();
-
-            secManager.SetCustomDates(ccd);
+            #region sloteLoadConfirmation
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(() =>
+            {
+                CustomizationContainerDates ccd = new CustomizationContainerDates();
+                ccd.Load();
+                secManager.SetCustomDates(ccd);
+                estado = EstadoDoMenu.main;
+            }, () =>
+            {
+                estado = EstadoDoMenu.main;
+            }, "Deseja carregar o personagem do slote de salvamento único?", hideSelections: true);
+            #endregion
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            testMeshCombiner.StartCombiner(secManager);
+            #region combineMeshConfirmation
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(() =>
+            {
+                testMeshCombiner.StartCombiner(secManager);
+                estado = EstadoDoMenu.main;
+            }, () =>
+            {
+                estado = EstadoDoMenu.main;
+            }, "Combinar malhas?", hideSelections: true);
+            #endregion
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ToSaveCustomizationContainer.Instance.Save(secManager.GetCustomDates());
+            #region saveInTheArrayConfirmation
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(() =>
+            {
+                ToSaveCustomizationContainer.Instance.Save(secManager.GetCustomDates());
+                estado = EstadoDoMenu.main;
+            }, () =>
+            {
+                estado = EstadoDoMenu.main;
+            }, "Deseja salvar esse pernogem no vetor de personagens?", hideSelections: true);
+            #endregion
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ToSaveCustomizationContainer.Instance.Load();
-            List<CustomizationContainerDates> lccd = ToSaveCustomizationContainer.Instance.ccds;
-            if (lccd != null && lccd.Count > 0)
+            #region loadOfTheArrrayConfirmation
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(() =>
             {
-                int i = UnityEngine.Random.Range(0, lccd.Count);
-                secManager.SetCustomDates(lccd[i]);
-            }
-            else
-            {
-                Debug.Log(lccd);
-                Debug.Log(lccd.Count);
-            }
 
-            secManager.gameObject.SetActive(false);
-            SupportSingleton.Instance.InvokeOnEndFrame(() =>
+                ToSaveCustomizationContainer.Instance.Load();
+                List<CustomizationContainerDates> lccd = ToSaveCustomizationContainer.Instance.ccds;
+                if (lccd != null && lccd.Count > 0)
+                {
+                    int i = Random.Range(0, lccd.Count);
+                    secManager.SetCustomDates(lccd[i]);
+                }
+                else
+                {
+                    Debug.Log(lccd);
+                    Debug.Log(lccd.Count);
+                }
+
+                secManager.gameObject.SetActive(false);
+                SupportSingleton.Instance.InvokeOnEndFrame(() =>
+                {
+                    secManager.gameObject.SetActive(true);
+                });
+                estado = EstadoDoMenu.main;
+            }, () =>
             {
-                secManager.gameObject.SetActive(true);
-            });
+                estado = EstadoDoMenu.main;
+            }, "Deseja tentar carregar um pernogem do vetor de personagens?", hideSelections: true);
+            #endregion
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            ToSaveCustomizationContainer.Instance.Load();
+            StartCharactersSavedMenu();
         }
 
         return false;
+    }
+
+    void StartCharactersSavedMenu(int indice=0)
+    {
+        List<CustomizationContainerDates> lccd = ToSaveCustomizationContainer.Instance.ccds;
+        if (lccd.Count > 0)
+        {
+            string[] ss = new string[lccd.Count];
+            for (int i = 0; i < ss.Length; i++)
+            {
+                ss[i] = lccd[i].GetSid;
+            }
+            cMenu.FinishHud();
+            globalMenu.StartHud((int x) => { }, ss,selectIndex:indice);
+
+            secManager.SetCustomDates(lccd[indice]);
+
+            estado = EstadoDoMenu.characterSaveChanges;
+        }
     }
 
     bool ColorState()
@@ -869,9 +950,60 @@ public class CustomizationManagerMenu : MonoBehaviour
             EstadoDoMenu.globalizationColors => GlobalizationColorsState(),
             EstadoDoMenu.colorCircle => ColorCircleState(),
             EstadoDoMenu.globalizationMenu=>GlobalizationMenuState(),
+            EstadoDoMenu.confirmacaoAberta=>ConfirmationOpened(),
+            EstadoDoMenu.characterSaveChanges=>CharacterSaveChangesState(),
             _ => false
         };
         
+    }
+    private bool CharacterSaveChangesState()
+    {
+        int change = CommandReader.GetIntTriggerDown("vertical", Controlador.teclado);
+        if (change != 0)
+        {
+            globalMenu.ChangeOption(change);
+            List<CustomizationContainerDates> lccd = ToSaveCustomizationContainer.Instance.ccds;
+            secManager.SetCustomDates(lccd[globalMenu.SelectedOption]);
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            cMenu.StartHud(secManager, MainAction, ChangeAction, EscapeAction, activeEditables);
+            globalMenu.FinishHud();
+            estado = EstadoDoMenu.main;
+
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            estado = EstadoDoMenu.confirmacaoAberta;
+            confirmation.StartConfirmationPanel(
+                () => {
+                    ToSaveCustomizationContainer.Instance.ccds.RemoveAt(globalMenu.SelectedOption);
+                    ToSaveCustomizationContainer.Instance.SaveLoaded();
+
+                    globalMenu.FinishHud();
+                    if()
+                    StartCharactersSavedMenu();
+
+                    estado = EstadoDoMenu.characterSaveChanges;
+                }, 
+                () => { estado = EstadoDoMenu.characterSaveChanges; }, 
+                "Gostaria de deletar esse personagem do vetor?", 
+                hideSelections: true);
+        }
+        return true;
+    }
+    private bool ConfirmationOpened()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            confirmation.BtnNo();
+        }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            confirmation.BtnYes();
+        }
+
+        return false;
     }
 }
 
@@ -880,15 +1012,11 @@ public class CustomizationMenu : InteractiveUiBase
 {
     private SectionCustomizationManager secManager;
     private CustomizationManagerMenu.EditableElements[] opcoes;
-    private System.Action<int> mainAction;
     private System.Action<int,int> changeAction;
     private System.Action<int> returnAction;
     private bool estadoDeAcao = false;
 
-    protected System.Action<int> MainAction
-    {
-        get { return mainAction; }
-    }
+    protected System.Action<int> MainAction { get; private set; }
 
     public void StartHud(
         SectionCustomizationManager secManager,
@@ -906,7 +1034,7 @@ public class CustomizationMenu : InteractiveUiBase
         this.returnAction += returnAction;
         this.changeAction += changeAction;
 
-        this.mainAction += (int x) =>
+        this.MainAction += (int x) =>
         {
             if (!estadoDeAcao)
             {
@@ -928,12 +1056,12 @@ public class CustomizationMenu : InteractiveUiBase
     public override void SetContainerItem(GameObject G, int indice)
     {
         A_CustomizationOption uma = G.GetComponent<A_CustomizationOption>();
-        uma.SetOptions(mainAction,returnAction,changeAction, opcoes[indice],secManager);
+        uma.SetOptions(MainAction,returnAction,changeAction, opcoes[indice],secManager);
     }
 
     protected override void AfterFinisher()
     {
-        mainAction = null;
+        MainAction = null;
         changeAction = null;
         returnAction = null;
         //Seria preciso uma finalização especifica??

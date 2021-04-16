@@ -103,6 +103,7 @@
     <Compile Include="Assets\Orion Criatures scripts\StatusTemporarios\AdicionaStatusSimples.cs" />
     <Compile Include="Assets\FayvitPackagesScripts_v04_2021\EventAgregator\GameEvent.cs" />
     <Compile Include="Assets\FayvitPackagesScripts_v04_2021\MyUI_Space\FayvitUiMessages.cs" />
+    <Compile Include="Assets\testeCustomCharacter\SriptableForCustomChar\CuboVertexBlenderUnity.cs" />
     <Compile Include="Assets\testeCustomCharacter\BarMenu.cs" />
     <Compile Include="Assets\FayvitPackagesScripts_v10_2020\Camera\FightCam.cs" />
     <Compile Include="Assets\Orion Criatures scripts\Itens\ItemConsumivelBase.cs" />
@@ -352,6 +353,7 @@
     <Compile Include="Assets\Orion Criatures scripts\datesAndManagers\OnOffMoveGameObjects.cs" />
     <Compile Include="Assets\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTeletransporte.cs" />
     <Compile Include="Assets\Orion Criatures scripts\HUD\DisparaTextos.cs" />
+    <Compile Include="Assets\testeCustomCharacter\MeshWelder.cs" />
     <Compile Include="Assets\FayvitPackagesScripts_v10_2020\Movimentacao\BasicMove.cs" />
     <Compile Include="Assets\Orion Criatures scripts\datesAndManagers\ReplaceManager.cs" />
     <Compile Include="Assets\Orion Criatures scripts\Eventos\IniciarEncontroDeLocal.cs" />
