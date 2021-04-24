@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace FayvitSounds
 {
+    [System.Serializable]
     public class SoundEffectsManager : ISoundEffectsManager
     {
 

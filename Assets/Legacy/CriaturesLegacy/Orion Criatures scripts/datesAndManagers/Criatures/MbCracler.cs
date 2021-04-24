@@ -76,7 +76,7 @@ public class MbCracler
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Veneno },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Veneno },
                     distanciaFundamentadora = 0.1f,
                     meusAtributos = {
                     PV = { Taxa = 0.22f,},
@@ -85,7 +85,7 @@ public class MbCracler
                     Defesa = { Taxa = 0.19f},
                     Poder = { Taxa = 0.2f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Veneno)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Veneno)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

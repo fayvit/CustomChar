@@ -7,7 +7,7 @@ public class MbCascalho : ProjetilBase
     public MbCascalho() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.cascalho,
-        tipo = nomeTipos.Pedra,
+        tipo = NomeTipos.Pedra,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

@@ -8,7 +8,7 @@ public class ChaoQueimando : MonoBehaviour
     public float tempoMin = 5;
     public float tempoMax = 10;
 
-    public nomeTipos tipoImune = nomeTipos.Fogo;
+    public NomeTipos tipoImune = NomeTipos.Fogo;
     public string noImpacto = "impactoDeFogo";
 
     void Start()
@@ -26,7 +26,7 @@ public class ChaoQueimando : MonoBehaviour
             bool deFogo = false;
             if (emQ.tag == "Criature")
             {
-                nomeTipos[] Tipos = emQ.transform.GetComponent<CreatureManager>().MeuCriatureBase.CaracCriature.meusTipos;
+                NomeTipos[] Tipos = emQ.transform.GetComponent<CreatureManager>().MeuCriatureBase.CaracCriature.meusTipos;
                 for (int i = 0; i < Tipos.Length; i++)
                 {
                     if (Tipos[i] == tipoImune)

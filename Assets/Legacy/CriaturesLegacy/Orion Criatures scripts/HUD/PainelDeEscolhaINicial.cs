@@ -71,7 +71,7 @@ public class PainelDeEscolhaINicial : PainelStatus
         GameController.g.HudM.Confirmacao.AtivarPainelDeConfirmacao(SimEscolhiEsse, AindaNaoEscolhi,
             string.Format(BancoDeTextos.RetornaFraseDoIdioma(ChaveDeTexto.certezaDeEscolhaInicial),
             criaturesIniciais[indiceDoSelecionado].NomeEmLinguas,
-            tipos.NomeEmLinguas(criaturesIniciais[indiceDoSelecionado].CaracCriature.meusTipos[0]))
+            ContraTipos.NomeEmLinguas(criaturesIniciais[indiceDoSelecionado].CaracCriature.meusTipos[0]))
             );
     }
 

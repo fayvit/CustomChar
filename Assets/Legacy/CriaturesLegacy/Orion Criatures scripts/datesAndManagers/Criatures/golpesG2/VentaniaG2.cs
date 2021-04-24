@@ -8,7 +8,7 @@ public class VentaniaG2 : ProjetilBase
     public VentaniaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.ventania,
-        tipo = nomeTipos.Voador,
+        tipo = NomeTipos.Voador,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

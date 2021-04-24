@@ -7,7 +7,7 @@ public class MbBombaDeGas : ProjetilBase
     public MbBombaDeGas() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.bombaDeGas,
-        tipo = nomeTipos.Gas,
+        tipo = NomeTipos.Gas,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

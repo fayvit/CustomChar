@@ -56,7 +56,7 @@ public class UrkanG2
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Psiquico },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Psiquico },
                     distanciaFundamentadora = 0.03f,
                     meusAtributos = {
                     PV = { Taxa = 0.195f,},
@@ -65,7 +65,7 @@ public class UrkanG2
                     Defesa = { Taxa = 0.21f},
                     Poder = { Taxa = 0.18f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Psiquico)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Psiquico)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

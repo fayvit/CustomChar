@@ -8,7 +8,7 @@ public class MbAnelDoOlhar : ProjetilBase
     public MbAnelDoOlhar() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.anelDoOlhar,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 8,

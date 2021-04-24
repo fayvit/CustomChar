@@ -7,7 +7,7 @@ public class Sabre : ProjetilBase
     public Sabre(nomesGolpes nome) : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nome,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 5,

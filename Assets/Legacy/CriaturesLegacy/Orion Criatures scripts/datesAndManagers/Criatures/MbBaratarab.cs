@@ -90,7 +90,7 @@ public class MbBaratarab
                 NomeID = nomesCriatures.Baratarab,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Inseto },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Inseto },
                     distanciaFundamentadora = 0.05f,
                     meusAtributos = {
                     PV = { Taxa = 0.21f},
@@ -99,7 +99,7 @@ public class MbBaratarab
                     Defesa = { Taxa = 0.17f},
                     Poder = { Taxa = 0.17f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Inseto)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Inseto)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

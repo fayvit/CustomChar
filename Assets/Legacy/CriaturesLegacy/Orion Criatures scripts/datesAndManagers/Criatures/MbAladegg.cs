@@ -79,7 +79,7 @@ public class MbAladegg
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Voador },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Voador },
                     distanciaFundamentadora = 0.05f,
                     meusAtributos = {
                     PV = { Taxa = 0.18f,},
@@ -88,7 +88,7 @@ public class MbAladegg
                     Defesa = { Taxa = 0.18f},
                     Poder = { Taxa = 0.22f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Voador)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Voador)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

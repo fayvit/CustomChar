@@ -6,7 +6,7 @@ public class MbChute : ImpactoBase
     public MbChute() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.chute,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

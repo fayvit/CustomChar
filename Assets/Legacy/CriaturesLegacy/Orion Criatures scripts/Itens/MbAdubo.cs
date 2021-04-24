@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Terra;
+            recuperaDoTipo = NomeTipos.Terra;
             valorDeRecuperacao = 40;
         }
     }

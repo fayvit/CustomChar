@@ -7,7 +7,7 @@ public class GosmaAcidaG2 : ProjetilBase
     public GosmaAcidaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.gosmaAcida,
-        tipo = nomeTipos.Inseto,
+        tipo = NomeTipos.Inseto,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

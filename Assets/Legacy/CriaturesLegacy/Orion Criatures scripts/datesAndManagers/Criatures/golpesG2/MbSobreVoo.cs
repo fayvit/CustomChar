@@ -23,7 +23,7 @@ public class MbSobreVoo : GolpeBase
     public MbSobreVoo() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.sobreVoo,
-        tipo = nomeTipos.Voador,
+        tipo = NomeTipos.Voador,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

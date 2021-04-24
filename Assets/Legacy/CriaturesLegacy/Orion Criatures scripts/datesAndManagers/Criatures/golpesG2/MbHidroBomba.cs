@@ -8,7 +8,7 @@ public class MbHidroBomba : ImpactoAereoBase
     public MbHidroBomba() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.hidroBomba,
-        tipo = nomeTipos.Agua,
+        tipo = NomeTipos.Agua,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

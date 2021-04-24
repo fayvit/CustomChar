@@ -5,10 +5,11 @@ using CriaturesLegado;
 
 namespace Criatures2021
 {
+    [System.Serializable]
     public class DadosDeJogador
     {
-        [SerializeField] private List<CriatureBase> criaturesAtivos = new List<CriatureBase>();
-        [SerializeField] private List<CriatureBase> criaturesArmagedados = new List<CriatureBase>();
+        [SerializeField] private List<PetBase> criaturesAtivos = new List<PetBase>();
+        [SerializeField] private List<PetBase> criaturesArmagedados = new List<PetBase>();
         [SerializeField] private int cristais = 0;
 
         public int ItemSai { get; set; } = 0;
@@ -19,27 +20,27 @@ namespace Criatures2021
         public float TempoDoUltimoUsoDeItem { get; set; } = 0;
         public int CriatureSai { get; set; } = 0;
 
-        public List<CriatureBase> CriaturesAtivos { get; set; }
-        public List<CriatureBase> CriaturesArmagedados { get; set; }
+        public List<PetBase> CriaturesAtivos { get; set; }
+        public List<PetBase> CriaturesArmagedados { get; set; }
 
 
         public void InicializadorDosDados()
         {
 
-            CriaturesAtivos = new List<CriatureBase>() {
-                new CriatureBase(nomesCriatures.Xuash,10),
-                new CriatureBase(nomesCriatures.Florest,2),
-                new CriatureBase(nomesCriatures.PolyCharm,3),
-                new CriatureBase(nomesCriatures.Iruin,2),
-                new CriatureBase(nomesCriatures.Cabecu,10)
+            CriaturesAtivos = new List<PetBase>() {
+                new PetBase(PetName.Xuash,10),
+                //new PetBase(PetName.Florest,2),
+                //new PetBase(PetName.PolyCharm,3),
+                //new PetBase(PetName.Iruin,2),
+                //new PetBase(PetName.Cabecu,10)
             };
 
-            CriaturesArmagedados = new List<CriatureBase>() {
-                new CriatureBase(nomesCriatures.Onarac,1),
-                new CriatureBase(nomesCriatures.Babaucu,3),
-                new CriatureBase(nomesCriatures.Wisks,2),
-                new CriatureBase(nomesCriatures.Serpente,3)
-            };
+            //CriaturesArmagedados = new List<PetBase>() {
+            //    new PetBase(PetName.Onarac,1),
+            //    new PetBase(PetName.Babaucu,3),
+            //    new PetBase(PetName.Wisks,2),
+            //    new PetBase(PetName.Serpente,3)
+            //};
             Itens = new List<MbItens>()
         {
             PegaUmItem.Retorna(nomeIDitem.pergaminhoDePerfeicao,14),

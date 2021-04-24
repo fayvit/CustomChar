@@ -66,7 +66,7 @@ public class MbMarak
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Normal },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Normal },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.21f,},
@@ -75,7 +75,7 @@ public class MbMarak
                     Defesa = { Taxa = 0.18f},
                     Poder = { Taxa = 0.2f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Normal)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Normal)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

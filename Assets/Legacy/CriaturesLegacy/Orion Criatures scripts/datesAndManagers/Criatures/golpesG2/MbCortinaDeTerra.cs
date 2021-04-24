@@ -7,7 +7,7 @@ public class MbCortinaDeTerra : HitNoChaoBase
     public MbCortinaDeTerra() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.cortinaDeTerra,
-        tipo = nomeTipos.Terra,
+        tipo = NomeTipos.Terra,
         carac = caracGolpe.hitNoChao,
         custoPE = 3,
         potenciaCorrente = 7,

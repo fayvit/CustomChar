@@ -9,7 +9,6 @@ public interface IGerenciadorDeExperiencia
 
     int CalculaPassaNivelInicial(int N, bool tudo = false);
     bool VerificaPassaNivel();
-    void AplicaPassaNivel(Atributos A);
-    void SimulaPassaNivel(Atributos A, int ateONivel = -1);
+    void AplicaPassaNivel();
     int CalculaPassaNivelAtual();
 }

@@ -9,7 +9,7 @@ public class OlharEnfraquecedor : ProjetilBase
         new ContainerDeCaracteristicasDeGolpe()
         {
             nome = nomesGolpes.olharEnfraquecedor,
-            tipo = nomeTipos.Normal,
+            tipo = NomeTipos.Normal,
             carac = caracGolpe.projetil,
             custoPE = 4,
             potenciaCorrente = 1,

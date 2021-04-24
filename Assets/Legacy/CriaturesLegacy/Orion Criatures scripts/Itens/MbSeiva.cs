@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Inseto;
+            recuperaDoTipo = NomeTipos.Inseto;
             valorDeRecuperacao = 40;
         }
     }

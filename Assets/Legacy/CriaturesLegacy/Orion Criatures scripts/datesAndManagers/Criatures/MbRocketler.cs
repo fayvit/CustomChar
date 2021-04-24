@@ -77,7 +77,7 @@ public class MbRocketler
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Pedra },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Pedra },
                     distanciaFundamentadora = 0.1f,
                     meusAtributos = {
                     PV = { Taxa = 0.18f,},
@@ -86,7 +86,7 @@ public class MbRocketler
                     Defesa = { Taxa = 0.22f},
                     Poder = { Taxa = 0.18f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Pedra)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Pedra)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

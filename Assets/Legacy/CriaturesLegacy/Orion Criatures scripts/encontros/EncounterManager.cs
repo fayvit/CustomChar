@@ -132,7 +132,8 @@ public class EncounterManager
         G_XP.XP += (treinador)? aDoI.PV.Maximo:(int)((float)aDoI.PV.Maximo/2);
         if (G_XP.VerificaPassaNivel())
         {
-            G_XP.AplicaPassaNivel(aDoH);
+            G_XP.AplicaPassaNivel();
+            UpDeNivel.calculaUpDeNivel(G_XP.Nivel, aDoH);
             //GameController.g.HudM.AtualizeHud(manager, inimigo.MeuCriatureBase);
             passou = new PassouDeNivelEmLuta(manager.CriatureAtivo.MeuCriatureBase);
             estado = EncounterState.passouDeNivel;

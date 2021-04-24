@@ -46,7 +46,7 @@ public class MbPergaminhoDePerfeicao : ItemConsumivelBase
             ItemQuantitativo.PrecisaDePerfeicao(C),true, 
             -1, A.PV.Corrente,
             A.PV.Maximo,
-            nomeTipos.nulo);
+            NomeTipos.nulo);
     }
 
     public override void AcaoDoItemConsumivel(CriatureBase C)

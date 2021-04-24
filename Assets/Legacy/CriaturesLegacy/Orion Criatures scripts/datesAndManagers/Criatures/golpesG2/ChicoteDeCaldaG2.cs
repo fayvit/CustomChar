@@ -6,7 +6,7 @@ public class ChicoteDeCaldaG2 : ImpactoBase
     public ChicoteDeCaldaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.chicoteDeCalda,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

@@ -6,7 +6,7 @@ public class TapaG2 : ImpactoBase
     public TapaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.tapa,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

@@ -9,7 +9,7 @@ public class MbChuvaVenenosa : ImpactoAereoBase
     public MbChuvaVenenosa() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.chuvaVenenosa,
-        tipo = nomeTipos.Veneno,
+        tipo = NomeTipos.Veneno,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

@@ -17,7 +17,7 @@ public class PainelDeGolpe : MonoBehaviour
         imgGolpe.texture = GameController.g.El.RetornaMini(g.Nome);
         txtNomeGolpe.text = GolpeBase.NomeEmLinguas(g.Nome);
         numCusto.text = g.CustoPE.ToString();
-        txtTipo.text = tipos.NomeEmLinguas(g.Tipo);
+        txtTipo.text = ContraTipos.NomeEmLinguas(g.Tipo);
         numPoder.text = g.PotenciaCorrente.ToString();
         tempoReg.text = g.TempoDeReuso.ToString()+"s";
     }

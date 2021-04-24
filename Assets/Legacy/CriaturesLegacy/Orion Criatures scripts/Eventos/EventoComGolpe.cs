@@ -10,7 +10,7 @@ namespace CriaturesLegado
         [SerializeField] private nomesGolpes[] ativaveis;
         [Space(5)]
         [SerializeField] private bool todoDoTipo = false;
-        [SerializeField] private nomeTipos tipoParaAtivar = nomeTipos.nulo;
+        [SerializeField] private NomeTipos tipoParaAtivar = NomeTipos.nulo;
 
 
         protected KeyShift ChaveEspecial

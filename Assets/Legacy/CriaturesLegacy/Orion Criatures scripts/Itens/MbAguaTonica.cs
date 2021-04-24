@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Agua;
+            recuperaDoTipo = NomeTipos.Agua;
             valorDeRecuperacao = 40;
         }
     }

@@ -8,7 +8,7 @@ public class MbTempestadeEletrica : ImpactoAereoBase
     public MbTempestadeEletrica() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.tempestadeEletrica,
-        tipo = nomeTipos.Eletrico,
+        tipo = NomeTipos.Eletrico,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

@@ -8,7 +8,7 @@ public class MbSobreSalto : ImpactoAereoBase
     public MbSobreSalto() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.sobreSalto,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 4,

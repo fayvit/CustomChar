@@ -71,7 +71,7 @@ public class Wisks
                 NomeID = nomesCriatures.Wisks,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Normal },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Normal },
                     distanciaFundamentadora = 0.02f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f,},
@@ -80,7 +80,7 @@ public class Wisks
                     Defesa = { Taxa = 0.2f},
                     Poder = { Taxa = 0.22f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Normal)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Normal)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

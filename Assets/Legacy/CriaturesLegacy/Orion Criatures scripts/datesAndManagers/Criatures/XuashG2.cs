@@ -51,7 +51,7 @@ public class XuashG2
                 NomeID = nomesCriatures.Xuash,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Agua },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Agua },
                     distanciaFundamentadora = -0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f,},
@@ -60,7 +60,7 @@ public class XuashG2
                     Defesa = { Taxa = 0.22f},
                     Poder = { Taxa = 0.19f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Agua)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Agua)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

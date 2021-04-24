@@ -9,7 +9,7 @@ public class MbOndaVenenosa : ProjetilBase
     public MbOndaVenenosa() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.ondaVenenosa,
-        tipo = nomeTipos.Veneno,
+        tipo = NomeTipos.Veneno,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

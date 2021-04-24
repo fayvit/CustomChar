@@ -34,28 +34,12 @@ public class GerenciadorDeExperiencia :IGerenciadorDeExperiencia
         return (int)(Math.Floor(_modNivel * (_paraProxNivel - _ultimoPassaNivel)));
     }
 
-    public void AplicaPassaNivel(Atributos A)
+    public void AplicaPassaNivel()
     {
         _nivel++;
         int U = CalculaPassaNivelAtual();
         _ultimoPassaNivel = _paraProxNivel;
         _paraProxNivel += U;
-        UpDeNivel.calculaUpDeNivel(_nivel, A);
-    }
-
-    public void SimulaPassaNivel(Atributos A,int ateONivel = -1)
-    {
-        if (ateONivel < 0)
-            ateONivel = 99;
-        
-        for (int i = 0; i < ateONivel; i++)
-        {
-            if (VerificaPassaNivel())
-                AplicaPassaNivel(A);
-            _XP = _paraProxNivel + 1;
-            UnityEngine.Debug.Log(_nivel + " : " + _XP + "/" + _paraProxNivel + " : " + _ultimoPassaNivel
-                      + " : " + CalculaPassaNivelInicial(_nivel, true));
-        }
     }
 
     public int Nivel

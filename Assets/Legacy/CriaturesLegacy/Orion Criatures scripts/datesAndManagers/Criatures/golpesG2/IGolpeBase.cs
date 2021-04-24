@@ -5,7 +5,7 @@ using CriaturesLegado;
 public interface IGolpeBase
 {
     nomesGolpes Nome { get; }
-    nomeTipos Tipo { get; }
+    NomeTipos Tipo { get; }
     caracGolpe Caracteristica { get; }
     bool PodeNoAr { get;}
 
@@ -41,7 +41,7 @@ public interface IGolpeBase
 public class ContainerDeCaracteristicasDeGolpe
 {
     public nomesGolpes nome = nomesGolpes.nulo;
-    public nomeTipos tipo = nomeTipos.Normal;
+    public NomeTipos tipo = NomeTipos.Normal;
     public caracGolpe carac = caracGolpe.colisao;
     public bool podeNoAr = false;
 

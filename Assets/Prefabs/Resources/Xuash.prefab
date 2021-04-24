@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 3282174284424529454}
   - component: {fileID: 4372444711541942294}
   - component: {fileID: 7269899626200360902}
+  - component: {fileID: 8806156}
   m_Layer: 0
   m_Name: Xuash
   m_TagString: Untagged
@@ -410,7 +411,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!114 &7269899626200360902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,88 +427,71 @@ MonoBehaviour:
   state: 0
   tDono: {fileID: 0}
   meuCriatureBase:
-    nome: 0
-    caracCriature:
+    petId: 6
+    petFeat:
       meusTipos: 
-      contraTipos: []
-      meusAtributos:
-        pv:
-          basico: 3
-          corrente: 14
-          maximo: 14
-          modMaximo: 0
-          taxa: 0.2
-        pe:
-          basico: 7
-          corrente: 30
-          maximo: 30
-          modMaximo: 0
-          taxa: 0.2
-        ataque:
-          corrente: 9
-          modCorrente: 0
-          maximo: 9
-          modMaximo: 0
-          minimo: 1
-          taxa: 0.2
-        defesa:
-          corrente: 9
-          modCorrente: 0
-          maximo: 9
-          modMaximo: 0
-          minimo: 1
-          taxa: 0.2
-        poder:
-          corrente: 9
-          modCorrente: 0
-          maximo: 9
-          modMaximo: 0
-          minimo: 1
-          taxa: 0.2
       mNivel:
         _nivel: 1
       distanciaFundamentadora: 0.2
-    gerenteG:
-      golpeEscolhido: 0
-      listaDeGolpes: []
-      meusGolpes: []
-    mov:
-      velocidadeAndando: 6
-      velocidadeCorrendo: 12
-      caracPulo:
-        alturaDoPulo: 2
-        tempoMaxPulo: 1
-        velocidadeSubindo: 3
-        velocidadeDescendo: 4.8
-        velocidadeDuranteOPulo: 6
-        amortecimentoNaTransicaoDePulo: 0.05
-        impulsoInicial: 0.3
-        estouPulando: 0
-        estavaPulando: 0
+    movFeat:
+      slowSpeed: 1
+      walkSpeed: 2
+      runSpeed: 6
+      rotAlways: 0
+      jumpFeat:
+        jumpHeight: 1
+        minTimeJump: 0.25
+        maxTimeJump: 0.35
+        risingSpeed: 5
+        fallSpeed: 4.8
+        inJumpSpeed: 3
+        verticalDamping: 2
+        horizontalDamping: 5
+        initialImpulse: 0.03
+        isJumping: 0
+        wasJumping: 0
     statusTemporarios: []
     alturaCamera: 4
     distanciaCamera: 5.5
     alturaCameraLuta: 10
     distanciaCameraLuta: 4.5
-  mov:
-    caracMov:
-      velocidadeAndando: 6
-      velocidadeCorrendo: 12
-      caracPulo:
-        alturaDoPulo: 2
-        tempoMaxPulo: 1
-        velocidadeSubindo: 3
-        velocidadeDescendo: 4.8
-        velocidadeDuranteOPulo: 6
-        amortecimentoNaTransicaoDePulo: 0.05
-        impulsoInicial: 0.3
-        estouPulando: 0
-        estavaPulando: 0
-    elementos:
-      controle: {fileID: 0}
-      transform: {fileID: 0}
-      animador:
-        animator: {fileID: 0}
+  controll:
+    mov:
+      lockTarget: {fileID: 0}
+      movFeatures:
+        slowSpeed: 1
+        walkSpeed: 2
+        runSpeed: 6
+        rotAlways: 0
+        jumpFeat:
+          jumpHeight: 1
+          minTimeJump: 0.25
+          maxTimeJump: 0.35
+          risingSpeed: 5
+          fallSpeed: 4.8
+          inJumpSpeed: 3
+          verticalDamping: 2
+          horizontalDamping: 5
+          initialImpulse: 0.03
+          isJumping: 0
+          wasJumping: 0
+      standardFallSpeed: 0
+      overlapTaxRadius: 0.8
+  targetAtualizationTax: 1
+--- !u!114 &8806156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399796066513923052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46aa399f29e4c51478fd7d610c557e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velAnimatorString: velocidade
+  A: {fileID: 0}
 --- !u!1 &2876015398314030727
 GameObject:
   m_ObjectHideFlags: 0

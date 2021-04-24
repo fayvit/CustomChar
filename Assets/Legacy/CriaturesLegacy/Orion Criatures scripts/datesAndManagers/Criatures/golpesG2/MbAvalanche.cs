@@ -8,7 +8,7 @@ public class MbAvalanche : ImpactoAereoBase
     public MbAvalanche() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.avalanche,
-        tipo = nomeTipos.Pedra,
+        tipo = NomeTipos.Pedra,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

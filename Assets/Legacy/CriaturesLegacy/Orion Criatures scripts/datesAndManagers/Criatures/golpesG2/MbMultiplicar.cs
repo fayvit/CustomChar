@@ -14,7 +14,7 @@ public class MbMultiplicar : GolpeBase
     public MbMultiplicar() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.multiplicar,
-        tipo = nomeTipos.Inseto,
+        tipo = NomeTipos.Inseto,
         carac = caracGolpe.projetil,
         custoPE = 3,
         potenciaCorrente = 2,

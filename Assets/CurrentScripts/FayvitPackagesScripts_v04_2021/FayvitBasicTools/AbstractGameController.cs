@@ -10,7 +10,7 @@ namespace FayvitBasicTools
 
         public static IGameController Instance => instance;
 
-        public KeyVar MyKeys { get; protected set; }
+        public KeyVar MyKeys { get; protected set; } = new KeyVar();
 
         public GameObject ThisGameObject => gameObject;
 

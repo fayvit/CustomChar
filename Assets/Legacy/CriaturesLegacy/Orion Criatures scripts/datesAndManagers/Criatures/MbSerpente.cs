@@ -71,7 +71,7 @@ public class MbSerpente
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[2] { nomeTipos.Planta , nomeTipos.Normal },
+                    meusTipos = new NomeTipos[2] { NomeTipos.Planta , NomeTipos.Normal },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f,},
@@ -80,7 +80,7 @@ public class MbSerpente
                     Defesa = { Taxa = 0.17f},
                     Poder = { Taxa = 0.17f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Normal)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Normal)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Fogo;
+            recuperaDoTipo = NomeTipos.Fogo;
             valorDeRecuperacao = 40;
         }
 

@@ -4,13 +4,13 @@ using System.Collections;
 [System.Serializable]
 public class CaracteristicasDeCriature
 {
-    public nomeTipos[] meusTipos;
-    public tipos[] contraTipos;    
+    public NomeTipos[] meusTipos;
+    public ContraTipos[] contraTipos;    
     public Atributos meusAtributos = new Atributos(new ContainerDeAtributos());
     public GerenciadorDeExperiencia mNivel = new GerenciadorDeExperiencia();
     public float distanciaFundamentadora = 0.2f;
 
-    public void incrementaNivel(int nivel)
+    public void IncrementaNivel(int nivel)
     {
         UpDeNivel.calculaUpDeNivel(nivel, meusAtributos,true);
 
@@ -19,7 +19,7 @@ public class CaracteristicasDeCriature
 
     }
 
-    public bool TemOTipo(nomeTipos tipo)
+    public bool TemOTipo(NomeTipos tipo)
     {
         bool retorno = false;
         for (int i = 0; i < meusTipos.Length; i++)

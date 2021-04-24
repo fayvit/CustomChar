@@ -8,7 +8,7 @@ public class MbDentada : ImpactoAereoBase
     public MbDentada() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.dentada,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

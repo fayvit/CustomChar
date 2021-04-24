@@ -8,7 +8,7 @@ public class TurboDeAguaG2 : ProjetilBase
     public TurboDeAguaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.turboDeAgua,
-        tipo = nomeTipos.Agua,
+        tipo = NomeTipos.Agua,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

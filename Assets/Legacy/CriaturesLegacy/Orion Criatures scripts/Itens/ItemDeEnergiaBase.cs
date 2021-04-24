@@ -5,7 +5,7 @@ using CriaturesLegado;
 [System.Serializable]
 public class ItemDeEnergiaBase : ItemConsumivelBase
 {
-    protected nomeTipos recuperaDoTipo = nomeTipos.nulo;
+    protected NomeTipos recuperaDoTipo = NomeTipos.nulo;
     protected int valorDeRecuperacao = 40;
 
     public ItemDeEnergiaBase(ContainerDeCaracteristicasDeItem C) : base(C) { }

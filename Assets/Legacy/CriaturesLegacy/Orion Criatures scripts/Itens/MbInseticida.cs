@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Veneno;
+            recuperaDoTipo = NomeTipos.Veneno;
             valorDeRecuperacao = 40;
         }
     }

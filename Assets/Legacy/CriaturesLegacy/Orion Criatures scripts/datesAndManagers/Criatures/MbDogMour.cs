@@ -56,7 +56,7 @@ public class MbDogMour
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Gas },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Gas },
                     distanciaFundamentadora = 0.1f,
                     meusAtributos = {
                     PV = { Taxa = 0.18f,},
@@ -65,7 +65,7 @@ public class MbDogMour
                     Defesa = { Taxa = 0.18f},
                     Poder = { Taxa = 0.25f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Gas)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Gas)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

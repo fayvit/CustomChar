@@ -37,7 +37,7 @@ namespace CriaturesLegado
             nome = X;
 
             if (nivel > 1)
-                caracCriature.incrementaNivel(nivel);
+                caracCriature.IncrementaNivel(nivel);
 
             gerenteG.meusGolpes = new List<GolpeBase>();
             gerenteG.meusGolpes.AddRange(GolpesAtivos(nivel, gerenteG.listaDeGolpes.ToArray()));
@@ -142,7 +142,7 @@ namespace CriaturesLegado
                 distanciaCameraLuta = distanciaCameraLuta,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = (nomeTipos[])CaracCriature.meusTipos.Clone(),
+                    meusTipos = (NomeTipos[])CaracCriature.meusTipos.Clone(),
                     distanciaFundamentadora = CaracCriature.distanciaFundamentadora,
                     meusAtributos = {
                     PV = { Taxa = caracCriature.meusAtributos.PV.Taxa},

@@ -7,7 +7,7 @@ public class MbCortinaDeFumaca : HitNoChaoBase
     public MbCortinaDeFumaca() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.cortinaDeFumaca,
-        tipo = nomeTipos.Gas,
+        tipo = NomeTipos.Gas,
         carac = caracGolpe.hitNoChao,
         custoPE = 3,
         potenciaCorrente = 7,

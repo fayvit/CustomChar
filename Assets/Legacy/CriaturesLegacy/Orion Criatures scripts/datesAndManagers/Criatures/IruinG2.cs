@@ -59,7 +59,7 @@ public class IruinG2
                 NomeID = nomesCriatures.Iruin,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Inseto },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Inseto },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f},
@@ -68,7 +68,7 @@ public class IruinG2
                     Defesa = { Taxa = 0.22f},
                     Poder = { Taxa = 0.22f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Inseto)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Inseto)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

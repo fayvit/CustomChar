@@ -51,6 +51,7 @@ namespace FayvitMove
         {
             transform = T;
             Controller = T.GetComponent<CharacterController>();
+
             _JumpM = new JumpManager(movFeatures.jumpFeat, transform, Controller);
         }
 

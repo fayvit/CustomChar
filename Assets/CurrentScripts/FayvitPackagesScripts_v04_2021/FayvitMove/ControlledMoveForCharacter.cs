@@ -22,15 +22,21 @@ namespace FayvitMove
 
         public ControlledMoveForCharacter(Transform T)
         {
-            mov = new BasicMove();// (T);
-            mov.StartFields(T);
-            oControlado = T.gameObject;
+            
+            mov = new BasicMove(new MoveFeatures());// (T);
+            StartFields(T);
         }
 
         public void StartFields(Transform T)
         {
             mov.StartFields(T);
             oControlado = T.gameObject;
+        }
+
+        public void SetCustomMove(MoveFeatures movF)
+        {
+            mov = new BasicMove(movF);
+            mov.StartFields(oControlado.transform);
         }
 
 
@@ -102,12 +108,18 @@ namespace FayvitMove
                 if (indiceDaDirecao < path.corners.Length)
                 {
                     Vector3 pos = oControlado.transform.position;
-                    mov.MoveApplicator(Vector3.ProjectOnPlane(path.corners[indiceDaDirecao] - pos, Vector3.up).normalized, run);
-
-                    TestepuloBoxOverlap(pos);
 
                     if (Vector3.Distance(path.corners[indiceDaDirecao], pos) < pathDistanceCheck /*&& mov.NoChao()*/)
                         indiceDaDirecao++;
+                    else
+                    {
+                        mov.MoveApplicator(Vector3.ProjectOnPlane(path.corners[indiceDaDirecao] - pos, Vector3.up).normalized, run);
+
+                        TestepuloBoxOverlap(pos);
+                    }
+
+                    //if (Vector3.Distance(path.corners[indiceDaDirecao], pos) < pathDistanceCheck /*&& mov.NoChao()*/)
+                    //    indiceDaDirecao++;
 
                 }
                 else

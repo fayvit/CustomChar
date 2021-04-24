@@ -81,7 +81,7 @@ public class MbEscorpion
                 distanciaCameraLuta = 3.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Veneno },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Veneno },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.21f,},
@@ -90,7 +90,7 @@ public class MbEscorpion
                     Defesa = { Taxa = 0.23f},
                     Poder = { Taxa = 0.19f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Veneno)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Veneno)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

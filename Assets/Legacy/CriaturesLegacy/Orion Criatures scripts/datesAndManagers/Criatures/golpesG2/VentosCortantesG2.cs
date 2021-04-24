@@ -8,7 +8,7 @@ public class VentosCortantesG2 : ProjetilBase
     public VentosCortantesG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.ventosCortantes,
-        tipo = nomeTipos.Voador,
+        tipo = NomeTipos.Voador,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

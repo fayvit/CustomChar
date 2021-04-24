@@ -6,7 +6,7 @@ public class GarraG2 : ImpactoBase
     public GarraG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.garra,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

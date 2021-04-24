@@ -65,7 +65,7 @@ public class MbNessei
                 NomeID = nomesCriatures.Nessei,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Agua },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Agua },
                     distanciaFundamentadora = 0.11f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f,},
@@ -74,7 +74,7 @@ public class MbNessei
                     Defesa = { Taxa = 0.17f},
                     Poder = { Taxa = 0.17f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Agua)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Agua)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

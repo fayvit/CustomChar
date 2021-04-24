@@ -78,7 +78,7 @@ public class PolyCharmG2
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Fogo },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Fogo },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.21f,},
@@ -87,7 +87,7 @@ public class PolyCharmG2
                     Defesa = { Taxa = 0.18f},
                     Poder = { Taxa = 0.2f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Fogo)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Fogo)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

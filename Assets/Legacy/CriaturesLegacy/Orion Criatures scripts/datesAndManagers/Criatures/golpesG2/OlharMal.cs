@@ -9,7 +9,7 @@ public class OlharMal : ProjetilBase
         new ContainerDeCaracteristicasDeGolpe()
         {
             nome = nomesGolpes.olharMal,
-            tipo = nomeTipos.Normal,
+            tipo = NomeTipos.Normal,
             carac = caracGolpe.projetil,
             custoPE = 4,
             potenciaCorrente = 1,

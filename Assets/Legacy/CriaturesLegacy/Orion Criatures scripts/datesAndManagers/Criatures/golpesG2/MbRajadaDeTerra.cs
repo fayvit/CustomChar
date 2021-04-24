@@ -7,7 +7,7 @@ public class MbRajadaDeTerra : ProjetilBase
     public MbRajadaDeTerra() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.rajadaDeTerra,
-        tipo = nomeTipos.Terra,
+        tipo = NomeTipos.Terra,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

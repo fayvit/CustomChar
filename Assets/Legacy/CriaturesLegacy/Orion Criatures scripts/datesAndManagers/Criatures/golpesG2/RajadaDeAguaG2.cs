@@ -7,7 +7,7 @@ public class RajadaDeAguaG2 : GolpeBase
     public RajadaDeAguaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.rajadaDeAgua,
-        tipo = nomeTipos.Agua,
+        tipo = NomeTipos.Agua,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

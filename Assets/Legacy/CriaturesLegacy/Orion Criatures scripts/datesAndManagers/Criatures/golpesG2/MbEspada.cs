@@ -8,7 +8,7 @@ public class MbEspada : ImpactoAereoBase
     public MbEspada() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.espada,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 3,

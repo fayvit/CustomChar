@@ -1,239 +1,239 @@
 ﻿[System.Serializable]
-public class tipos  {
+public class ContraTipos  {
 
 	[UnityEngine.SerializeField]private float _mod;
 	[UnityEngine.SerializeField]private string _nome;
 
-    public static tipos[] AplicaContraTipos(nomeTipos nomeDoTipo)
+    public static ContraTipos[] AplicaContraTipos(NomeTipos nomeDoTipo)
     {
-        tipos[] retorno = new tipos[System.Enum.GetValues(typeof(nomeTipos)).Length];
+        ContraTipos[] retorno = new ContraTipos[System.Enum.GetValues(typeof(NomeTipos)).Length];
 
         switch (nomeDoTipo)
         {
-            case nomeTipos.Agua:
-                retorno = new tipos[]
+            case NomeTipos.Agua:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.25f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 2},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 2},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1}
                     };
 
             break;
-            case nomeTipos.Planta:
-                retorno = new tipos[]
+            case NomeTipos.Planta:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 0.25f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 0.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1}
                     };
 
             break;
-            case nomeTipos.Fogo:
-                retorno = new tipos[]
+            case NomeTipos.Fogo:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 2}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 2}
                     };
 
             break;
-            case nomeTipos.Voador:
-                retorno = new tipos[]
+            case NomeTipos.Voador:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 0.25f}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 0.25f}
                     };
             break;
-            case nomeTipos.Inseto:
-                retorno = new tipos[]
+            case NomeTipos.Inseto:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1.5f}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1.5f}
                     };
             break;
-            case nomeTipos.Psiquico:
-                retorno = new tipos[]
+            case NomeTipos.Psiquico:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1.5f}
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1.5f}
                     };
             break;
-            case nomeTipos.Normal:
-                retorno = new tipos[]
+            case NomeTipos.Normal:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1},
                     };
             break;
-            case nomeTipos.Veneno:
-                retorno = new tipos[]
+            case NomeTipos.Veneno:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 0.5f},
                     };
             break;
-            case nomeTipos.Pedra:
-                retorno = new tipos[]
+            case NomeTipos.Pedra:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.25f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 0.1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 0.1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 0.5f},
                     };
             break;
-            case nomeTipos.Eletrico:
-                retorno = new tipos[]
+            case NomeTipos.Eletrico:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1.25f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1.25f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1f},
                     };
             break;
-            case nomeTipos.Terra:
-                retorno = new tipos[]
+            case NomeTipos.Terra:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 0.1f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1.75f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 1.5f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 0.15f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 0.95f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 0.1f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 1.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 0.15f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 0.95f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 0.75f},
                     };
             break;
-            case nomeTipos.Gas:
-                retorno = new tipos[]
+            case NomeTipos.Gas:
+                retorno = new ContraTipos[]
                     {
-                        new tipos (){ Nome = nomeTipos.Agua.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Fogo.ToString(),    Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Planta.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Gelo.ToString(),    Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Terra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Pedra.ToString(),   Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Psiquico.ToString(),Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Eletrico.ToString(),Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Normal.ToString(),  Mod = 1f},
-                        new tipos (){ Nome = nomeTipos.Veneno.ToString(),  Mod = 0.75f},
-                        new tipos (){ Nome = nomeTipos.Inseto.ToString(),  Mod = 0.5f},
-                        new tipos (){ Nome = nomeTipos.Voador.ToString(),  Mod = 2f},
-                        new tipos (){ Nome = nomeTipos.Gas.ToString(),     Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Agua.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Fogo.ToString(),    Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Planta.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Gelo.ToString(),    Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Terra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Pedra.ToString(),   Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Psiquico.ToString(),Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Eletrico.ToString(),Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Normal.ToString(),  Mod = 1f},
+                        new ContraTipos (){ Nome = NomeTipos.Veneno.ToString(),  Mod = 0.75f},
+                        new ContraTipos (){ Nome = NomeTipos.Inseto.ToString(),  Mod = 0.5f},
+                        new ContraTipos (){ Nome = NomeTipos.Voador.ToString(),  Mod = 2f},
+                        new ContraTipos (){ Nome = NomeTipos.Gas.ToString(),     Mod = 1f},
                     };
             break;
         }
         return retorno;
     }
 
-    public tipos()
+    public ContraTipos()
 	{
 		_mod = 1.0f;
 		_nome = "";
@@ -251,13 +251,13 @@ public class tipos  {
 		set{_nome = value;}
 	}
 
-    public static string NomeEmLinguas(nomeTipos nome)
+    public static string NomeEmLinguas(NomeTipos nome)
     {
         return nome.ToString();
     }
 }
 
-public enum nomeTipos
+public enum NomeTipos
 {
     nulo=-1,
 	Agua,

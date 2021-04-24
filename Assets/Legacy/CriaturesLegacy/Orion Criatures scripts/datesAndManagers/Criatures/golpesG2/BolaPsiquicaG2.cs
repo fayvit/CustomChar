@@ -7,7 +7,7 @@ public class BolaPsiquicaG2 : ProjetilBase
     public BolaPsiquicaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.bolaPsiquica,
-        tipo = nomeTipos.Psiquico,
+        tipo = NomeTipos.Psiquico,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

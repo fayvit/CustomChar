@@ -7,7 +7,7 @@ public class MbTeletransporte : HitNoChaoBase
     public MbTeletransporte() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.teletransporte,
-        tipo = nomeTipos.Psiquico,
+        tipo = NomeTipos.Psiquico,
         carac = caracGolpe.hitNoChao,
         custoPE = 3,
         potenciaCorrente = 7,

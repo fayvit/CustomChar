@@ -8,7 +8,7 @@ public class MbEletricidadeConcentrada : ProjetilEletricoBase
     public MbEletricidadeConcentrada() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.eletricidadeConcentrada,
-        tipo = nomeTipos.Eletrico,
+        tipo = NomeTipos.Eletrico,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

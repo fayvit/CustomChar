@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Psiquico;
+            recuperaDoTipo = NomeTipos.Psiquico;
             valorDeRecuperacao = 40;
         }
     }

@@ -12,7 +12,7 @@ public class VerificaAplicaStatusEnvenenado : MonoBehaviour
             golpe,
             atacante.CaracCriature.meusAtributos,
             atacado.CaracCriature.meusAtributos,
-            atacado.CaracCriature.contraTipos[(int)nomeTipos.Veneno].Mod
+            atacado.CaracCriature.contraTipos[(int)NomeTipos.Veneno].Mod
             ))
         {
 

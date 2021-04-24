@@ -7,7 +7,7 @@ public class BicoG2 : ImpactoBase
     public BicoG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.bico,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

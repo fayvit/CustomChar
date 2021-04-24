@@ -8,7 +8,7 @@ public class RajadaDeFogoG2 : ProjetilBase
     public RajadaDeFogoG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.rajadaDeFogo,
-        tipo = nomeTipos.Fogo,
+        tipo = NomeTipos.Fogo,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

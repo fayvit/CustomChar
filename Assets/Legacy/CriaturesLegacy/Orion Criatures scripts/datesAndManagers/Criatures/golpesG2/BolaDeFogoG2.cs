@@ -7,7 +7,7 @@ public class BolaDeFogoG2 : ProjetilBase
     public BolaDeFogoG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.bolaDeFogo,
-        tipo = nomeTipos.Fogo,
+        tipo = NomeTipos.Fogo,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

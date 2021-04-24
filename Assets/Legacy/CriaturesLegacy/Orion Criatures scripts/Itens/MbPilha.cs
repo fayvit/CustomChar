@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Eletrico;
+            recuperaDoTipo = NomeTipos.Eletrico;
             valorDeRecuperacao = 40;
         }
     }

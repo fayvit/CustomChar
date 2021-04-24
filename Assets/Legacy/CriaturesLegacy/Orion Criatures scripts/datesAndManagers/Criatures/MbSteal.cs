@@ -56,7 +56,7 @@ public class MbSteal
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Eletrico },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Eletrico },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.195f,},
@@ -65,7 +65,7 @@ public class MbSteal
                     Defesa = { Taxa = 0.21f},
                     Poder = { Taxa = 0.21f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Eletrico)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Eletrico)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

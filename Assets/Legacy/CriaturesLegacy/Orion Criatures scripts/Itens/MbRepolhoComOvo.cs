@@ -13,7 +13,7 @@
             )
         {
             Estoque = estoque;
-            recuperaDoTipo = nomeTipos.Gas;
+            recuperaDoTipo = NomeTipos.Gas;
             valorDeRecuperacao = 40;
         }
     }

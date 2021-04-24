@@ -145,7 +145,7 @@ public class GolpeBase : IGolpeBase
         }
     }
 
-    public nomeTipos Tipo
+    public NomeTipos Tipo
     {
         get
         {

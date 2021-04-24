@@ -7,7 +7,7 @@ public class FuracaoDeFolhasG2 : ProjetilBase
     public FuracaoDeFolhasG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.furacaoDeFolhas,
-        tipo = nomeTipos.Planta,
+        tipo = NomeTipos.Planta,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

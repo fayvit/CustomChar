@@ -8,7 +8,7 @@ public class MbPedregulho : ProjetilBase
     public MbPedregulho() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.pedregulho,
-        tipo = nomeTipos.Pedra,
+        tipo = NomeTipos.Pedra,
         carac = caracGolpe.projetil,
         custoPE = 2,
         potenciaCorrente = 4,

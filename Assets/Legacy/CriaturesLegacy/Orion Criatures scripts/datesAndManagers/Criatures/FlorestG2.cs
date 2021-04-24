@@ -80,7 +80,7 @@ public class FlorestG2
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Planta },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Planta },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.195f,},
@@ -89,7 +89,7 @@ public class FlorestG2
                     Defesa = { Taxa = 0.21f},
                     Poder = { Taxa = 0.18f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Planta)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Planta)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

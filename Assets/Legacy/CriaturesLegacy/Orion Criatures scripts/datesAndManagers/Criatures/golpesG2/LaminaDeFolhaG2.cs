@@ -7,7 +7,7 @@ public class LaminaDeFolhaG2 : ProjetilBase {
     public LaminaDeFolhaG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.laminaDeFolha,
-        tipo = nomeTipos.Planta,
+        tipo = NomeTipos.Planta,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

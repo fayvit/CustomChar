@@ -8,7 +8,7 @@ public class PsicoseG2 : ProjetilBase
     public PsicoseG2() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.psicose,
-        tipo = nomeTipos.Psiquico,
+        tipo = NomeTipos.Psiquico,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

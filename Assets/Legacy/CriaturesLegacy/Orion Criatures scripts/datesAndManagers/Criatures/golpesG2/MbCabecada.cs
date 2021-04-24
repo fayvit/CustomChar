@@ -6,7 +6,7 @@ public class MbCabecada : ImpactoBase
     public MbCabecada() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.cabecada,
-        tipo = nomeTipos.Normal,
+        tipo = NomeTipos.Normal,
         carac = caracGolpe.colisao,
         custoPE = 0,
         potenciaCorrente = 2,

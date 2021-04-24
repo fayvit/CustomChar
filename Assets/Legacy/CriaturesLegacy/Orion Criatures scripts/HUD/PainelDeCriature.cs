@@ -35,7 +35,7 @@ public class PainelDeCriature : MonoBehaviour
 
         for (int i = 0; i < C.CaracCriature.meusTipos.Length; i++)
         {
-            paraTipos += tipos.NomeEmLinguas(C.CaracCriature.meusTipos[i]) + ", ";
+            paraTipos += ContraTipos.NomeEmLinguas(C.CaracCriature.meusTipos[i]) + ", ";
         }
 
         txtMeusTipos.text = paraTipos.Substring(0, paraTipos.Length - 2);

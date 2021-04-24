@@ -39,7 +39,7 @@ namespace CriaturesLegado
             int valor = 0,
             int corrente = 0,
             int maximo = 0,
-            nomeTipos recuperaDoTipo = nomeTipos.nulo)
+            NomeTipos recuperaDoTipo = NomeTipos.nulo)
         {
             CharacterManager manager = GameController.g.Manager;
             CriatureBase C = manager.Dados.CriaturesAtivos[indice];
@@ -73,7 +73,7 @@ namespace CriaturesLegado
             return false;
         }
 
-        protected void IniciaUsoDesseItem(GameObject dono, bool podeUsar, bool temTipo = true, nomeTipos nomeDoTipo = nomeTipos.nulo)
+        protected void IniciaUsoDesseItem(GameObject dono, bool podeUsar, bool temTipo = true, NomeTipos nomeDoTipo = NomeTipos.nulo)
         {
             Manager = GameController.g.Manager;
             CriatureAlvoDoItem = Manager.CriatureAtivo;

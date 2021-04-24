@@ -123,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: fb2b97a5cf1ed3c4f9da6d5d7f171634, type: 2}
 --- !u!1 &3275928
 GameObject:
   m_ObjectHideFlags: 0
@@ -50444,6 +50444,10 @@ MonoBehaviour:
         wasJumping: 0
     standardFallSpeed: 0
     overlapTaxRadius: 0.8
+  dados:
+    criaturesAtivos: []
+    criaturesArmagedados: []
+    cristais: 0
 --- !u!20 &2055826265
 Camera:
   m_ObjectHideFlags: 0

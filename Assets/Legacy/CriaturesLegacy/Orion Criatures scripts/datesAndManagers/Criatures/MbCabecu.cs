@@ -64,7 +64,7 @@ public class MbCabecu
                 distanciaCameraLuta = 4.5f,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Terra },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Terra },
                     distanciaFundamentadora = 0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.21f,},
@@ -73,7 +73,7 @@ public class MbCabecu
                     Defesa = { Taxa = 0.18f},
                     Poder = { Taxa = 0.22f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Terra)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Terra)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

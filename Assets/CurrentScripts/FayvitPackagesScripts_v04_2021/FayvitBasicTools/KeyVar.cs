@@ -175,7 +175,8 @@ namespace FayvitBasicTools
     {
         sempretrue = -2,
         nula = -1,
-        sempreFalso = 0
+        sempreFalso = 0,
+        inTutorial = 1
     }
 
     public enum KeyCont

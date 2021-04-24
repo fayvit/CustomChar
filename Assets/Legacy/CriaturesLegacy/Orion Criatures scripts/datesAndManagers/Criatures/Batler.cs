@@ -80,7 +80,7 @@ public class Batler
                 NomeID = nomesCriatures.Batler,
                 CaracCriature = new CaracteristicasDeCriature()
                 {
-                    meusTipos = new nomeTipos[1] { nomeTipos.Voador },
+                    meusTipos = new NomeTipos[1] { NomeTipos.Voador },
                     distanciaFundamentadora = -0.01f,
                     meusAtributos = {
                     PV = { Taxa = 0.19f,},
@@ -89,7 +89,7 @@ public class Batler
                     Defesa = { Taxa = 0.19f},
                     Poder = { Taxa = 0.22f}
                 },
-                    contraTipos = tipos.AplicaContraTipos(nomeTipos.Voador)
+                    contraTipos = ContraTipos.AplicaContraTipos(NomeTipos.Voador)
                 },
                 GerenteDeGolpes = new GerenciadorDeGolpes()
                 {

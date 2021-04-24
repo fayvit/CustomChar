@@ -8,7 +8,7 @@ public class MbAgulhaVenenosa : ProjetilBase
     public MbAgulhaVenenosa() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.agulhaVenenosa,
-        tipo = nomeTipos.Veneno,
+        tipo = NomeTipos.Veneno,
         carac = caracGolpe.projetil,
         custoPE = 1,
         potenciaCorrente = 3,

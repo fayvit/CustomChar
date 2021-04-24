@@ -8,7 +8,7 @@ public class MbTosteAtaque : ImpactoAereoBase
     public MbTosteAtaque() : base(new ContainerDeCaracteristicasDeGolpe()
     {
         nome = nomesGolpes.tosteAtaque,
-        tipo = nomeTipos.Fogo,
+        tipo = NomeTipos.Fogo,
         carac = caracGolpe.colisaoComPow,
         custoPE = 3,
         potenciaCorrente = 7,

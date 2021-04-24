@@ -38,7 +38,7 @@ public class ItemDeRecuperacaoBase : ItemConsumivelBase
             ItemQuantitativo.UsaItemDeRecuperacao(C),true, 
             valorDeRecuperacao, A.PV.Corrente,
             A.PV.Maximo,
-            nomeTipos.nulo);
+            NomeTipos.nulo);
     }
 
     public override void AcaoDoItemConsumivel(CriatureBase C)
