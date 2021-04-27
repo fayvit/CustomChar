@@ -17,6 +17,11 @@ namespace FayvitCommandReader
         bool GetButtonUp(string nameButton);
         float GetAxis(string esseGatilho);
         int GetIntTriggerDown(string esseGatilho);
+        bool GetButton(CommandConverterInt cci);
+        bool GetButtonDown(CommandConverterInt cci,bool travaQuadro = false);
+        bool GetButtonUp(CommandConverterInt cci, bool travaQuadro = false);
+        float GetAxis(CommandConverterString ccs);
+        int GetIntTriggerDown(CommandConverterString ccs);
         Vector3 DirectionalVector();
         
     }

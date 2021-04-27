@@ -7,7 +7,6 @@ using FayvitEventAgregator;
 using FayvitCommandReader;
 using FayvitCam;
 using FayvitBasicTools;
-using System;
 
 public class CustomizationManagerMenu : MonoBehaviour
 {
@@ -26,6 +25,7 @@ public class CustomizationManagerMenu : MonoBehaviour
     [SerializeField] private GlobalColorMenu globalCM;
     [SerializeField] private BasicMenu globalMenu;
     [SerializeField] private BasicMenu charDbMenu;
+    [SerializeField] private AudioClip menuMusic;
     [SerializeField] private float velValForGreyScale = 3;
     [SerializeField] private float velValForColor = 3;
 
@@ -650,6 +650,14 @@ public class CustomizationManagerMenu : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        SupportSingleton.Instance.InvokeOnEndFrame(() =>
+        {
+            MessageAgregator<MsgStartMusic>.Publish(new MsgStartMusic()
+            {
+                clip = menuMusic
+            });
+        });
+
         //menusAtivos &= ~FlagSectionDataBase.pupila;
 
         if(secManager is null)
@@ -695,6 +703,8 @@ public class CustomizationManagerMenu : MonoBehaviour
     private void OnDestroy()
     {
         MessageAgregator<UiDeOpcoesChangeMessage>.RemoveListener(OnUiChange);
+        MessageAgregator<MsgSelectedColorByClick>.RemoveListener(OnSelectColorByClick);
+        MessageAgregator<MsgFinishEdition>.RemoveListener(OnFinishEdition);
     }
 
     bool MainState()

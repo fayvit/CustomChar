@@ -5,6 +5,7 @@ using FayvitMessageAgregator;
 using Criatures2021;
 using FayvitCam;
 using FayvitSupportSingleton;
+using FayvitBasicTools;
 
 public class ProvisionalStartGame   : MonoBehaviour
 {
@@ -67,6 +68,10 @@ public class ProvisionalStartGame   : MonoBehaviour
             });
 
             MessageAgregator<MsgFinishEdition>.Publish();
+            MessageAgregator<MsgStartMusic>.Publish(new MsgStartMusic()
+            {
+                clip = Resources.Load<AudioClip>("NoitesCariocas")
+            });
         }
     }
 

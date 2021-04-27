@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CriaturesLegado;
 
 [System.Serializable]
 public class MbMultiplicar : GolpeBase

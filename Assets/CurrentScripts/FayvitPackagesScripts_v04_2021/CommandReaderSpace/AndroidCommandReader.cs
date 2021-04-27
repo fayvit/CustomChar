@@ -5,6 +5,8 @@ namespace FayvitCommandReader
 {
     public class AndroidCommandReader : CommandReaderSupport, ICommandReader
     {
+        public ICommandConverter cc = new AndroidCommandConverter();
+
         private static AndroidCommandReader instance;
         public static AndroidCommandReader Instance
         {
@@ -22,6 +24,10 @@ namespace FayvitCommandReader
         public int IndexOfControl => (int)Controlador.Android;
 
         public Controlador ControlId => Controlador.Android;
+
+        public override ICommandConverter CC => cc;
+
+        public override ICommandReader CR => this;
 
         public float GetAxis(string esseGatilho)
         {

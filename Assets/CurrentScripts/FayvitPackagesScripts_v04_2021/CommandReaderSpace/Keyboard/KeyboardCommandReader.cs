@@ -23,6 +23,10 @@ namespace FayvitCommandReader
 
         public Controlador ControlId => Controlador.teclado;
 
+        public override ICommandConverter CC => KeyboardKeysDict.Instance;
+
+        public override ICommandReader CR => this;
+
         public float GetAxis(string esseGatilho)
         {
             esseGatilho = KeyStringDict.GetStringForAxis(esseGatilho);

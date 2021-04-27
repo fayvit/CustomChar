@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FayvitMessageAgregator;
 using FayvitMove;
+using FayvitBasicTools;
 
 public class HumanAnimationListener : MonoBehaviour
 {
@@ -43,6 +44,12 @@ public class HumanAnimationListener : MonoBehaviour
             A.Play(jumpAnimationName);
             A.SetBool(jumpAnimationBool, true);
             A.SetBool(groundedBool, false);
+
+            MessageAgregator<MsgRequest3dSound>.Publish(new MsgRequest3dSound()
+            {
+                sfxId = FayvitSounds.SoundEffectID.XP_Swing03,
+                sender = transform
+            });
         }
     }
 

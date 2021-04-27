@@ -9,8 +9,8 @@ public class DbColors
     {
         return sdb switch
         {
-            RegistroDeCores.skin => ColorDbManager.LoadColors("testeCustomCharacter/DateColors/skinColors.crs").ToArray(),
-            _ => ColorDbManager.LoadColors("testeCustomCharacter/DateColors/mainColors.crs").ToArray()
+            RegistroDeCores.skin => ColorDbManager.LoadColors("CurrentScripts/testeCustomCharacter/DateColors/skinColors.crs").ToArray(),
+            _ => ColorDbManager.LoadColors("CurrentScripts/testeCustomCharacter/DateColors/mainColors.crs").ToArray()
         };
     }
 

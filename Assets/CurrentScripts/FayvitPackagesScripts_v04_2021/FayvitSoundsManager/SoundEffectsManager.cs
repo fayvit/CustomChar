@@ -23,7 +23,7 @@ namespace FayvitSounds
             a.Play();
             a.spatialBlend = spartial;
 
-            Debug.Log(a.clip.length + " : " + a.clip.name);
+            Debug.Log(a.clip.length + " : " + a.clip.name+" : "+a.clip.length+" : "+a.gameObject.name);
 
             MonoBehaviour.Destroy(a.gameObject, 2 * a.clip.length);
         }

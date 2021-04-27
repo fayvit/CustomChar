@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CriaturesLegado;
+using UnityEngine;
 using UnityEngine.AI;
 
 [System.Serializable]

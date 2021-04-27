@@ -11,6 +11,15 @@ namespace Criatures2021
         {
             new PetAttackDb()
             {
+                Nome = AttackNameId.tapa,
+                NivelDoGolpe = 1,
+                Colisor = new colisor("Armação",
+                                    new Vector3(0,.35f,-.77f),
+                                    new Vector3(0,-1.036f,1.021f)),
+                TaxaDeUso = 0.5f
+            },
+            new PetAttackDb()
+            {
                 NivelDoGolpe = 1,
                 ModPersonagem = 0,
                 Colisor = new colisor("Arma__o/Tronco/pescoco/Cabeca/BocaD"),
@@ -19,14 +28,6 @@ namespace Criatures2021
                 DistanciaEmissora = 0.5f
             },
             new PetAttackDb()
-            {
-                Nome = AttackNameId.tapa,
-                NivelDoGolpe = 1,
-                Colisor = new colisor("Arma__o/Tronco/ombroD/BracoD1/BracoD2/punhoD",
-                                    new Vector3(0,0,0),
-                                    new Vector3(-0.26f,-0,0)),
-                TaxaDeUso = 0.5f
-            },new PetAttackDb()
             {
                 NivelDoGolpe = 2,
                 ModPersonagem = 0,

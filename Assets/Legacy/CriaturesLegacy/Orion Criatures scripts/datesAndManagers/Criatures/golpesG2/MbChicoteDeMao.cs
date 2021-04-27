@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CriaturesLegado;
+using UnityEngine;
 
 [System.Serializable]
 public class MbChicoteDeMao : ImpactoAereoBase

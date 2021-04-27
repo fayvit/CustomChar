@@ -24,6 +24,10 @@ namespace FayvitCommandReader
 
         public Controlador ControlId => Controlador.N3DS;
 
+        public override ICommandConverter CC => N3DS_KeysDic.Instance;
+
+        public override ICommandReader CR => this;
+
         public float GetAxis(string esseGatilho)
         {
             esseGatilho = KeyStringDict.GetStringForAxis(esseGatilho);

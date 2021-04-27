@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 233235339114162892}
   - component: {fileID: 2900006255161427808}
   - component: {fileID: 1902762499713503267}
-  m_Layer: 0
-  m_Name: cintura_4 (1)
+  m_Layer: 6
+  m_Name: cintura_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

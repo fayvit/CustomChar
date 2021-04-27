@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FayvitCommandReader
 {
-    public class N3DS_KeysDic : IKeyDict
+    public class N3DS_KeysDic : CommandConverterBase,IKeyDict
     {
         private static N3DS_KeysDic instance;
         public static N3DS_KeysDic Instance

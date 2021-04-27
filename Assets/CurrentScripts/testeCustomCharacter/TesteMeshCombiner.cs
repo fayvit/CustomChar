@@ -292,7 +292,7 @@ public class TesteMeshCombiner
                             //if (weldVertices.Contains(M.lV[i]))
                             //if (!EstaoNaMesmaSub(mesh, i, j))
 
-                            Debug.Log("contem");
+
                             SubstituaNosTriangulos(i, j, M);
                             M.lUV[j] = M.lUV[i];
 

@@ -6,6 +6,7 @@ using FayvitCommandReader;
 using FayvitCam;
 using FayvitMove;
 using FayvitMessageAgregator;
+using System;
 
 namespace Criatures2021
 {
@@ -44,6 +45,23 @@ namespace Criatures2021
 
                 Estado = EstadoDePersonagem.aPasseio;
             }
+
+            MessageAgregator<MsgChangeToHero>.AddListener(OnChangeToHero);
+        }
+
+        private void OnDestroy()
+        {
+            MessageAgregator<MsgChangeToHero>.RemoveListener(OnChangeToHero);
+        }
+
+        private void OnChangeToHero(MsgChangeToHero obj)
+        {
+            if (obj.myHero == gameObject)
+            {
+                Estado = EstadoDePersonagem.aPasseio;
+                CameraAplicator.cam.FocusForDirectionalCam(transform, .1f, 3);
+                CameraAplicator.cam.Cdir.VarVerticalHeightPoint = 1;
+            }
         }
 
         void SeletaDeCriatures()
@@ -78,33 +96,37 @@ namespace Criatures2021
         void MoveControl()
         {
             Vector3 V = CameraAplicator.cam.SmoothCamDirectionalVector(
-                CurrentCommander.GetAxis("horizontal"),
-                CurrentCommander.GetAxis("vertical")
+                CurrentCommander.GetAxis(CommandConverterString.moveH),
+                CurrentCommander.GetAxis(CommandConverterString.moveV)
                 );
 
-            bool run = CurrentCommander.GetButton(2);
-            bool startJump = CurrentCommander.GetButtonDown(3);
-            bool pressJump = CurrentCommander.GetButton(3);
+            bool run = CurrentCommander.GetButton(CommandConverterInt.run);
+            bool startJump = CurrentCommander.GetButtonDown(CommandConverterInt.jump);
+            bool pressJump = CurrentCommander.GetButton(CommandConverterInt.jump);
 
             if(mov!=null)
                 mov.MoveApplicator(V, run, startJump, pressJump);
 
-            if (CurrentCommander.GetButtonDown(8))
+            if (mov.IsGrounded)
             {
-                Estado = EstadoDePersonagem.parado;
-                mov.MoveApplicator(Vector3.zero);
-                MessageAgregator<MsgChangeToPet>.Publish(new MsgChangeToPet() { dono = transform });
+                if (CurrentCommander.GetButtonDown(CommandConverterInt.heroToCriature, true))
+                {
+                    Estado = EstadoDePersonagem.parado;
+                    mov.MoveApplicator(Vector3.zero);
+
+                    MessageAgregator<MsgChangeToPet>.Publish(new MsgChangeToPet() { dono = transform });
+                }
             }
         }
 
         void ControlCamera()
         {
             Vector2 V = new Vector3(
-                CurrentCommander.GetAxis("Xcam"),
-                CurrentCommander.GetAxis("Ycam")
+                CurrentCommander.GetAxis(CommandConverterString.camX),
+                CurrentCommander.GetAxis(CommandConverterString.camY)
                 );
 
-            bool focar = CurrentCommander.GetButtonDown(9);
+            bool focar = CurrentCommander.GetButtonDown(CommandConverterInt.camFocus);
             CameraAplicator.cam.ValoresDeCamera(V.x, V.y, focar, mov.Controller.velocity.sqrMagnitude > .1f);
         }
     }

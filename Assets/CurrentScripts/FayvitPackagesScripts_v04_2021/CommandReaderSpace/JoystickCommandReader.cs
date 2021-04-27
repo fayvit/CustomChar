@@ -5,6 +5,7 @@ namespace FayvitCommandReader
 {
     public class JoystickCommandReader : CommandReaderSupport, ICommandReader
     {
+        ICommandConverter cc = new JoystickCommandConverter();
         public JoystickCommandReader(Controlador C)
         {
             ControlId = C;
@@ -19,6 +20,10 @@ namespace FayvitCommandReader
         public int IndexOfControl => (int)ControlId;
 
         public Controlador ControlId { get; } = Controlador.nulo;
+
+        public override ICommandConverter CC => cc;
+
+        public override ICommandReader CR => this;
 
         public float GetAxis(string esseGatilho)
         {

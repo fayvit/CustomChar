@@ -167,7 +167,7 @@ namespace FayvitBasicTools
         // Update is called once per frame
         protected virtual void Update()
         {
-
+            music.Update();
         }
     }
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - skCabelo
   - WeldVertex
+  - Criature
+  - desvieCamera
+  - cenario
   layers:
   - Default
   - TransparentFX

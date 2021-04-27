@@ -18,7 +18,7 @@ namespace Criatures2021
         public static GameObject InstantiatePet(Transform dono, PetBase criature)
         {
 
-            GameObject CA = Resources.Load<GameObject>(criature.NomeID.ToString());
+            GameObject CA = Resources.Load<GameObject>("Criatures/"+criature.NomeID.ToString());
             CA = MonoBehaviour.Instantiate(CA, dono.position - 3 * dono.forward, Quaternion.identity)
                 as GameObject;
 
@@ -32,7 +32,9 @@ namespace Criatures2021
         public static void ConfigureCriatureBase(GameObject G, PetBase cBase,Transform dono)
         {
             G.name = "CriatureAtivo";
-            PetManager C = G.GetComponent<PetManager>();
+            PetManager Cc = G.GetComponent<PetManager>();
+            MonoBehaviour.Destroy(Cc);
+            PetManagerCharacter C = G.AddComponent<PetManagerCharacter>();
             C.T_Dono = dono;
             C.MeuCriatureBase = cBase;
 

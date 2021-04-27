@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CriaturesLegado;
 
 public class AtualizadorDeImpactos
 {
@@ -78,34 +79,4 @@ public struct CaracteristicasDeImpacto
         this.noImpacto = noImpacto.ToString();
         this.parentearNoOsso = parentearOsso;
     }
-}
-
-public enum Trails
-{
-    umCuboETrail,
-    tresCubos,
-    doisCubos,
-    dentada,
-    tempestadeDeFolhas,
-    tempestadeEletrica,
-    hidroBomba,
-    tosteAtaque,
-    chuvaVenenosa,
-    avalanche
-}
-
-public enum NoImpacto
-{
-    impactoComum,
-    impactoDeFolhas,
-    impactoDeAgua,
-    impactoDeFogo,
-    impactoDeVento,
-    impactoDeGosma,
-    impactoDeGosmaAcida,
-    impactoVenenoso,
-    impactoDePedra,
-    impactoEletrico,
-    impactoDeTerra,
-    impactoDeGas
 }

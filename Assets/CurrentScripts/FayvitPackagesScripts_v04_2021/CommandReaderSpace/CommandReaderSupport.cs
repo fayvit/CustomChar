@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using FayvitSupportSingleton;
 
 namespace FayvitCommandReader
 {
     public abstract class CommandReaderSupport
     {
 
+        public abstract ICommandConverter CC{get;}
+        public abstract ICommandReader CR { get; }
         private static Dictionary<string, bool> zerados = new Dictionary<string, bool>();
+        private Dictionary<CommandConverterInt, TravarQuadro> travaQuadro = new Dictionary<CommandConverterInt, TravarQuadro>();
+
+        private enum TravarQuadro
+        { 
+            down,
+            up,
+            livre
+        }
 
         public static bool VerificaUsoDesseControle(ICommandReader c)
         {
@@ -90,6 +101,64 @@ namespace FayvitCommandReader
         public bool GetButtonUp(string nameButton, ICommandReader c)
         {
             return c.GetButtonUp(KeyStringDict.GetIntForString(nameButton));
+        }
+
+        public bool GetButton(CommandConverterInt cci)
+        {
+            return CR.GetButton(CC.DicCommandConverterInt[cci]);
+        }
+
+        public bool GetButtonDown(CommandConverterInt cci,bool travaQuadro = false)
+        {
+            bool retorno = CR.GetButtonDown(CC.DicCommandConverterInt[cci]); ;
+            
+            if(travaQuadro && retorno)
+            {
+               retorno = !VerificaTravarQuadro(cci, TravarQuadro.down);        
+            }
+
+            return retorno;
+        }
+
+        public bool GetButtonUp(CommandConverterInt cci,bool travaQuadro = false)
+        {
+            bool retorno = CR.GetButtonDown(CC.DicCommandConverterInt[cci]); ;
+
+            if (travaQuadro && retorno)
+            {
+                retorno = !VerificaTravarQuadro(cci, TravarQuadro.up);
+            }
+
+            return retorno;
+        }
+
+        bool VerificaTravarQuadro(CommandConverterInt cci,TravarQuadro tr)
+        {
+            bool retorno = false;
+            if (this.travaQuadro.ContainsKey(cci))
+            {
+                retorno = (this.travaQuadro[cci] == tr);
+            }
+            else
+                retorno = false;
+
+            this.travaQuadro[cci] = tr;
+
+            SupportSingleton.Instance.InvokeOnEndFrame(() => {
+                this.travaQuadro[cci] = TravarQuadro.livre;
+            });
+
+            return retorno;
+        }
+
+        public float GetAxis(CommandConverterString ccs)
+        {
+            return CR.GetAxis(CC.DicCommandConverterString[ccs]);
+        }
+
+        public int GetIntTriggerDown(CommandConverterString ccs)
+        {
+            return CR.GetIntTriggerDown(CC.DicCommandConverterString[ccs]);
         }
 
     }

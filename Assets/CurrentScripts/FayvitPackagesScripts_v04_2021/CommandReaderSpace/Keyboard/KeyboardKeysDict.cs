@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FayvitCommandReader
 {
-    public class KeyboardKeysDict : IKeyDict
+    public class KeyboardKeysDict : IKeyDict, ICommandConverter
     {
         private static KeyboardKeysDict instance;
         public static KeyboardKeysDict Instance
@@ -21,11 +21,11 @@ namespace FayvitCommandReader
 
         public static Dictionary<int, List<KeyCode>> dicKeys = new Dictionary<int, List<KeyCode>>
         {
-            { 0,new List<KeyCode>{KeyCode.E,KeyCode.RightArrow } },
+            { 0,new List<KeyCode>{KeyCode.Space} },
             { 1,new List<KeyCode>{KeyCode.L,KeyCode.DownArrow} },
             { 2,new List<KeyCode>{KeyCode.LeftShift,KeyCode.LeftArrow} },
-            { 3,new List<KeyCode>{KeyCode.Space} },
-            { 4,new List<KeyCode>{KeyCode.I} },
+            { 3,new List<KeyCode>{KeyCode.E,KeyCode.RightArrow,KeyCode.I } },
+            { 4,new List<KeyCode>{KeyCode.RightShift} },
             { 5,new List<KeyCode>{KeyCode.O,KeyCode.UpArrow} },
             { 6,new List<KeyCode>{KeyCode.Escape} },
             { 7,new List<KeyCode>{KeyCode.Return} },
@@ -47,6 +47,34 @@ namespace FayvitCommandReader
             { "Zcam",new List <ValAxis>{new ValAxis(KeyCode.Y,KeyCode.I)} },
         };
 
+
+        
+
+        public Dictionary<CommandConverterInt, int> dicCommandConverterInt = new Dictionary<CommandConverterInt, int>()
+        {
+            { CommandConverterInt.jump,0},
+            { CommandConverterInt.dodge,1},
+            { CommandConverterInt.run,2},
+            { CommandConverterInt.criatureChange,3},
+            { CommandConverterInt.itemUse,4},
+            { CommandConverterInt.lightAttack,5},
+            { CommandConverterInt.heroToCriature,8},
+            { CommandConverterInt.camFocus,9}
+        };
+
+        public Dictionary<CommandConverterString, string> dicCommandConverterString = new Dictionary<CommandConverterString, string>()
+        {
+            { CommandConverterString.camX,"Xcam"},
+            { CommandConverterString.camY,"Ycam"},
+            { CommandConverterString.moveH,"horizontal"},
+            { CommandConverterString.moveV,"vertical"},
+            { CommandConverterString.attack,"triggerR"},
+            { CommandConverterString.focusInTheEnemy,"triggerL"},
+        };
+
+        public Dictionary<CommandConverterString, string> DicCommandConverterString => dicCommandConverterString;
+
+        public Dictionary<CommandConverterInt, int> DicCommandConverterInt => dicCommandConverterInt;
 
         public Dictionary<int, List<KeyCode>> DicKeys => dicKeys;
 
