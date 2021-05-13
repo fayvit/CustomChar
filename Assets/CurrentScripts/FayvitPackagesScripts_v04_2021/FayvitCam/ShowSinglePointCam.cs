@@ -51,7 +51,7 @@ namespace FayvitCam
 
             timeCount += Time.deltaTime;
 
-            transform.position = Vector3.Lerp(startPosition, camPoint, lerp);
+            transform.position = Vector3.Lerp(startPosition, camPoint+Vector3.up*prop.characterHeight, lerp);
             Vector3 forward = Vector3.Lerp(startRotation,targetPoint-camPoint,lerp);
             transform.rotation = Quaternion.LookRotation(forward);
             //transform.LookAt(targetPoint + prop.deslCamFocus);

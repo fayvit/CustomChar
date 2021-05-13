@@ -288,7 +288,9 @@ public class GameController : MonoBehaviour
     }
 
     public void BotaTrocarCriature()
-    { DadosDoPersonagem dados = manager.Dados;
+    { 
+        
+        DadosDoPersonagem dados = manager.Dados;
         if (dados.CriaturesAtivos[dados.CriatureSai + 1].CaracCriature.meusAtributos.PV.Corrente > 0)
         {
             FinalizaHuds();

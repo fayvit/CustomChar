@@ -9,9 +9,9 @@ namespace Criatures2021
 
         public static void VerificaDano(GameObject atacado, GameObject atacante, PetAttackBase golpe)
         {
-            if (atacado.tag == "eventoComGolpe" && !GameController.g.estaEmLuta)
+            if (atacado.tag == "eventoComGolpe" /*&& !GameController.g.estaEmLuta*/)
             {
-                Debug.LogWarning("Evento com golpe removido, necessário refazer");
+                Debug.LogWarning("Evento com golpe removido, necessário refazer, condicional de esta em luta removido");
                 //atacado.GetComponent<EventoComGolpe>().DisparaEvento(golpe.Nome);
             }
 
@@ -39,11 +39,12 @@ namespace Criatures2021
         //    animatorDoAtacado.Play("dano1");
         //}
 
-        public static void InsereEstouEmDano(GameObject doAtacado,PetAttackBase golpe)
+        public static void InsereEstouEmDano(GameObject doAtacado,PetAttackBase golpe,GameObject atacante)
         {
             MessageAgregator<MsgEnterInDamageState>.Publish(new MsgEnterInDamageState() { 
                 oAtacado = doAtacado.gameObject,
-                golpe = golpe
+                golpe = golpe,
+                atacante = atacante
             });
             //EstouEmDano eED = doAtacado.gameObject.AddComponent<EstouEmDano>();
             //eED.esseGolpe = golpe;
@@ -58,7 +59,7 @@ namespace Criatures2021
 
             CalculaDano(doAtacado, atacante, golpe);
 
-            InsereEstouEmDano(doAtacado.gameObject, golpe);
+            InsereEstouEmDano(doAtacado.gameObject, golpe,atacante);
 
             VerificaVida(atacante, doAtacado);
         }
@@ -154,7 +155,7 @@ namespace Criatures2021
             }
             Debug.Log("modificador de potencia para esse golpe é " + golpePersonagem.ModPersonagem);
             //int  dano = (int)((((((((2 * level / 5) + 2) * potenciaDoAtacante* 20*(golpe.PotenciaCorrente+golpePersonagem.ModPersonagem) )/ aDoAtacado.Defesa.Corrente)/ 50) +2) *STAB * multiplicador) *rd / 100);
-            int dano = (int)(((2 * level + 10) * potenciaDoAtacante * (golpe.PotenciaCorrente + golpePersonagem.ModPersonagem) / (aDoAtacado.Defesa.Corrente + 250) + 2) * STAB * multiplicador * rd);
+            int dano = (int)(((2 * level) * potenciaDoAtacante * (golpe.PotenciaCorrente + golpePersonagem.ModPersonagem) / (45f*aDoAtacado.Defesa.Corrente + 250) + 2) * STAB * multiplicador * rd);
             AplicaCalculoComVIsaoDeDano(doAtacado, golpe, aDoAtacado, multiplicador, dano, aDoAtacado.Defesa.Corrente, potenciaDoAtacante);
         }
 
@@ -262,8 +263,9 @@ namespace Criatures2021
 
     public struct MsgEnterInDamageState : IMessageBase
     {
+        public GameObject atacante;
         public GameObject oAtacado;
-        public PetAttackBase golpe;
+        public PetAttackBase golpe;        
     }
 
     public struct MsgCriatureDefeated : IMessageBase

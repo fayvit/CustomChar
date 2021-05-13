@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FayvitMessageAgregator;
+using FayvitBasicTools;
 
 namespace Criatures2021
 {
@@ -9,8 +10,6 @@ namespace Criatures2021
     public class ProjetilBase : PetAttackBase
     {
         private bool addView = false;
-        private bool animaEmissor = true;
-        private float tempoDecorrido = 0;
 
         protected ProjetilFeatures carac = new ProjetilFeatures()
         {
@@ -18,19 +17,13 @@ namespace Criatures2021
             tipo = ProjetilType.basico
         };
 
-        protected bool AnimaEmissor
-        {
-            get { return animaEmissor; }
-            set { animaEmissor = value; }
-        }
+        protected bool AnimaEmissor { get; set; } = true;
 
         public ProjetilBase(PetAttackFeatures C) : base(C) { }
 
         public override void IniciaGolpe(GameObject G)
         {
-            addView = false;
-            tempoDecorrido = 0;
-            
+            addView = false;            
 
             carac.posInicial = EmissionPosition.Get(G,Nome);
 
@@ -46,19 +39,20 @@ namespace Criatures2021
                 nomeAnima = animacao
             });
 
-            //    AnimadorCriature.AnimaAtaque(G, "emissor");
-            //else
-            //    AnimadorCriature.AnimaAtaque(G, this.Nome.ToString());
+            MessageAgregator<MsgRequest3dSound>.Publish(new MsgRequest3dSound()
+            {
+                sender = G.transform,
+                sfxId = SomDoGolpe
+            });
+
         }
 
-        public override void UpdateGolpe(GameObject G)
+        public override void UpdateGolpe(GameObject G,GameObject focado = null)
         {
-
-            tempoDecorrido += Time.deltaTime;
             if (!addView)
             {
                 addView = true;
-                AplicadorDeProjeteis.AplicaProjetil(G, this, carac);
+                ProjetilApply.AplicaProjetil(G, this, carac);
             }
         }
     }

@@ -12,15 +12,15 @@ namespace Criatures2021
                 case PetName.Xuash:
                     retorno = Xuash.Criature;
                 break;
-                //case nomesCriatures.Florest:
-                //    retorno = FlorestG2.Criature;
-                //break;
-                //case nomesCriatures.PolyCharm:
-                //    retorno = PolyCharmG2.Criature;
-                //break;
-                //case nomesCriatures.Arpia:
-                //    retorno = ArpiaG2.Criature;
-                //break;
+                case PetName.Florest:
+                    retorno = Florest.Criature;
+                break;
+                case PetName.PolyCharm:
+                    retorno = PolyCharm.Criature;
+                break;
+                case PetName.Arpia:
+                    retorno = Arpia.Criature;
+                break;
                 //case nomesCriatures.Iruin:
                 //    retorno = IruinG2.Criature;
                 //break;
@@ -69,9 +69,9 @@ namespace Criatures2021
                 //case nomesCriatures.DogMour:
                 //    retorno = MbDogMour.Criature;
                 //    break;
-                //case nomesCriatures.Batler:
-                //    retorno = Batler.Criature;
-                //    break;
+                case PetName.Batler:
+                    retorno = Batler.Criature;
+                break;
                 //case nomesCriatures.Wisks:
                 //    retorno = Wisks.Criature;
                 //    break;

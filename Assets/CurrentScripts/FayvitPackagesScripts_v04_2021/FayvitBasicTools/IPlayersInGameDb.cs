@@ -4,16 +4,7 @@ namespace FayvitBasicTools
 {
     public interface IPlayersInGameDb
     {
-        public enum PlayerDbState
-        {
-            abertoParaLocal,
-            abertoParaRede,
-            ocupadoLocal,
-            ocupadoRede,
-            fechado,
-            desconexaoAgendada
-        }
-
+        
         public int NetID { get; set; }
         public string GameName { get; set; }
         public PlayerDbState DbState { get; set; }
@@ -21,9 +12,28 @@ namespace FayvitBasicTools
         public ICharacterManager Manager{get;set;}
     }
 
-    public static class PlayersInGameDbBase
+    public enum PlayerDbState
     {
-        public static int FirstOfState(IPlayersInGameDb[] s,IPlayersInGameDb.PlayerDbState findingState)
+        abertoParaLocal,
+        abertoParaRede,
+        ocupadoLocal,
+        ocupadoRede,
+        fechado,
+        desconexaoAgendada
+    }
+
+    public class PlayersInGameDb : PlayersInGameDbBase, IPlayersInGameDb
+    {
+        public int NetID { get; set; }
+        public string GameName { get; set; }
+        public PlayerDbState DbState { get; set; }
+        public Controlador Control { get; set; }
+        public ICharacterManager Manager { get; set; }
+    }
+
+    public class PlayersInGameDbBase
+    {
+        public static int FirstOfState(IPlayersInGameDb[] s,PlayerDbState findingState)
         {
             for (int i = 0; i < s.Length; i++)
             {
@@ -44,7 +54,7 @@ namespace FayvitBasicTools
         {
             for (int i = 0; i < s.Length; i++)
             {
-                if (s[i].DbState == IPlayersInGameDb.PlayerDbState.ocupadoLocal && (int)s[i].Control == controlador)
+                if (s[i].DbState == PlayerDbState.ocupadoLocal && (int)s[i].Control == controlador)
                     return false;
             }
 

@@ -20,7 +20,7 @@ namespace Criatures2021
             procurouAlvo = false;
         }
 
-        public static void AjudaAtaque(Transform alvo, Transform T)
+        public static void AttackHelper(Transform alvo, Transform T)
         {
             Vector3 forwardInicial = T.forward;
             if (alvo != null)
@@ -35,15 +35,21 @@ namespace Criatures2021
             }
         }
 
-        public void ImpatoAtivo(GameObject G, PetAttackBase ativa, ImpactFeatures caracteristica)
+        public void ImpatoAtivo(GameObject G, PetAttackBase ativa, ImpactFeatures caracteristica,GameObject focado=null)
         {
+
+            if (focado)
+                alvoProcurado = focado.transform;
+            else
+                alvoProcurado = FindBestTarget.Procure(G, new string[1] { "Criature" });
+
             tempoDecorrido += Time.deltaTime;
             if (!procurouAlvo)
             {
                 alvoProcurado = CriaturesPerto.procureUmBomAlvo(G);
                 procurouAlvo = true;
                 Debug.Log(alvoProcurado + "  esse é o alvo");
-                AjudaAtaque(alvoProcurado, G.transform);
+                AttackHelper(alvoProcurado, G.transform);
             }
 
             if (!addView)
@@ -64,7 +70,7 @@ namespace Criatures2021
             if (tempoDecorrido < ativa.TempoDeMoveMax)
             {
                 if (((int)(tempoDecorrido * 10)) % 2 == 0 && alvoProcurado)
-                    AjudaAtaque(alvoProcurado, G.transform);
+                    AttackHelper(alvoProcurado, G.transform);
 
                 ativa.DirDeREpulsao = G.transform.forward;
 
@@ -101,7 +107,9 @@ namespace Criatures2021
         hidroBomba,
         tosteAtaque,
         chuvaVenenosa,
-        avalanche
+        avalanche,
+        colisorParaGarra,
+        colisorDentada
     }
 
     public enum ImpactParticles
@@ -117,6 +125,21 @@ namespace Criatures2021
         impactoDePedra,
         impactoEletrico,
         impactoDeTerra,
-        impactoDeGas
+        impactoDeGas,
+        defeatedParticles,
+        fogoAoChao,
+        poeiraAoVento
+    }
+
+    public enum GeneralParticles
+    {
+        rollParticles,
+        subindoSobreVoo,
+        particulaLuvaDeGuarde,
+        raioDeLuvaDeGuarde,
+        replaceParticles,
+        acaoDeCura1,
+        captureEscape,
+        luz1captura
     }
 }

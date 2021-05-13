@@ -160,9 +160,16 @@ namespace FayvitCam
             shake.Update();
         }
 
-        public void RetornarParaCameraDirecional()
+        public void RemoveMira()
         {
             focarAdv.RemoveMira();
+        }
+
+        public void RetornarParaCameraDirecional(Vector3 dirViewCam = default)
+        {
+                
+            focarAdv.RemoveMira();
+            cDir.SetPositionAndRotationToLerp(dirViewCam);
             Style = EstiloDeCamera.onFree;
         }
 

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using CriaturesLegado;
 
 namespace Criatures2021
 {
@@ -14,9 +13,9 @@ namespace Criatures2021
             tipo = PetTypeName.Normal,
             carac = AttackDiferentialId.colisao,
             custoPE = 0,
-            potenciaCorrente = 2,
-            potenciaMaxima = 8,
-            potenciaMinima = 1,
+            potenciaCorrente = 10,
+            potenciaMaxima = 15,
+            potenciaMinima = 5,
             tempoDeReuso = 3.5f,
             TempoNoDano = 0.5f,
             distanciaDeRepulsao = 65f,
@@ -24,7 +23,8 @@ namespace Criatures2021
             tempoDeMoveMin = 0.74f,//74
             tempoDeMoveMax = 1.2f,
             tempoDeDestroy = 1.4f,
-            velocidadeDeGolpe = 25
+            velocidadeDeGolpe = 25,
+            custoDeStamina=35
         }
         )
         {

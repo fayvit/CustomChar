@@ -30,14 +30,14 @@ namespace CriaturesLegado
             {
                 case FluxoDeRetorno.criature:
                     esseItem.IniciaUsoComCriature(gerente.gameObject);
-                    break;
+                break;
                 case FluxoDeRetorno.heroi:
                     esseItem.IniciaUsoDeHeroi(gerente.gameObject);
-                    break;
+                break;
                 case FluxoDeRetorno.menuHeroi:
                 case FluxoDeRetorno.menuCriature:
                     esseItem.IniciaUsoDeMenu(gerente.gameObject);
-                    break;
+                break;
             }
         }
 

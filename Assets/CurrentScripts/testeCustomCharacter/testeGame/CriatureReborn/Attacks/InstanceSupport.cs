@@ -10,7 +10,19 @@ namespace Criatures2021
                                                     Vector3 forwardInicial,
                                                     float tempoDeGolpe)
         {
-            return InstancieEDestrua(nomeGolpe.ToString(), posInicial, forwardInicial, tempoDeGolpe);
+            return InstancieEDestrua("Attacks/" + nomeGolpe.ToString(), posInicial, forwardInicial, tempoDeGolpe);
+        }
+
+        public static GameObject InstancieEDestrua(GeneralParticles nomeParticles,
+                                                    Vector3 posInicial,
+                                                    float tempoDeGolpe,
+                                                    Vector3 forwardInicial=default
+                                                    )
+        {
+            if (forwardInicial == default)
+                forwardInicial = Vector3.forward;
+
+            return InstancieEDestrua("particles/" + nomeParticles.ToString(), posInicial, forwardInicial, tempoDeGolpe);
         }
 
         private static GameObject InstancieEDestrua(string nome,
@@ -18,7 +30,7 @@ namespace Criatures2021
                                                     Vector3 forwardInicial,
                                                     float tempoDeGolpe)
         {
-            GameObject golpeX = Resources.Load<GameObject>("Attacks/" + nome);
+            GameObject golpeX = Resources.Load<GameObject>(nome);
 
             golpeX = Object.Instantiate(golpeX, posInicial, Quaternion.LookRotation(forwardInicial));
 

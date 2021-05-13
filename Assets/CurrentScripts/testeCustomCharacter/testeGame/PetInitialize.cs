@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CriaturesLegado;
 using UnityEngine.SceneManagement;
 
 namespace Criatures2021

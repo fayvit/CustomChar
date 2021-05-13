@@ -15,13 +15,12 @@ namespace Criatures2021
         public int potenciaMinima = 1;
         public int potenciaCorrente = 2;
         public int potenciaMaxima = 3;
-        public int danoMaximo = 8;
         public int modCorrente = 0;
         public int custoPE = 0;
 
         public float tempoDeReuso = 3.5f;
         public float modTempoDeReuso = 0;
-        public float ultimoUso = -100;
+        public float custoDeStamina = -100;
         public float distanciaDeRepulsao = 55;
         public float velocidadeDeRepulsao = 27;
         public float TempoNoDano = 0.25f;

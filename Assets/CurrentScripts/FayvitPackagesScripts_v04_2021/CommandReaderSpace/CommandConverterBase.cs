@@ -14,7 +14,10 @@ namespace FayvitCommandReader
             { CommandConverterInt.itemUse,4},
             { CommandConverterInt.lightAttack,5},
             { CommandConverterInt.heroToCriature,8},
-            { CommandConverterInt.camFocus,9}
+            { CommandConverterInt.camFocus,9},
+            { CommandConverterInt.confirmButton,1},
+            { CommandConverterInt.returnButton,0},
+            { CommandConverterInt.humanAction,1},
         };
 
         public Dictionary<CommandConverterString, string> dicCommandConverterString = new Dictionary<CommandConverterString, string>()
@@ -23,7 +26,10 @@ namespace FayvitCommandReader
             { CommandConverterString.camY,"Ycam"},
             { CommandConverterString.moveH,"horizontal"},
             { CommandConverterString.moveV,"vertical"},
-            { CommandConverterString.attack,"triggerR"}
+            { CommandConverterString.attack,"triggerR"},
+            { CommandConverterString.focusInTheEnemy,"triggerL"},
+            { CommandConverterString.selectAttack_selectCriature,"VDpad"},
+            { CommandConverterString.itemChange,"HDpad"}
         };
 
         public Dictionary<CommandConverterString, string> DicCommandConverterString => dicCommandConverterString;

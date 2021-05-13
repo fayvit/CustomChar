@@ -7,9 +7,11 @@ using FayvitEventAgregator;
 using FayvitCommandReader;
 using FayvitCam;
 using FayvitBasicTools;
+using System;
 
 public class CustomizationManagerMenu : MonoBehaviour
 {
+    [SerializeField] private InputTextManager inputTextManager;
     [SerializeField] private ConfirmationPanel confirmation;
     [SerializeField] private CustomizationMenu cMenu;
     [SerializeField] private SectionCustomizationManager secManager;
@@ -41,7 +43,8 @@ public class CustomizationManagerMenu : MonoBehaviour
         globalizationColors,
         globalizationMenu,
         confirmacaoAberta,
-        characterSaveChanges
+        characterSaveChanges,
+        inputTextOpened
     }    
 
     private EditableElements[] activeEditables;
@@ -505,6 +508,23 @@ public class CustomizationManagerMenu : MonoBehaviour
         }
     }
 
+    void ChangeBaseCharacter(bool masculino)
+    {
+        if (masculino)
+        {
+            secManager = secManagerH_Base;
+            sdbc = sdbc_H;
+        }
+        else
+        {
+            secManager = secManagerM_Base;
+            sdbc = sdbc_M;
+        }
+
+        secManagerH_Base.gameObject.SetActive(masculino);
+        secManagerM_Base.gameObject.SetActive(!masculino);
+    }
+
     private void MainAction(int index)
     {
 
@@ -532,10 +552,7 @@ public class CustomizationManagerMenu : MonoBehaviour
         {
             if (secManager == secManagerH_Base)
             {
-                secManager = secManagerM_Base;
-                secManagerH_Base.gameObject.SetActive(false);
-                secManagerM_Base.gameObject.SetActive(true);
-                sdbc = sdbc_M;
+                ChangeBaseCharacter(false);
                 DirectionalCamera cDir = CameraAplicator.cam.Cdir;
                 //CameraAplicator.cam.FocusBasicCam(secManager.transform, 0.2f, .7f);
                 CameraAplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
@@ -547,10 +564,7 @@ public class CustomizationManagerMenu : MonoBehaviour
             }
             else if (secManager == secManagerM_Base)
             {
-                secManager = secManagerH_Base;
-                secManagerH_Base.gameObject.SetActive(true);
-                secManagerM_Base.gameObject.SetActive(false);
-                sdbc = sdbc_H;
+                ChangeBaseCharacter(true);
                 DirectionalCamera cDir = CameraAplicator.cam.Cdir;
                 //CameraAplicator.cam.FocusBasicCam(secManager.transform, 0.2f, .7f);
                 CameraAplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
@@ -764,7 +778,7 @@ public class CustomizationManagerMenu : MonoBehaviour
             confirmation.StartConfirmationPanel(() =>
             {
                 bool generoMasculino = secManager == secManagerH_Base;
-                testMeshCombiner.StartCombiner(secManager,generoMasculino: generoMasculino);
+                testMeshCombiner.StartCombiner(secManager);
                 estado = EstadoDoMenu.main;
             }, () =>
             {
@@ -835,11 +849,11 @@ public class CustomizationManagerMenu : MonoBehaviour
             string[] ss = new string[lccd.Count];
             for (int i = 0; i < ss.Length; i++)
             {
-                ss[i] = lccd[i].GetSid;
+                ss[i] = lccd[i].Sid;
             }
             cMenu.FinishHud();
             charDbMenu.StartHud((int x) => { }, ss,selectIndex:indice);
-
+            ChangeBaseCharacter(lccd[indice].PersBase == PersonagemBase.masculino);
             secManager.SetCustomDates(lccd[indice]);
 
             estado = EstadoDoMenu.characterSaveChanges;
@@ -1067,10 +1081,26 @@ public class CustomizationManagerMenu : MonoBehaviour
             EstadoDoMenu.globalizationMenu=>GlobalizationMenuState(),
             EstadoDoMenu.confirmacaoAberta=>ConfirmationOpened(),
             EstadoDoMenu.characterSaveChanges=>CharacterSaveChangesState(),
+            EstadoDoMenu.inputTextOpened=>InputTextOpened(),
             _ => false
         };
         
     }
+
+    private bool InputTextOpened()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            inputTextManager.ConfirmationAction();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            inputTextManager.BackAction();
+        }
+
+        return false;
+    }
+
     private bool CharacterSaveChangesState()
     {
         int change = -CommandReader.GetIntTriggerDown("vertical", Controlador.teclado);
@@ -1078,7 +1108,14 @@ public class CustomizationManagerMenu : MonoBehaviour
         {
             charDbMenu.ChangeOption(change);
             List<CustomizationContainerDates> lccd = ToSaveCustomizationContainer.Instance.ccds;
-            secManager.SetCustomDates(lccd[charDbMenu.SelectedOption]);
+            ChangeBaseCharacter(lccd[charDbMenu.SelectedOption].PersBase == PersonagemBase.masculino);
+
+            SupportSingleton.Instance.InvokeOnEndFrame(() =>
+            {
+                secManager.SetCustomDates(lccd[charDbMenu.SelectedOption]);
+            });
+
+            
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -1091,19 +1128,45 @@ public class CustomizationManagerMenu : MonoBehaviour
         {
             estado = EstadoDoMenu.confirmacaoAberta;
             confirmation.StartConfirmationPanel(
-                () => {
+                () =>
+                {
                     ToSaveCustomizationContainer.Instance.ccds.RemoveAt(charDbMenu.SelectedOption);
                     ToSaveCustomizationContainer.Instance.SaveLoaded();
 
                     charDbMenu.FinishHud();
-                    
+
                     StartCharactersSavedMenu();
 
                     estado = EstadoDoMenu.characterSaveChanges;
-                }, 
-                () => { estado = EstadoDoMenu.characterSaveChanges; }, 
-                "Gostaria de deletar esse personagem do vetor?", 
+                },
+                () => { estado = EstadoDoMenu.characterSaveChanges; },
+                "Gostaria de deletar esse personagem do vetor?",
                 hideSelections: true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            //charDbMenu.FinishHud();
+            estado = EstadoDoMenu.inputTextOpened;
+
+            inputTextManager.StartHud(() => {
+                CustomizationContainerDates ccd= ToSaveCustomizationContainer.Instance.ccds[charDbMenu.SelectedOption];
+
+                ccd.Sid = inputTextManager.TextContent;
+                ToSaveCustomizationContainer.Instance.SaveLoaded();
+                int guard = charDbMenu.SelectedOption;
+                charDbMenu.FinishHud();
+                StartCharactersSavedMenu(guard);
+                inputTextManager.FinishHud();
+
+                estado = EstadoDoMenu.characterSaveChanges;
+
+            }, () => {
+                //inputTextManager.FinishHud();
+                //charDbMenu.FinishHud();
+                //StartCharactersSavedMenu();
+                estado = EstadoDoMenu.characterSaveChanges;
+            },
+                "Escolha um nome, que será identificador  ID, para esse personagem");
         }
         return true;
     }

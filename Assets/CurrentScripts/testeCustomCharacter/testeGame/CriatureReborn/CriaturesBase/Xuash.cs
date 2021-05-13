@@ -22,24 +22,24 @@ namespace Criatures2021
             {
                 NivelDoGolpe = 1,
                 ModPersonagem = 0,
-                Colisor = new colisor("Arma__o/Tronco/pescoco/Cabeca/BocaD"),
+                Colisor = new colisor("Armação/Tronco/pescoco/Cabeca/BocaD"),
                 Nome = AttackNameId.rajadaDeAgua,
                 TaxaDeUso = 1,
                 DistanciaEmissora = 0.5f
             },
             new PetAttackDb()
             {
-                NivelDoGolpe = 2,
+                NivelDoGolpe = 10,
                 ModPersonagem = 0,
-                Colisor = new colisor("Arma__o/Tronco/pescoco/Cabeca/BocaD"),
+                Colisor = new colisor("Armação/Tronco/pescoco/Cabeca/BocaD"),
                 Nome = AttackNameId.turboDeAgua,
                 TaxaDeUso = 1.25f,
                 DistanciaEmissora = 0.5f
             },new PetAttackDb()
             {
-                NivelDoGolpe = 7,
+                NivelDoGolpe = 10,
                 ModPersonagem = 0,
-                Colisor = new colisor("Arma__o/Tronco",
+                Colisor = new colisor("Armação/Tronco",
                                                   new Vector3(0,0,0),
                                                   new Vector3(-0.26f,-0,0)),
                 Nome = AttackNameId.hidroBomba,
@@ -51,8 +51,6 @@ namespace Criatures2021
         {
             get
             {
-                Debug.Log("Criando um Xuash");
-
                 return new PetBase()
                 {
                     NomeID = PetName.Xuash,
@@ -75,6 +73,7 @@ namespace Criatures2021
                     },
                     MovFeat = new MoveFeatures()
                     {
+                        rollSpeed = 12,
                         walkSpeed = 5,
                         runSpeed = 6,
                         jumpFeat = new JumpFeatures()

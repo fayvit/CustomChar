@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using CriaturesLegado;
-using Criatures2021;
 
 [System.Serializable]
 public class OlharEnfraquecedor : ProjetilBase

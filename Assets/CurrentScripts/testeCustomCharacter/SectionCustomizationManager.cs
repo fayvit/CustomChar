@@ -9,6 +9,8 @@ public class SectionCustomizationManager : MonoBehaviour
     [ArrayElementTitle("id"), SerializeField] private List<CustomizationTextures> texturasE;
     [ArrayElementTitle("id"), SerializeField] private List<ColorAssignements> colorAssign;
 
+    public bool masculino = true;
+
     [SerializeField] private SectionDataBaseContainer sdbc;
     private SectionDataBase transportSDB;
     private int transportInt;
@@ -496,7 +498,9 @@ public class SectionCustomizationManager : MonoBehaviour
     public CustomizationContainerDates GetCustomDates()
     {
         CustomizationContainerDates ccd = new CustomizationContainerDates();
-        ccd.SetDates(malhas, malhasComb, texturasE, colorAssign);
+        ccd.SetDates(
+            masculino?PersonagemBase.masculino:PersonagemBase.feminino, 
+            malhas, malhasComb, texturasE, colorAssign);
         return ccd;
     }
 

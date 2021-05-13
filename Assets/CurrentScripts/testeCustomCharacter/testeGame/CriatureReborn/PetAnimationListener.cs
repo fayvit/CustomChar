@@ -13,9 +13,11 @@ namespace Criatures2021
         [SerializeField] private string groundedNameBool = "noChao";
         [SerializeField] private string jumpAnimationStateName = "pulando";
         [SerializeField] private string atkBool = "atacando";
+        [SerializeField] private string damageStateName = "dano1";
         [SerializeField] private string emDanoBool = "dano1";
         [SerializeField] private string emDano_2Bool = "dano2";
         [SerializeField] private string defeatedBool = "cair";
+        [SerializeField] private string rollStateName = "Roll";
 
 
         [SerializeField] private Animator A;
@@ -34,6 +36,8 @@ namespace Criatures2021
             MessageAgregator<MsgEndDamageState>.AddListener(OnEndDamageState);
             MessageAgregator<AnimateFallMessage>.AddListener(OnStartFall);
             MessageAgregator<MsgCriatureDefeated>.AddListener(OnCriatureDefeated);
+            MessageAgregator<MsgStartRoll>.AddListener(OnStartRoll);
+            MessageAgregator<MsgRequestDamageAnimateWithFade>.AddListener(OnRequestDamageAnimateWithFade);
         }
 
         private void OnDestroy()
@@ -47,12 +51,37 @@ namespace Criatures2021
             MessageAgregator<MsgEndDamageState>.RemoveListener(OnEndDamageState);
             MessageAgregator<AnimateFallMessage>.RemoveListener(OnStartFall);
             MessageAgregator<MsgCriatureDefeated>.RemoveListener(OnCriatureDefeated);
+            MessageAgregator<MsgStartRoll>.RemoveListener(OnStartRoll);
+            MessageAgregator<MsgRequestDamageAnimateWithFade>.RemoveListener(OnRequestDamageAnimateWithFade);
+        }
+
+        private void OnRequestDamageAnimateWithFade(MsgRequestDamageAnimateWithFade obj)
+        {
+            if (obj.animatePet == gameObject)
+            {
+                A.CrossFade(damageStateName, 0);
+                A.SetBool(emDanoBool, true);
+                A.SetBool(emDano_2Bool, true);
+            }
+        }
+
+        private void OnStartRoll(MsgStartRoll obj)
+        {
+            if (obj.gameObject == gameObject)
+            {
+                //Vector3 dir = obj.startDir;//(Vector3)obj.MySendObjects[1];
+                //A.SetFloat("Vert", dir.z);
+                //A.SetFloat("Horiz", dir.x);
+                A.Play(rollStateName);
+            }
         }
 
         private void OnCriatureDefeated(MsgCriatureDefeated obj)
         {
             if (obj.defeated == gameObject)
             {
+                A.SetBool(emDanoBool, false);
+                A.SetBool(emDano_2Bool, false);
                 A.SetBool(defeatedBool,true);
             }
         }
@@ -63,7 +92,7 @@ namespace Criatures2021
             {
                 A.SetBool(jumpNameBool, true);
                 A.SetBool(groundedNameBool, false);
-                A.Play(jumpNameBool);
+                A.Play(jumpAnimationStateName);
             }
         }
 
@@ -80,8 +109,8 @@ namespace Criatures2021
         {
             if (obj.oAtacado == gameObject)
             {
-                bool b = UnityEngine.Random.Range(0, 2)==0?true:false;
-                string animationName = b?"dano1": "dano1";
+                bool b = UnityEngine.Random.Range(0, 2)==0 ? true : false;
+                string animationName = b?"dano1": "dano2";
                 A.Play(animationName);
                 A.SetBool(emDanoBool, true);
                 A.SetBool(emDano_2Bool, true);

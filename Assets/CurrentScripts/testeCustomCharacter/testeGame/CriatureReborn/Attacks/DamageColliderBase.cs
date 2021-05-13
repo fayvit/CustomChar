@@ -40,9 +40,9 @@ namespace Criatures2021
                     Qparticles = Quaternion.LookRotation(dono.transform.forward);
                 break;
                 default:
-                    Debug.LogError("fazer get prefab de impacto");
-                    //GameObject impacto = GameController.g.El.retorna(noImpacto);
-                    //Qparticles = impacto.transform.rotation;
+                    //Debug.LogError("fazer get prefab de impacto");
+                    GameObject impacto = Resources.Load<GameObject>("particles/"+noImpacto.ToString());
+                    Qparticles = impacto.transform.rotation;
                 break;
             }
 

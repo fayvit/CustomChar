@@ -27,7 +27,7 @@ namespace FayvitUI
             boxOut,
             messageFilling,
             messageFill,
-            bocGoingOut,
+            boxGoingOut,
             boxExited
         }
 
@@ -152,7 +152,7 @@ namespace FayvitUI
                             uiText.text = textForMessage;
                         }
                         break;
-                    case MessagePhase.bocGoingOut:
+                    case MessagePhase.boxGoingOut:
                         if (Mathf.Abs(messagePanel.anchoredPosition.y - Screen.height) > 0.1f)
                         {
                             messagePanel.anchoredPosition = Vector2.Lerp(messagePanel.anchoredPosition,
@@ -164,7 +164,7 @@ namespace FayvitUI
                             startMens = false;
                             phase = MessagePhase.boxExited;
                         }
-                        break;
+                    break;
                 }
 
 
@@ -178,40 +178,29 @@ namespace FayvitUI
             {
                 case MessagePhase.messageFilling:
                     MessageAgregator<FillingTextDisplayMessage>.Publish();
-                    //EventAgregator.Publish(EventKey.mensagemEnchendo);
-                    //EventAgregator.Publish(new StandardSendGameEvent(GameController.g.gameObject, EventKey.disparaSom, SoundEffectID.Book1.ToString()));
                     uiText.text = textForMessage;
                     phase = MessagePhase.messageFill;
-                    break;
+                break;
 
                 case MessagePhase.messageFill:
                     MessageAgregator<FillTextDisplayMessage>.Publish();
-                    //EventAgregator.Publish(EventKey.mensgemCheia);
-                    //EventAgregator.Publish(new StandardSendGameEvent(GameController.g.gameObject, EventKey.disparaSom, SoundEffectID.Book1.ToString()));
-                    phase = MessagePhase.bocGoingOut;
+                    phase = MessagePhase.boxGoingOut;
                     timeCount = 0;
-                    break;
+                break;
 
                 case MessagePhase.boxOut:
                     MessageAgregator<TextBoxGoingMessage>.Publish();
-                    //EventAgregator.Publish(EventKey.caixaDeTextoIndo);
-                    //EventAgregator.Publish(new StandardSendGameEvent(GameController.g.gameObject, EventKey.disparaSom, SoundEffectID.Book1.ToString()));
                     messagePanel.anchoredPosition = originalPos;
                     phase = MessagePhase.messageFilling;
-                    break;
+                break;
 
-                case MessagePhase.bocGoingOut:
+                case MessagePhase.boxGoingOut:
                     startMens = false;
                     phase = MessagePhase.boxExited;
                     MessageAgregator<TextBoxCommingMessage>.Publish();
-                    //EventAgregator.Publish(EventKey.caixaDeTextoSaiu);
+                    
                     messageArrayIndex++;
-                    break;
-                    /*
-                    EventAgregator.Publish(new StandardSendStringEvent(GameController.g.gameObject, SoundEffectID.Book1.ToString(), EventKey.disparaSom));
-                    painelDaMens.anchoredPosition = new Vector2(painelDaMens.anchoredPosition.x, Screen.height);
-                    fase = FasesDaMensagem.caixaSaiu;
-                break;*/
+                break;
             }
         }
 

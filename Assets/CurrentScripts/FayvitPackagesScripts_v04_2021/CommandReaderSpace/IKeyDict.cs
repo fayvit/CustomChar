@@ -26,7 +26,10 @@ namespace FayvitCommandReader
         lightAttack,
         dodge,
         heroToCriature,
-        camFocus
+        camFocus,
+        confirmButton,
+        returnButton,
+        humanAction
     }
 
     public enum CommandConverterString
@@ -36,7 +39,9 @@ namespace FayvitCommandReader
         camX,
         camY,
         attack,
-        focusInTheEnemy
+        focusInTheEnemy,
+        selectAttack_selectCriature,
+        itemChange
     }
 }
 /*

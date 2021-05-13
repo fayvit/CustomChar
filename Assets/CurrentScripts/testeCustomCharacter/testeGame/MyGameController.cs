@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FayvitBasicTools;
+using FayvitMessageAgregator;
+using FayvitSupportSingleton;
 
 namespace Criatures2021
 {
@@ -11,6 +13,15 @@ namespace Criatures2021
         protected override void Start()
         {
             base.Start();
+            ToSaveCustomizationContainer.Instance.Load();
+
+            SupportSingleton.Instance.InvokeOnEndFrame(() =>
+            {
+                MessageAgregator<MsgApperanceTransport>.Publish(new MsgApperanceTransport()
+                {
+                    lccd = ToSaveCustomizationContainer.Instance.ccds
+                });
+            });
         }
 
         protected override void OnDestroy()

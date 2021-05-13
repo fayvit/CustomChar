@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class giraTurboDagua : MonoBehaviour {
+public class GiraTurboDagua : MonoBehaviour {
 	float tempo = 0;
 	bool sinal;
 	bool naoAfastou = true;

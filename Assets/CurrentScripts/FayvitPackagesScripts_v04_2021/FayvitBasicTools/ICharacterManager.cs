@@ -7,14 +7,16 @@ namespace FayvitBasicTools
     public interface ICharacterManager
     {
         public CharacterState ThisState{get;}
+        public Transform transform { get; }
     }
 
     public enum CharacterState
     {
         notStarted = -1,
         onFree,
-        stoped,
+        stopedWithStoppedCam,
         withPet,
-        externalMovement
+        externalMovement,
+        externalPanelOpened
     }
 }

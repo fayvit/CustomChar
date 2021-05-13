@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FayvitSounds;
+using TextBankSpace;
 
 namespace Criatures2021
 {
@@ -14,7 +15,7 @@ namespace Criatures2021
             throw new System.NotImplementedException();
         }
 
-        public override void UpdateGolpe(GameObject G)
+        public override void UpdateGolpe(GameObject G,GameObject focado =null)
         {
             throw new System.NotImplementedException();
         }
@@ -33,7 +34,7 @@ namespace Criatures2021
 
         public virtual void IniciaGolpe(GameObject G) { }
 
-        public virtual void UpdateGolpe(GameObject G) { }
+        public virtual void UpdateGolpe(GameObject G,GameObject focado = null) { }
 
         public virtual void VerificaAplicaStatus(PetBase atacante, PetManager atacado) { }
 
@@ -112,11 +113,6 @@ namespace Criatures2021
             }
         }
 
-        public int DanoMaximo
-        {
-            get { return container.danoMaximo; }
-        }
-
         public float DistanciaDeRepulsao
         {
             get
@@ -183,16 +179,16 @@ namespace Criatures2021
             }
         }
 
-        public float UltimoUso
+        public float CustoDeStamina
         {
             get
             {
-                return container.ultimoUso;
+                return container.custoDeStamina;
             }
 
             set
             {
-                container.ultimoUso = value;
+                container.custoDeStamina = value;
             }
         }
 
@@ -236,29 +232,29 @@ namespace Criatures2021
 
         }
 
-        //public string NomeEmLinguas()
-        //{
-        //    string[] arr = BancoDeTextos.RetornaListaDeTextoDoIdioma(ChaveDeTexto.nomesDosGolpes).ToArray();
-        //    if (arr.Length > (int)Nome)
-        //        return arr[(int)Nome];
-        //    else
-        //    {
-        //        Debug.LogError("O array de nomes de golpes não contem um nome para o ID= " + Nome);
-        //        return Nome.ToString();// BancoDeTextos.falacoes[heroi.lingua]["listaDeGolpes"][(int)Nome];
-        //    }
-        //}
+        public string NomeEmLinguas()
+        {
+            string[] arr = TextBank.RetornaListaDeTextoDoIdioma(TextKey.nomesDosGolpes).ToArray();
+            if (arr.Length > (int)Nome)
+                return arr[(int)Nome];
+            else
+            {
+                Debug.LogError("O array de nomes de golpes não contem um nome para o ID= " + Nome);
+                return Nome.ToString();// BancoDeTextos.falacoes[heroi.lingua]["listaDeGolpes"][(int)Nome];
+            }
+        }
 
-        //public static string NomeEmLinguas(nomesGolpes nome)
-        //{
-        //    string[] arr = BancoDeTextos.RetornaListaDeTextoDoIdioma(ChaveDeTexto.nomesDosGolpes).ToArray();
-        //    if (arr.Length > (int)nome)
-        //        return arr[(int)nome];
-        //    else
-        //    {
-        //        Debug.LogError("O array de nomes de golpes não contem um nome para o ID= " + nome);
-        //        return nome.ToString();// BancoDeTextos.falacoes[heroi.lingua]["listaDeGolpes"][(int)Nome];
-        //    }
-        //}
+        public static string NomeEmLinguas(AttackNameId nome)
+        {
+            string[] arr = TextBank.RetornaListaDeTextoDoIdioma(TextKey.nomesDosGolpes).ToArray();
+            if (arr.Length > (int)nome)
+                return arr[(int)nome];
+            else
+            {
+                Debug.LogError("O array de nomes de golpes não contem um nome para o ID= " + nome);
+                return nome.ToString();// BancoDeTextos.falacoes[heroi.lingua]["listaDeGolpes"][(int)Nome];
+            }
+        }
     }
 
 }

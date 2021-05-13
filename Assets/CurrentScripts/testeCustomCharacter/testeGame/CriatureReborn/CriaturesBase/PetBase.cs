@@ -12,6 +12,7 @@ namespace Criatures2021
         [SerializeField] private PetAttackManager atkManager;
         [SerializeField] private MoveFeatures movFeat;
         [SerializeField] private List<DatesForTemporaryStatus> statusTemporarios = new List<DatesForTemporaryStatus>();
+        [SerializeField] private StaminaManager stManager;
 
         public float alturaCamera = .25f;
         public float distanciaCamera = 5.5f;
@@ -40,6 +41,9 @@ namespace Criatures2021
 
 
             VerificaSomaDeTaxas();
+
+            if (StManager == null)
+                stManager = new StaminaManager();
         }
 
         void VerificaSomaDeTaxas()
@@ -160,7 +164,7 @@ namespace Criatures2021
                     walkSpeed = movFeat.walkSpeed,
                     runSpeed = movFeat.runSpeed,
                     rotAlways = movFeat.rotAlways,
-                    slowSpeed = movFeat.slowSpeed,
+                    rollSpeed = movFeat.rollSpeed,
                     jumpFeat = new JumpFeatures()
                     { 
                         fallSpeed = movFeat.jumpFeat.fallSpeed,
@@ -177,6 +181,13 @@ namespace Criatures2021
             };
             return retorno;
         }
+
+        public PetBase ClonePetBase()
+        {
+            return Clone() as PetBase;
+        }
+
+        public StaminaManager StManager { get=>stManager; }
 
         public PetFeatures PetFeat
         {
@@ -213,9 +224,14 @@ namespace Criatures2021
             get { return petFeat.mNivel; }
         }
 
-        public string NomeEmLinguas
+        public string GetNomeEmLinguas
         {
             get { return NomeID.ToString(); }
+        }
+
+        public static string NomeEmLinguas(PetName p)
+        {
+            return p.ToString();
         }
     }
 }

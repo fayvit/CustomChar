@@ -12,10 +12,11 @@ public class CustomizationContainerDates
     [SerializeField] private List<CustomizationIdentity> texturasE;
     [SerializeField] private List<SerializableColorAssignements> colorAssign;
 
-    public string GetSid { get => toId; }
+    public string Sid { get => toId; set => toId = value; }
     public PersonagemBase PersBase { get; set; } = PersonagemBase.masculino;
 
     public void SetDates(
+        PersonagemBase p,
         List<SimpleMesh> malhas,
         List<CombinedMesh> malhasComb,
         List<CustomizationTextures> texturasE,
@@ -23,6 +24,7 @@ public class CustomizationContainerDates
         string toId=""
         )
     {
+        this.PersBase = p;
         if (string.IsNullOrEmpty(toId))
         {
             toId = System.Guid.NewGuid().ToString();
@@ -57,6 +59,7 @@ public class CustomizationContainerDates
     }
 
     public void SetDates(
+        PersonagemBase p,
         List<CustomizationIdentity> malhas,
         List<CustomizationIdentity> malhasComb,
         List<CustomizationIdentity> texturasE,
@@ -66,7 +69,7 @@ public class CustomizationContainerDates
         this.malhasComb = malhasComb;
         this.texturasE = texturasE;
         this.colorAssign = colorAssign;
-
+        this.PersBase = p;
         
     }
 
@@ -96,7 +99,7 @@ public class CustomizationContainerDates
     public void Load()
     {
         CustomizationContainerDates ccd = RawLoadAndSave.CarregarArquivo<CustomizationContainerDates>("CutomizationDates.ccd");
-        SetDates(ccd.malhas, ccd.malhasComb, ccd.texturasE, ccd.colorAssign);
+        SetDates(ccd.PersBase,ccd.malhas, ccd.malhasComb, ccd.texturasE, ccd.colorAssign);
     }
 }
 

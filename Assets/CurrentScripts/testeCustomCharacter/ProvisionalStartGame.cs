@@ -51,10 +51,15 @@ public class ProvisionalStartGame   : MonoBehaviour
             Debug.Log(character);
 
             Criatures2021.CharacterManager c = character.gameObject.AddComponent<Criatures2021.CharacterManager>();
+            AbstractGlobalController.Instance.Players.Add(
+                new PlayersInGameDb() { 
+                Control = FayvitCommandReader.Controlador.teclado,
+                DbState = PlayerDbState.ocupadoLocal,
+                Manager = c
+                }
+                );
 
-
-            CameraAplicator.cam.FocusForDirectionalCam(character, .1f,3);
-            CameraAplicator.cam.Cdir.VarVerticalHeightPoint = 1;
+            SetHeroCamera.Set(character);
             
             
             Destroy(CameraAplicator.cam.GetComponent<CustomizationCamManager>());
@@ -70,8 +75,12 @@ public class ProvisionalStartGame   : MonoBehaviour
             MessageAgregator<MsgFinishEdition>.Publish();
             MessageAgregator<MsgStartMusic>.Publish(new MsgStartMusic()
             {
-                clip = Resources.Load<AudioClip>("NoitesCariocas")
+                clip = Resources.Load<AudioClip>("choroChorandoParaPaulinhoNogueira")
             });
+
+            GameObject G = new GameObject();
+            G.name = "provisionalEnemyInstantiate";
+            G.AddComponent<ProvisionalEnemyInstantiate>();
         }
     }
 

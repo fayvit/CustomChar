@@ -28,9 +28,9 @@ public class TesteMeshCombiner
 
     private SkinnedMeshRenderer mR;
 
-    public void StartCombiner(SectionCustomizationManager source,string checkKey="",bool generoMasculino = true)
+    public void StartCombiner(CustomizationContainerDates ccd, string checkKey = "")
     {
-        if (!generoMasculino)
+        if (ccd.PersBase==PersonagemBase.feminino)
             myBase = myMBase;
         else
             myBase = myHBase;
@@ -38,17 +38,6 @@ public class TesteMeshCombiner
         target = MonoBehaviour.Instantiate(myBase, myBase.transform.position, myBase.transform.rotation);
         target.gameObject.SetActive(true);
 
-        triangles.Clear();
-        uvs.Clear();
-        materials.Clear();
-        boneWeights.Clear();
-        normals.Clear();
-        vertices.Clear();
-        weldVertices.Clear();
-        vertCount = 0;
-
-        CustomizationContainerDates ccd =  source.GetCustomDates();
-        
         SupportSingleton.Instance.InvokeOnEndFrame(() =>
         {
             target.SetCustomDates(ccd);
@@ -64,12 +53,33 @@ public class TesteMeshCombiner
                     combined = T,
                     checkKey = checkKey
                 });
-                
+
 
             });
         });
+    }
+    public void StartCombiner(SectionCustomizationManager source,string checkKey="")
+    {
+        //if (!source.masculino)
+        //    myBase = myMBase;
+        //else
+        //    myBase = myHBase;
 
-        
+        triangles.Clear();
+        uvs.Clear();
+        materials.Clear();
+        boneWeights.Clear();
+        normals.Clear();
+        vertices.Clear();
+        weldVertices.Clear();
+        vertCount = 0;
+
+        CustomizationContainerDates ccd =  source.GetCustomDates();
+
+        StartCombiner(ccd,checkKey);
+
+
+
     }
 
     void VerifyWeldVertex(SkinnedMeshRenderer meshR,Transform child)
@@ -90,6 +100,7 @@ public class TesteMeshCombiner
     {
         foreach (var mat in meshR.sharedMaterials)
         {
+            
             if (!materials.Contains(mat))
             {
                 materials.Add(mat);
@@ -116,9 +127,13 @@ public class TesteMeshCombiner
         
         //GameObject paiDeTodos = new GameObject("PaiDeTodos");
         //paiDeTodos.transform.position = target.transform.position;
+
         gameObject = new GameObject("Combinado ***");
+
         //gameObject.transform.SetParent(paiDeTodos.transform);
         //gameObject.transform.localPosition = Vector3.zero;
+
+
         gameObject.transform.position = target.transform.position;
         mR = gameObject.AddComponent<SkinnedMeshRenderer>();
 
@@ -225,6 +240,7 @@ public class TesteMeshCombiner
         #endregion
 
         mR.sharedMesh = mesh;
+
 
 
         foreach (var child in children)

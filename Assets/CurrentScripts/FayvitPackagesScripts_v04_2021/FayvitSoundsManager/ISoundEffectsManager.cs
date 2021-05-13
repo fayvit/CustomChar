@@ -21,6 +21,11 @@ namespace FayvitSounds
         XP_Knock04 = 2,
         XP_Swing03 = 3,
         Wind1 = 4,
-        XP_Swing04 = 5
+        XP_Swing04 = 5,
+        rajadaDeAgua = 6,
+        Shot1 = 7,
+        Slash2 = 8,
+        Slash1 = 9,
+        Shot3 = 10
     }
 }

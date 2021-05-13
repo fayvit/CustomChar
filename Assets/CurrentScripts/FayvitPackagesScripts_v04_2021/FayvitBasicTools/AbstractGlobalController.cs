@@ -58,6 +58,9 @@ namespace FayvitBasicTools
         // Start is called before the first frame update
         protected virtual void Start()
         {
+            if (Players == null)
+                Players = new List<IPlayersInGameDb>();
+
             MessageAgregator<MsgRequestSfx>.AddListener(OnRequestSfx);
             MessageAgregator<MsgStartMusic>.AddListener(OnRequestStartMusic);
             MessageAgregator<MsgStopMusic>.AddListener(OnRequestStopMusic);

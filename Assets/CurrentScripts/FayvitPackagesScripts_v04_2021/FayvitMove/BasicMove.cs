@@ -30,7 +30,7 @@ namespace FayvitMove
         //private float groundedRadius = .1f;
         private Transform groundCheck;
 
-        public bool UseSlowSpeed { get; set; } = false;
+        public bool UseRollSpeed { get; set; } = false;
         public bool ApplicableGravity { get; set; } = true;
 
         public CharacterController Controller { get; private set; }
@@ -219,7 +219,7 @@ namespace FayvitMove
                 movFeatures.runSpeed :
                 movFeatures.walkSpeed;
 
-            targetSpeed = UseSlowSpeed ? movFeatures.slowSpeed : targetSpeed;
+            targetSpeed = UseRollSpeed ? movFeatures.rollSpeed : targetSpeed;
 
 
             if (targetDirection != Vector3.zero)
@@ -288,7 +288,7 @@ namespace FayvitMove
     [System.Serializable]
     public class MoveFeatures : System.ICloneable
     {
-        public float slowSpeed = 1;
+        public float rollSpeed = 1;
         public float walkSpeed = 2;
         public float runSpeed = 6;
         public bool rotAlways = false;

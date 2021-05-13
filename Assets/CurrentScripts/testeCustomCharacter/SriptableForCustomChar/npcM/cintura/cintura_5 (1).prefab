@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5507837669848736050}
   - component: {fileID: 533035234884363003}
   - component: {fileID: 8469647686625175947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cintura_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

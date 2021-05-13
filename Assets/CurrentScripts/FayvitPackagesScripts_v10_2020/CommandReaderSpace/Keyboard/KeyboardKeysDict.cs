@@ -41,9 +41,9 @@ namespace FayvitCommandReader_10_2020
             { "Ycam",new List <ValAxis>{new ValAxis(KeyCode.J,KeyCode.U)} },
             { "HDpad",new List <ValAxis>{new ValAxis(KeyCode.Alpha2,KeyCode.Alpha1) } },
             { "VDpad",new List <ValAxis>{new ValAxis(KeyCode.Alpha4,KeyCode.Alpha3) } },
-            { "triggerL",new List <ValAxis>{new ValAxis(KeyCode.Y,KeyCode.None) } },
+            { "triggerL",new List <ValAxis>{new ValAxis(KeyCode.Tab,KeyCode.None) } },
             { "triggerR",new List <ValAxis>{new ValAxis(KeyCode.P,KeyCode.None) } },
-            { "triggers",new List <ValAxis>{new ValAxis(KeyCode.P,KeyCode.Y) } },
+            { "triggers",new List <ValAxis>{new ValAxis(KeyCode.P,KeyCode.Tab) } },
         };
 
 

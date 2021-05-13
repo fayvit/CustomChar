@@ -9,14 +9,16 @@ namespace Criatures2021
         private float tempoDecorrido = 0;
         private PetAttackBase esseGolpe;
         private GameObject gameObject;
+        private GameObject focado;
 
         public AttackApplyManager(GameObject G)
         {
             gameObject = G;
         }
 
-        public void StartAttack(PetAttackBase esseGolpe,float tempoDeInstancia)
+        public void StartAttack(PetAttackBase esseGolpe,float tempoDeInstancia,GameObject focado)
         {
+            this.focado = focado;
             this.esseGolpe = esseGolpe;
             tempoDecorrido = 0.0f;
             esseGolpe.IniciaGolpe(gameObject);
@@ -34,7 +36,7 @@ namespace Criatures2021
 
             if (tempoDecorrido > esseGolpe.TempoDeMoveMin /*&& gerente.Estado == CreatureManager.CreatureState.aplicandoGolpe*/)
             {
-                esseGolpe.UpdateGolpe(gameObject);
+                esseGolpe.UpdateGolpe(gameObject,focado);
             }
             //else if (gerente.Estado == CreatureManager.CreatureState.emDano)
             //{
@@ -67,10 +69,14 @@ namespace Criatures2021
             PetAttackManager ggg = meuCriatureBase.GerenteDeGolpes;
             PetAttackBase gg = ggg.meusGolpes[ggg.golpeEscolhido];
 
-            if (gg.UltimoUso + gg.TempoDeReuso < Time.time && A.PE.Corrente >= gg.CustoPE)
+            if (
+                //gg.UltimoUso + gg.TempoDeReuso < Time.time 
+                meuCriatureBase.StManager.VerifyStaminaAction()
+                && A.PE.Corrente >= gg.CustoPE)
             {
                 A.PE.Corrente -= gg.CustoPE;
-                gg.UltimoUso = Time.time;
+                //gg.UltimoUso = Time.time;
+                meuCriatureBase.StManager.ConsumeStamina((uint)gg.CustoDeStamina);
 
                 //AplicadorDeGolpe aplG = gameObject.AddComponent<AplicadorDeGolpe>();
 

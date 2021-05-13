@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FayvitCam;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,11 @@ namespace Criatures2021
             return Procure(esseObjeto, EncontraveisComTag(tags), distancia);
         }
 
-        public static Transform Procure(GameObject esseObjeto, List<GameObject> encontraveisV, float distancia = 40)
+        public static Transform Procure(
+            GameObject esseObjeto, 
+            List<GameObject> encontraveisV, 
+            float distancia = 40,
+            bool melhorVisaoDaCamera = false)
         {
             Vector3 vendo;
             Vector3 c;
@@ -44,10 +49,13 @@ namespace Criatures2021
             {
                 GameObject deMelhorVisao = null;
                 GameObject maisPerto = null;
+                Transform camT = melhorVisaoDaCamera? CameraAplicator.cam.transform:T;
+                float targetDist = melhorVisaoDaCamera ? -0.25f : 0.5f;
 
                 foreach (GameObject criature in inimigosPerto)
                 {
                     c = criature.transform.position;
+                    
                     maisPerto = maisPerto != null
                         ?
                             (c - T.position).sqrMagnitude
@@ -63,13 +71,13 @@ namespace Criatures2021
                         ?
                             criature
                             :
-                            Vector3.Dot((c - T.position).normalized,
-                                         T.forward)
+                            Vector3.Dot((c - camT.position).normalized,
+                                         camT.forward)
                             >
                             Vector3.Dot(
-                                (deMelhorVisao.transform.position - T.position)
+                                (deMelhorVisao.transform.position - camT.position)
                                 .normalized,
-                                T.forward
+                                camT.forward
                                 )
                             ?
                             criature
@@ -83,11 +91,11 @@ namespace Criatures2021
                    &&
                    Vector3.Dot(
                     (deMelhorVisao.transform.position - T.position).normalized,
-                    T.forward) > 0)
+                    camT.forward) > 0)
                 {
                     alvo = Vector3.Dot((maisPerto.transform.position -
                                         T.position).normalized,
-                                       T.forward) > 0.5
+                                       camT.forward) > targetDist
                         ? deMelhorVisao : null;
                 }
                 else
@@ -96,13 +104,13 @@ namespace Criatures2021
                        .sqrMagnitude < 25 &&
                        Vector3.Dot((maisPerto.transform.position -
                                  T.position).normalized,
-                                T.forward) > 0.5
+                                T.forward) > targetDist
                        )
                         alvo = maisPerto;
                     else
                         alvo = Vector3.Dot((deMelhorVisao.transform.position -
                                             T.position).normalized,
-                                           T.forward) > 0.5
+                                           camT.forward) > targetDist
                             ? deMelhorVisao : null;
                 }
             }

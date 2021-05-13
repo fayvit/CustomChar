@@ -10,42 +10,45 @@ namespace Criatures2021
             PetAttackBase retorno;
             switch (nome)
             {
-                //case nomesGolpes.rajadaDeAgua:
-                //    retorno = new RajadaDeAguaG2();
-                //    break;
+                case AttackNameId.rajadaDeAgua:
+                    retorno = new RajadaDeAgua();
+                break;
 
-                //case nomesGolpes.turboDeAgua:
-                //    retorno = new TurboDeAguaG2();
-                //    break;
+                case AttackNameId.turboDeAgua:
+                    retorno = new TurboDeAgua();
+                break;
                 case AttackNameId.tapa:
                     retorno = new Tapa();
                 break;
 
-                //case nomesGolpes.laminaDeFolha:
-                //    retorno = new LaminaDeFolhaG2();
-                //    break;
+                case AttackNameId.laminaDeFolha:
+                    retorno = new LaminaDeFolhas();
+                break;
 
-                //case nomesGolpes.garra:
-                //    retorno = new GarraG2();
-                //    break;
-                //case nomesGolpes.furacaoDeFolhas:
-                //    retorno = new FuracaoDeFolhasG2();
-                //    break;
-                //case nomesGolpes.bolaDeFogo:
-                //    retorno = new BolaDeFogoG2();
-                //    break;
-                //case nomesGolpes.rajadaDeFogo:
-                //    retorno = new RajadaDeFogoG2();
-                //    break;
-                //case nomesGolpes.ventania:
-                //    retorno = new VentaniaG2();
-                //    break;
-                //case nomesGolpes.bico:
-                //    retorno = new BicoG2();
-                //    break;
-                //case nomesGolpes.ventosCortantes:
-                //    retorno = new VentosCortantesG2();
-                //    break;
+                case AttackNameId.garra:
+                    retorno = new Garra();
+                break;
+
+                case AttackNameId.furacaoDeFolhas:
+                    retorno = new FuracaoDeFolhas();
+                break;
+
+                case AttackNameId.bolaDeFogo:
+                    retorno = new BolaDeFogo();
+                break;
+
+                case AttackNameId.rajadaDeFogo:
+                    retorno = new RajadaDeFogo();
+                break;
+                case AttackNameId.ventania:
+                    retorno = new Ventania();
+                break;
+                case AttackNameId.bico:
+                    retorno = new Bico();
+                break;
+                case AttackNameId.ventosCortantes:
+                    retorno = new VentosCortantes();
+                break;
                 //case nomesGolpes.chicoteDeCalda:
                 //    retorno = new ChicoteDeCaldaG2();
                 //    break;
@@ -64,9 +67,9 @@ namespace Criatures2021
                 //case nomesGolpes.chicoteDeMao:
                 //    retorno = new MbChicoteDeMao();
                 //    break;
-                //case nomesGolpes.dentada:
-                //    retorno = new MbDentada();
-                //    break;
+                case AttackNameId.dentada:
+                    retorno = new Dentada();
+                break;
                 //case nomesGolpes.sobreSalto:
                 //    retorno = new MbSobreSalto();
                 //    break;
@@ -97,9 +100,11 @@ namespace Criatures2021
                 //case nomesGolpes.chifre:
                 //    retorno = new MbChifre();
                 //    break;
-                //case nomesGolpes.tempestadeDeFolhas:
-                //    retorno = new MbTespestadeDeFolhas();
-                //    break;
+
+                case AttackNameId.tempestadeDeFolhas:
+                    retorno = new TempestadeDeFolhas();
+                break;
+
                 //case nomesGolpes.eletricidade:
                 //    retorno = new MbEletricidade();
                 //    break;
@@ -109,12 +114,15 @@ namespace Criatures2021
                 //case nomesGolpes.tempestadeEletrica:
                 //    retorno = new MbTempestadeEletrica();
                 //    break;
-                //case nomesGolpes.hidroBomba:
-                //    retorno = new MbHidroBomba();
-                //    break;
-                //case nomesGolpes.tosteAtaque:
-                //    retorno = new MbTosteAtaque();
-                //    break;
+
+                case AttackNameId.hidroBomba:
+                    retorno = new HidroBomba();
+                break;
+
+                case AttackNameId.tosteAtaque:
+                    retorno = new TosteAtaque();
+                break;
+
                 //case nomesGolpes.chuvaVenenosa:
                 //    retorno = new MbChuvaVenenosa();
                 //    break;
@@ -148,9 +156,9 @@ namespace Criatures2021
                 //case nomesGolpes.multiplicar:
                 //    retorno = new MbMultiplicar();
                 //    break;
-                //case nomesGolpes.sobreVoo:
-                //    retorno = new MbSobreVoo();
-                //    break;
+                case AttackNameId.sobreVoo:
+                    retorno = new SobreVoo();
+                break;
                 //case nomesGolpes.sabreDeAsa:
                 //case nomesGolpes.sabreDeBastao:
                 //case nomesGolpes.sabreDeEspada:

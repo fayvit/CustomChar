@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using CriaturesLegado;
 
 public abstract class AtivadorDeBotao : MonoBehaviour
 {

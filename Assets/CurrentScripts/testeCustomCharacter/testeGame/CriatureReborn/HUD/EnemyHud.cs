@@ -1,0 +1,80 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using FayvitMessageAgregator;
+using Criatures2021;
+using System;
+
+namespace Criatures2021Hud
+{
+    public class EnemyHud : MonoBehaviour
+    {
+        [SerializeField] private Text enemyName;
+        [SerializeField] private Text levellabel;
+        [SerializeField] private Text levelNumber;
+        [SerializeField] private Text hpLabel;
+        [SerializeField] private Image hpBar;
+
+        private PetManager owner;
+
+        // Use this for initialization
+        void Start()
+        {
+            MessageAgregator<MsgTargetEnemy>.AddListener(OnTargetEnemy);
+            MessageAgregator<MsgChangeHP>.AddListener(OnChangeHp);
+            MessageAgregator<MsgChangeToHero>.AddListener(OnChangeToHero);
+            MessageAgregator<MsgCriatureDefeated>.AddListener(OnCriatureDefeated);
+        }
+
+        private void OnDestroy()
+        {
+            MessageAgregator<MsgTargetEnemy>.RemoveListener(OnTargetEnemy);
+            MessageAgregator<MsgChangeHP>.RemoveListener(OnChangeHp);
+            MessageAgregator<MsgChangeToHero>.RemoveListener(OnChangeToHero);
+            MessageAgregator<MsgCriatureDefeated>.RemoveListener(OnCriatureDefeated);
+        }
+
+        private void OnCriatureDefeated(MsgCriatureDefeated obj)
+        {
+            if (owner != null)
+                if (obj.defeated == owner.gameObject)
+                {
+                    enemyName.transform.parent.gameObject.SetActive(false);
+                }
+        }
+
+        private void OnChangeToHero(MsgChangeToHero obj)
+        {
+            enemyName.transform.parent.gameObject.SetActive(false);
+        }
+
+        private void OnChangeHp(MsgChangeHP obj)
+        {
+            if (obj.gameObject == owner.gameObject)
+            {
+                hpBar.fillAmount = (float)obj.currentHp / obj.maxHp;
+            }
+        }
+
+        private void OnTargetEnemy(MsgTargetEnemy obj)
+        {
+            enemyName.transform.parent.gameObject.SetActive(true);
+
+            owner = obj.targetEnemy.GetComponent<PetManager>();
+            enemyName.text = owner.MeuCriatureBase.GetNomeEmLinguas;
+            levelNumber.text = owner.MeuCriatureBase.G_XP.Nivel.ToString();
+
+            ConsumableAttribute pp = owner.MeuCriatureBase.PetFeat.meusAtributos.PV;
+            hpBar.fillAmount = (float)pp.Corrente / pp.Maximo;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //if (owner==null && enemyName.transform.parent.gameObject.activeSelf)
+            //{
+            //    enemyName.transform.parent.gameObject.SetActive(false);
+            //}
+        }
+    }
+}

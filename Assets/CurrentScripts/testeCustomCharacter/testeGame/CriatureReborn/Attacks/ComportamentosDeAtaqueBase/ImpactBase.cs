@@ -28,9 +28,9 @@ namespace Criatures2021
             });
         }
 
-        public override void UpdateGolpe(GameObject G)
+        public override void UpdateGolpe(GameObject G,GameObject focado=null)
         {
-            aImpacto.ImpatoAtivo(G, this, carac);
+            aImpacto.ImpatoAtivo(G, this, carac,focado);
         }
     }
 

@@ -5,7 +5,6 @@ using FayvitBasicTools;
 using FayvitSave;
 using FayvitSupportSingleton;
 using FayvitMessageAgregator;
-using System;
 
 namespace FayvitLoadScene
 {
@@ -108,7 +107,10 @@ namespace FayvitLoadScene
 
         void ComunsCarregado()
         {
-            if (ExistenciaDoController.AgendaExiste(ComunsCarregado, this))
+            if(StaticInstanceExistence<IGameController>.SchelduleExistence(ComunsCarregado,this,()=> {
+                return AbstractGameController.Instance;
+            }))
+            //if (ExistenciaDoController.AgendaExiste(ComunsCarregado, this))
             {
                 SceneManager.sceneLoaded -= CarregouComuns;
                 SceneManager.sceneLoaded += SetarCenaPrincipal;
@@ -179,9 +181,9 @@ namespace FayvitLoadScene
 
 
 
-            if (N.Length == 0 || SceneManager.GetSceneByName(GameController.g.MyKeys.CenaAtiva.ToString()).isLoaded)
+            if (N.Length == 0 || SceneManager.GetSceneByName(AbstractGameController.Instance.MyKeys.CenaAtiva.ToString()).isLoaded)
             {
-                SetarCenaPrincipal(SceneManager.GetSceneByName(GameController.g.MyKeys.CenaAtiva.ToString()), LoadSceneMode.Single);
+                SetarCenaPrincipal(SceneManager.GetSceneByName(AbstractGameController.Instance.MyKeys.CenaAtiva.ToString()), LoadSceneMode.Single);
                 TatudoCarregado();
             }
             Time.timeScale = 0;
@@ -336,7 +338,7 @@ namespace FayvitLoadScene
             //EventAgregator.AddListener(EventKey.fadeInComplete, );
 
             SceneManager.SetActiveScene(
-               SceneManager.GetSceneByName(GameController.g.MyKeys.CenaAtiva.ToString()));
+               SceneManager.GetSceneByName(AbstractGameController.Instance.MyKeys.CenaAtiva.ToString()));
 
             SaveDatesManager.SalvarAtualizandoDados();
 

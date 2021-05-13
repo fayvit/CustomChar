@@ -1,5 +1,6 @@
 ﻿public enum PetName
 { 
+    nulo=-1,
     Florest,
     Bosk,
     Arvoredo,
@@ -32,5 +33,7 @@
     Serpente,
     Nessei,
     Polaris,
-    Tormentor
+    Tormentor,
+    Marak,
+    Grewstick
 }

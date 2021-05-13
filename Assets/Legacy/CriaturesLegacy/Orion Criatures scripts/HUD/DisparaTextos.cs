@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using CriaturesLegado;
 
 [System.Serializable]
 public class DisparaTexto

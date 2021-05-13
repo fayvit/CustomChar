@@ -189,6 +189,7 @@ namespace FayvitCam_10_2020
             Style = EstiloDeCamera.focusingPoint;
             cShow.SetExhibitionElements(transform,target,S);
         }
+
         public bool FocusInPoint(float horizontalDistance=6,float height=1)
         {
             return cShow.ShowFixed(horizontalDistance, height);

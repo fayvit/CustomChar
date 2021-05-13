@@ -59,11 +59,11 @@ namespace FayvitSave
 
         public static void SalvarAtualizandoDados()
         {
-
-            if (s.SavedGames.Count > s.IndiceDoJogoAtualSelecionado)
-                s.SavedGames[s.IndiceDoJogoAtualSelecionado] = (new SaveDates());
-            else
-                s.SavedGames.Add(new SaveDates());
+            Debug.Log("Fazer o SaveDates");
+            //if (s.SavedGames.Count > s.IndiceDoJogoAtualSelecionado)
+            //    s.SavedGames[s.IndiceDoJogoAtualSelecionado] = (new SaveDates());
+            //else
+            //    s.SavedGames.Add(new SaveDates());
 
             Save();
             //loadSave.Save(new SaveDates());
@@ -73,12 +73,12 @@ namespace FayvitSave
 
         public static void SalvarAtualizandoDados(NomesCenas[] cenasAtivas)
         {
-
-            if (s.SavedGames.Count > s.IndiceDoJogoAtualSelecionado)
-                s.SavedGames[s.IndiceDoJogoAtualSelecionado] = new SaveDates(cenasAtivas);
-            else
-                s.SavedGames.Add(new SaveDates(cenasAtivas));
-            Save();
+            Debug.Log("Fazer o SaveDates");
+            //if (s.SavedGames.Count > s.IndiceDoJogoAtualSelecionado)
+            //    s.SavedGames[s.IndiceDoJogoAtualSelecionado] = new SaveDates(cenasAtivas);
+            //else
+            //    s.SavedGames.Add(new SaveDates(cenasAtivas));
+            //Save();
             //loadSave.Save(new SaveDates(cenasAtivas));
 
         }

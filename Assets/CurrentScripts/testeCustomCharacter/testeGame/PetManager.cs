@@ -2,7 +2,6 @@ using FayvitBasicTools;
 using FayvitMessageAgregator;
 using FayvitMove;
 using FayvitSounds;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,22 +14,27 @@ namespace Criatures2021
         [SerializeField] private LocalState state = LocalState.following;
         [SerializeField] private PetBase meuCriatureBase;
         [SerializeField] private ControlledMoveForCharacter controll;
+        [SerializeField] private RollManager roll;
         [SerializeField] private DamageState damageState;
         [SerializeField] private float targetUpdateTax = 1;
 
         protected float timeCount = 0;
 
         protected float TargetUpdateTax => targetUpdateTax;
+        protected RollManager Roll => roll;
 
-        protected LocalState State { get=>state; set=>state=value; }
+        public LocalState State { get=>state; protected set=>state=value; }
 
-        protected enum LocalState
+        public enum LocalState
         {
             following,
             onFree,
             stopped,
             atk,
-            inDamage
+            inDamage, 
+            defeated,
+            inDodge,
+            returnOfRoll
         }
 
         public PetBase MeuCriatureBase
@@ -66,14 +70,24 @@ namespace Criatures2021
             Controll = new ControlledMoveForCharacter(transform);
             Controll.SetCustomMove(meuCriatureBase.MovFeat);
 
+            if (roll == null)
+                roll = new RollManager();
+
             MessageAgregator<MsgEnterInDamageState>.AddListener(OnEnterInDamageState);
             MessageAgregator<AnimateStartJumpMessage>.AddListener(OnStartJump);
+            MessageAgregator<MsgCriatureDefeated>.AddListener(OnCriatureDefeated);
         }
 
         protected virtual void OnDestroy()
         {
             MessageAgregator<MsgEnterInDamageState>.RemoveListener(OnEnterInDamageState);
             MessageAgregator<AnimateStartJumpMessage>.RemoveListener(OnStartJump);
+            MessageAgregator<MsgCriatureDefeated>.RemoveListener(OnCriatureDefeated);
+        }
+
+        protected virtual void OnCriatureDefeated(MsgCriatureDefeated obj){
+            if (obj.defeated == gameObject)
+                state = LocalState.defeated;
         }
 
         private void OnStartJump(AnimateStartJumpMessage obj)
@@ -88,13 +102,29 @@ namespace Criatures2021
             }
         }
 
-        private void OnEnterInDamageState(MsgEnterInDamageState obj)
+        protected virtual void OnEnterInDamageState(MsgEnterInDamageState obj)
         {
             if (obj.oAtacado == gameObject)
             {
                 DamageState.StartDamageState(obj.golpe);
                 state = LocalState.inDamage;
+
+                ConsumableAttribute PV = MeuCriatureBase.PetFeat.meusAtributos.PV;
+
+                MessageAgregator<MsgChangeHP>.Publish(new MsgChangeHP()
+                {
+                    currentHp = PV.Corrente,
+                    maxHp = PV.Maximo,
+                    gameObject = gameObject
+                });
+
+                ReiniciarModulos();
             }
+        }
+
+        protected virtual void ReiniciarModulos()
+        { 
+        
         }
 
         void SetaMov()
@@ -104,7 +134,20 @@ namespace Criatures2021
           
         }
 
-        protected void AplicaGolpe()
+        protected void EfetiveApplyAttack(PetAttackBase gg,GameObject focado)
+        {
+            PetAttackDb petDb = MeuCriatureBase.GerenteDeGolpes.ProcuraGolpeNaLista(MeuCriatureBase.NomeID, gg.Nome);
+            AtkApply.StartAttack(gg, petDb.TempoDeInstancia,focado);
+            state = LocalState.atk;
+            MessageAgregator<MsgChangeMP>.Publish(new MsgChangeMP()
+            {
+                gameObject = gameObject,
+                currentMp = meuCriatureBase.PetFeat.meusAtributos.PE.Corrente,
+                maxMp = meuCriatureBase.PetFeat.meusAtributos.PE.Maximo
+            });
+        }
+
+        protected void AplicaGolpe(GameObject focado)
         {
             
             PetAttackBase gg = meuCriatureBase.GerenteDeGolpes.meusGolpes[meuCriatureBase.GerenteDeGolpes.golpeEscolhido];
@@ -115,16 +158,25 @@ namespace Criatures2021
             {
                 if (AttackApplyManager.CanStartAttack(MeuCriatureBase))
                 {
-                    PetAttackDb petDb = MeuCriatureBase.GerenteDeGolpes.ProcuraGolpeNaLista(MeuCriatureBase.NomeID, gg.Nome);
-                    AtkApply.StartAttack(gg, petDb.TempoDeInstancia);
-                    state = LocalState.atk;
+                    EfetiveApplyAttack(gg,focado);
                 }
             }
         }
         
 
         // Update is called once per frame
-        void Update() { }
+        protected virtual void Update() {
+            switch (state)
+            {
+                case LocalState.defeated:
+                    Controll.Mov.ApplicableGravity = true;
+                    Controll.Mov.MoveApplicator(Vector3.zero);
+                break;
+                case LocalState.stopped:
+                    Controll.Mov.MoveApplicator(Vector3.zero);
+                break;
+            }
+        }
 
         // eram comandos para o android mas já há comandos melhores para isso
         //public void ComandoDeAtacar()

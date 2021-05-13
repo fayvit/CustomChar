@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using FayvitMessageAgregator;
 using System.Collections.Generic;
-
+using System;
 
 namespace FayvitCam
 {
@@ -13,9 +13,11 @@ namespace FayvitCam
         private float x;
         private float y;
         private bool immediateFocusPosition = false;
+        private bool usingLerp = false;
 
         private InducedDirection dir = new InducedDirection();
         private Quaternion alvoQ;
+        private Quaternion startQtoLerp;
 
         public Transform MyCamera
         {
@@ -23,6 +25,11 @@ namespace FayvitCam
         }
 
         public StateCam State { get; set; } = StateCam.controlable;
+
+        public bool TargetIs(Transform transform)
+        {
+            return features.Target == transform;
+        }
 
         #region Suprimido
 
@@ -87,6 +94,7 @@ namespace FayvitCam
         public DirectionalCamera(CamFeatures car)
         {
             this.features = car;
+            features.activeDir = features.mainDir;
         }
 
         public float SphericalDistance { 
@@ -107,6 +115,7 @@ namespace FayvitCam
 
         public void SetStartFeaturesElements(Transform cam,Transform alvo)
         {
+            features.activeDir = features.mainDir;
             this.features.Target = alvo;
             this.features.MyCamera = cam;
             immediateFocusPosition = true;
@@ -143,26 +152,68 @@ namespace FayvitCam
         void SetPositionAndRotation()
         {
             CamFeatures c = features;
-            Quaternion rotation = Quaternion.Euler(y, x, 0);
-            c.MyCamera.rotation = rotation;
+            Quaternion rotation;
 
-            Vector3 position = rotation * new Vector3(0.0f, 0.0f, -c.sphericalDistance)
-                + features.Target.position + (c.varVerticalHeightPoint + c.HeightCharacter) * Vector3.up;
+            Vector3 position;// = Vector3.zero;
+
+            if (usingLerp)
+            {
+                c.contTimeToUsingLerp += Time.deltaTime;
+
+                rotation = Quaternion.Lerp(startQtoLerp, Quaternion.Euler(y, x, 0), c.contTimeToUsingLerp / c.timeToUsingLerp);
+
+                position = Vector3.Lerp(c.startPosToLerp,
+                       rotation * new Vector3(0.0f, 0.0f, -c.sphericalDistance)
+                       + features.Target.position + (c.varVerticalHeightPoint + c.HeightCharacter) * Vector3.up,
+                       c.contTimeToUsingLerp / c.timeToUsingLerp
+                       );
+
+                if (c.contTimeToUsingLerp > c.timeToUsingLerp)
+                    usingLerp = false;
+            }
+            else
+            {
+                rotation = Quaternion.Euler(y, x, 0);
+                position = rotation * new Vector3(0.0f, 0.0f, -c.sphericalDistance)
+                           + features.Target.position + (c.varVerticalHeightPoint + c.HeightCharacter) * Vector3.up;
+            }
 
             c.MyCamera.position = position;
+            c.MyCamera.rotation = rotation;
+        }
+
+        void SetQuaternionTarget(Vector3 targetDir)
+        {
+            CamFeatures c = features;
+            Quaternion alvoQ = Quaternion.LookRotation(targetDir + c.targetHeightForCam * Vector3.down);
+
+            x = alvoQ.eulerAngles.y;
+            y = alvoQ.eulerAngles.x;
         }
 
         void ImmediateFocusPosition()
         {
             immediateFocusPosition = false;
-            CamFeatures c = features;
-            Quaternion alvoQ = Quaternion.LookRotation(c.Target.TransformDirection(features.mainDir) + c.targetHeightForCam * Vector3.down);
 
-            x = alvoQ.eulerAngles.y;
-            y = alvoQ.eulerAngles.x;
+            SetQuaternionTarget(features.Target.TransformDirection(features.activeDir));
 
             SetPositionAndRotation();
 
+        }
+
+        public void SetPositionAndRotationToLerp(Vector3 dirViewCam = default)
+        {
+            if (dirViewCam == default)
+                features.activeDir = features.mainDir;
+            else
+                features.activeDir = dirViewCam;
+
+            usingLerp = true;
+            features.contTimeToUsingLerp = 0;
+            features.startPosToLerp = MyCamera.position;
+            startQtoLerp = MyCamera.rotation;
+            IniciarFocarCamera();
+            State = StateCam.inFocusing;
         }
 
         public void FocusInTheCamTarget(float vel)
@@ -173,7 +224,7 @@ namespace FayvitCam
 
             if (c.distQ == 0)
             {
-                alvoQ = Quaternion.LookRotation(c.Target.TransformDirection(features.mainDir) + c.targetHeightForCam * Vector3.down);
+                alvoQ = Quaternion.LookRotation(c.Target.TransformDirection(features.activeDir) + c.targetHeightForCam * Vector3.down);
                 c.distQ = Quaternion.Angle(alvoQ, c.StarterQ) * Mathf.PI  * c.sphericalDistance / 180;
             }
             
@@ -193,8 +244,9 @@ namespace FayvitCam
 
         }
 
-        void IniciarFocarCamera(CamFeatures c)
+        void IniciarFocarCamera()
         {
+            CamFeatures c = features;
             Debug.Log("Iniciar focar camera");
 
             if (dir == null)
@@ -223,7 +275,8 @@ namespace FayvitCam
 
                 if (focar)
                 {
-                    IniciarFocarCamera(c);
+                    features.activeDir = features.mainDir;
+                    IniciarFocarCamera();
                     State = StateCam.inFocusing;
                 }
                 else if (autoAjust && State == StateCam.controlable && c.velAutoAjust>0)
@@ -231,7 +284,7 @@ namespace FayvitCam
                     //Precisei desse iniciar aqui para guardar a rotação inicial no caso Dot -1
                     //Nos outros casos essa função sendo chamada repetidamente atualiza a rotInicial
                     // No caso Dot -1 a camera ficava flicando sem rotacionar
-                    IniciarFocarCamera(c);
+                    IniciarFocarCamera();
                     State = StateCam.inAutoAjust;
                 }
                 else if (State == StateCam.inAutoAjust && !autoAjust)
@@ -243,7 +296,7 @@ namespace FayvitCam
                     FocusInTheCamTarget(c.velToQ);
                 else if (State == StateCam.inAutoAjust)
                 {
-                    IniciarFocarCamera(c);
+                    IniciarFocarCamera();
                     FocusInTheCamTarget(c.velAutoAjust);
                 }
 
@@ -292,9 +345,13 @@ namespace FayvitCam
     {
         [HideInInspector] public float distQ = 0;
         [HideInInspector] public float contadorDeTempo = 0;
+        [HideInInspector] public float contTimeToUsingLerp = 0;
+        [HideInInspector] public Vector3 startPosToLerp;
+        [HideInInspector] public Vector3 activeDir = Vector3.forward;
 
         public float velToQ = 25f;
         public float velAutoAjust = 3f;
+        public float timeToUsingLerp = .5f;
         public float sphericalDistance = 7.0f;
         public float targetHeightForCam = 3.0f;
         public float varVerticalHeightPoint = 0.25f;
@@ -303,6 +360,7 @@ namespace FayvitCam
         public float yMinLimit = -20f;
         public float yMaxLimit = 80f;
         public Vector3 mainDir = Vector3.forward;
+        
 
         public Transform MyCamera { get; set; }
         public Transform Target { get; set; }
