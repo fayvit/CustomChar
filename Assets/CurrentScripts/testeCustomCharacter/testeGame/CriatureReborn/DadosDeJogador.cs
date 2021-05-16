@@ -32,6 +32,8 @@ namespace Criatures2021
                 new PetBase(PetName.Batler,10),
                 new PetBase(PetName.Florest,9),
                 new PetBase(PetName.Xuash,8),
+                new PetBase(PetName.Florest,9),
+                new PetBase(PetName.Xuash,8),
                 //new PetBase(PetName.Iruin,2),
                 //new PetBase(PetName.Cabecu,10)
             };
@@ -47,8 +49,8 @@ namespace Criatures2021
             Itens = new List<ItemBase>()
         {
             //ItemFactory.Get(NameIdItem.pergaminhoDePerfeicao,14),
-            ItemFactory.Get(NameIdItem.maca,16),
-            ItemFactory.Get(NameIdItem.cartaLuva,16),
+            ItemFactory.Get(NameIdItem.maca,1),
+            ItemFactory.Get(NameIdItem.cartaLuva,1),
             //ItemFactory.Get(NameIdItem.pergVentosCortantes,2),
             //ItemFactory.Get(NameIdItem.pergFuracaoDeFolhas,5),
             //ItemFactory.Get(NameIdItem.pergaminhoDeFuga,10),

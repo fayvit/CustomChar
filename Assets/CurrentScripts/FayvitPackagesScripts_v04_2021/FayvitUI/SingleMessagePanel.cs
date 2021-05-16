@@ -12,14 +12,20 @@ namespace FayvitUI
 
         [SerializeField] private Text messageText = default;
         [SerializeField] private Text messageButton = default;
+        [SerializeField] private Text infoButtonLabel;
 
         // Use this for initialization
-        public void StartMessagePanel(System.Action closeAction, string messageText, string messageButton = "")
+        public void StartMessagePanel(
+            System.Action closeAction, 
+            string messageText, 
+            string messageButton = "Ok",
+            string infoButtonrText = "Press Enter")
         {
             gameObject.SetActive(true);
             this.messageText.text = messageText;
             this.messageButton.text = messageButton;
             onClose = closeAction;
+            infoButtonLabel.text = infoButtonrText;
         }
 
         public void StartMessagePanel(System.Action closeAction)

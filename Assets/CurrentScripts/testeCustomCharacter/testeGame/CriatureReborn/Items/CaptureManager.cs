@@ -2,6 +2,8 @@
 using System.Collections;
 using FayvitMessageAgregator;
 using FayvitCam;
+using Criatures2021Hud;
+using TextBankSpace;
 
 namespace Criatures2021
 {
@@ -35,7 +37,7 @@ namespace Criatures2021
 
             CameraAplicator.cam.StartShowPointCamera(CriatureAlvoDoItem.transform, new SinglePointCameraProperties()
             {
-                velOrTimeFocus = 1,
+                velOrTimeFocus = .85f,
                 withTime=true
             });
 
@@ -106,8 +108,9 @@ namespace Criatures2021
                     {
                         CameraAplicator.cam.StartShowPointCamera(dono.transform, new SinglePointCameraProperties()
                         {
-                            velOrTimeFocus=30f,
-                            characterHeight = 1.75f
+                            velOrTimeFocus=.85f,
+                            characterHeight = 1.75f,
+                            withTime=true
                         });
                         //AplicadorDeCamera.cam.InicializaCameraExibicionista(GameController.g.Manager.transform);
                         fase = FaseDoAnimaCaptura.animaPersonagemCapturando;
@@ -138,6 +141,11 @@ namespace Criatures2021
         void PreparaFinalComCaptura()
         {
             Debug.LogError("ota HUd");
+            MessageAgregator<MsgPrepareFinalWithCapture>.Publish(new MsgPrepareFinalWithCapture()
+            {
+                capturado = CriatureAlvoDoItem,
+                capturador = dono
+            });
             //GameController.g.HudM.ModoCriature(false);
 
             Vector3 maoDoHeroi = dono.transform
@@ -162,6 +170,13 @@ namespace Criatures2021
             });
 
             Debug.LogError("ota HUd");
+
+            MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+            {
+                message = string.Format(TextBank.RetornaFraseDoIdioma(TextKey.tentaCapturar),
+                    PetBase.NomeEmLinguas(FindByOwner.GetManagerEnemy(dono).MeuCriatureBase.NomeID))
+            });
+
             //GameController.g.HudM.Painel.AtivarNovaMens(
             //   GameController.g.InimigoAtivo.MeuCriatureBase.NomeEmLinguas + BancoDeTextos.RetornaFraseDoIdioma(ChaveDeTexto.tentaCapturar),
             //    24, 5);
@@ -172,6 +187,12 @@ namespace Criatures2021
     public struct MsgRequestDamageAnimateWithFade : IMessageBase
     {
         public GameObject animatePet;
+    }
+
+    public struct MsgPrepareFinalWithCapture : IMessageBase
+    {
+        public GameObject capturado;
+        public GameObject capturador;
     }
 
 }

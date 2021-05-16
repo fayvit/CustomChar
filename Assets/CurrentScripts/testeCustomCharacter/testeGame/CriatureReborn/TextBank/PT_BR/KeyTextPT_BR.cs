@@ -45,15 +45,15 @@ namespace TextBankSpace
      //                   "Todos os seus criatures foram derrotados.\n\r Agora você deve voltar para o armagedom, curar seus criatures e voltar para a sua aventura"
      //               }
      //           },
-     //           {
-     //               TextKey.criatureParaMostrador,new List<string>()
-     //               {
-     //                   "Você tem certeza que quer colocar <color=orange>{0}</color> para continuar a luta?",
-     //                   "O criature <color=orange>{0}</color> não está em condições para entrar na luta",
-     //                   "O criature <color=orange>{0}</color> está desmaiado e não pode entrar",
+                {
+                    TextKey.criatureParaMostrador,new List<string>()
+                    {
+                        "Você tem certeza que quer colocar <color=orange>{0}</color> para continuar a luta?",
+                        "O criature <color=orange>{0}</color> não está em condições para entrar na luta",
+                        "O criature <color=orange>{0}</color> está desmaiado e não pode entrar",
 
-     //               }
-     //           },
+                    }
+                },
      //           {
      //               TextKey.passouDeNivel,new List<string>()
      //               {
@@ -129,12 +129,12 @@ namespace TextBankSpace
      //                   "<color=orange>{0}</color> não aprendeu o ataque <color=yellow>{1}</color> e manteve seus quatro ataques conhecidos"
      //               }
      //           },
-     //           {
-     //               TextKey.foiParaArmagedom,new List<string>()
-     //               {
-     //                   "A luva de Guarde de <color=yellow>Cesar Corean</color> só pode carregar {0} Criatures. Então <color=orange>{1}</color> nivel {2} foi enviado para o Armagedom"
-     //               }
-     //           },
+                {
+                    TextKey.foiParaArmagedom,new List<string>()
+                    {
+                        "A luva de Guarde só pode carregar {0} Criatures. Então <color=orange>{1}</color> nivel {2} foi enviado para o Armagedom"
+                    }
+                },
      //           {
      //               TextKey.primeiroArmagedom,new List<string>()
      //               {
@@ -206,20 +206,20 @@ namespace TextBankSpace
      //           "Tem certeza que deseja excluir o Save {0} ?"
      //       }
      //   },
-     //           {TextKey.itens,new List<string>()
-     //           {
-     //               "Voce não pode usar esse item nesse momento.",
-     //               "Ele não precisa usar esse item nesse momento.",
-     //               "O criature {0} está desmaiado e não pode usar esse item nesse momento.",//O {0} será substituito pelo nome do Criature
-					//"Somente Criatures do tipo {0} podem usar esse item",
-     //               "O criature {0} não pode usar o item {1} pois ele já sabe o golpe {2}",
-     //               "O Criature {0} não pode aprender o golpe {1}",
-     //               "{0} não usou o item {1}",
-     //               "Tem certeza que deseja usar o item {0} ?",
-     //               " Cesar Corean não pode usar esse item nesse local",
-     //               "{0} não precisa usar esse item nesse momento",
-     //               "Você não pode usar itens pelo menu enquanto estiver em luta"
-     //           }},
+                {TextKey.itens,new List<string>()
+                {
+                    "Voce não pode usar esse item nesse momento.",
+                    "Ele não precisa usar esse item nesse momento.",
+                    "O criature {0} está desmaiado e não pode usar esse item nesse momento.",//O {0} será substituito pelo nome do Criature
+					"Somente Criatures do tipo {0} podem usar esse item",
+                    "O criature {0} não pode usar o item {1} pois ele já sabe o golpe {2}",
+                    "O Criature {0} não pode aprender o golpe {1}",
+                    "{0} não usou o item {1}",
+                    "Tem certeza que deseja usar o item {0} ?",
+                    " Cesar Corean não pode usar esse item nesse local",
+                    "{0} não precisa usar esse item nesse momento",
+                    "Você não pode usar itens pelo menu enquanto estiver em luta"
+                }},
      //           {TextKey.bau,new List<string>()
      //           {
      //               "Você encontrou um báu. Quer abri-lo?",
@@ -246,12 +246,12 @@ namespace TextBankSpace
 
                 {TextKey.tentaCapturar,new List<string>()
                 {
-                    " resistiu a tentativa de Captura.",
+                    "{0} resistiu a tentativa de Captura.",
                     "A luva de guarde de Cesar Corean so pode carregar ",
                     "Então: ",
                     " Nível ",
                     "foi enviado para o ",
-                    "Cesar Corean conseguiu capturar um "
+                    "Você conseguiu capturar um {0}"
                 }},
 
                 {TextKey.listaDeItens,new List<string>()
@@ -269,14 +269,15 @@ namespace TextBankSpace
                 }},
 
 
-     //           {TextKey.mensLuta,new List<string>()
-     //           {
-     //               "Você não pode usar esse item nesse momento.",
-     //               "Cesar Corean usa {1}",
-     //               "{0} não precisa usar esse item nesse momento",
-     //               "Você não pode tentar capturar criatures de um treinador",
-     //               "Você não pode usar pergaminho de fuga contra treinadores"
-     //           }},
+                {TextKey.mensLuta,new List<string>()
+                {
+                    "Você não pode usar esse item nesse momento.",
+                    "Cesar Corean usa {1}",
+                    "{0} não precisa usar esse item nesse momento",
+                    "Você não pode tentar capturar criatures de um treinador",
+                    "Você não pode usar pergaminho de fuga contra treinadores",
+                    "Trave a mira em um criature para usar esse item"
+                }},
 
      //           {TextKey.shopInfoItem,new List<string>()
      //           {

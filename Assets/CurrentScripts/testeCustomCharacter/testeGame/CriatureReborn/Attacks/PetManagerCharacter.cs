@@ -26,12 +26,33 @@ namespace Criatures2021
         {
             base.Start();
             MessageAgregator<MsgChangeToPet>.AddListener(OnChangeToPet);
+            MessageAgregator<MsgStartUseItem>.AddListener(OnStartUseItem);
+            MessageAgregator<MsgStartReplacePet>.AddListener(OnStartReplacePet);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
             MessageAgregator<MsgChangeToPet>.RemoveListener(OnChangeToPet);
+            MessageAgregator<MsgStartUseItem>.RemoveListener(OnStartUseItem);
+            MessageAgregator<MsgStartReplacePet>.RemoveListener(OnStartReplacePet);
+            MeuCriatureBase.StManager.OnRegenZeroedStamina = null;
+        }
+
+        private void OnStartReplacePet(MsgStartReplacePet obj)
+        {
+            if (obj.dono == tDono.gameObject)
+            {
+                State = LocalState.stopped;
+            }
+        }
+
+        private void OnStartUseItem(MsgStartUseItem obj)
+        {
+            if (obj.usuario == tDono.gameObject)
+            {
+                State = LocalState.stopped;
+            }
         }
 
         protected override void OnCriatureDefeated(MsgCriatureDefeated obj)
@@ -49,6 +70,11 @@ namespace Criatures2021
                 {
                     VerificaFocarInimigo();
                 },1);
+            }
+
+            if (obj.defeated == gameObject)
+            { 
+            
             }
         }
 
@@ -94,6 +120,8 @@ namespace Criatures2021
 
                 if (CameraAplicator.cam.Cdir.TargetIs(transform) && Mov.LockTarget == null)
                 {
+                    Debug.Log("pensando na camera");
+
                     CameraAplicator.cam.FocusForDirectionalCam(transform, MeuCriatureBase.alturaCamera, MeuCriatureBase.distanciaCamera);
 
                     T.position = pos;

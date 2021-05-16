@@ -108,6 +108,10 @@ namespace TextBankSpace
         nomesDosGolpes,
         listaDeItens,
         emQuem,
-        tentaCapturar
+        itens,
+        mensLuta,
+        tentaCapturar,
+        foiParaArmagedom,
+        criatureParaMostrador
     }
 }

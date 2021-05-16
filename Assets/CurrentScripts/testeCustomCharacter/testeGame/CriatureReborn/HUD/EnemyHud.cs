@@ -24,6 +24,7 @@ namespace Criatures2021Hud
             MessageAgregator<MsgChangeHP>.AddListener(OnChangeHp);
             MessageAgregator<MsgChangeToHero>.AddListener(OnChangeToHero);
             MessageAgregator<MsgCriatureDefeated>.AddListener(OnCriatureDefeated);
+            MessageAgregator<MsgPrepareFinalWithCapture>.AddListener(OnRequestHideHud);
         }
 
         private void OnDestroy()
@@ -32,6 +33,19 @@ namespace Criatures2021Hud
             MessageAgregator<MsgChangeHP>.RemoveListener(OnChangeHp);
             MessageAgregator<MsgChangeToHero>.RemoveListener(OnChangeToHero);
             MessageAgregator<MsgCriatureDefeated>.RemoveListener(OnCriatureDefeated);
+            MessageAgregator<MsgPrepareFinalWithCapture>.AddListener(OnRequestHideHud);
+        }
+
+        private void OnRequestHideHud(MsgPrepareFinalWithCapture obj)
+        {
+            if (owner != null)
+                if (obj.capturado == owner.gameObject)
+                {
+                    enemyName.transform.parent.gameObject.SetActive(false);
+                }
+
+            if (owner == null)
+                Debug.LogError("A captura chama o esconder hud com criature nulo");
         }
 
         private void OnCriatureDefeated(MsgCriatureDefeated obj)
@@ -50,10 +64,11 @@ namespace Criatures2021Hud
 
         private void OnChangeHp(MsgChangeHP obj)
         {
-            if (obj.gameObject == owner.gameObject)
-            {
-                hpBar.fillAmount = (float)obj.currentHp / obj.maxHp;
-            }
+            if(owner)
+                if (obj.gameObject == owner.gameObject)
+                {
+                    hpBar.fillAmount = (float)obj.currentHp / obj.maxHp;
+                }
         }
 
         private void OnTargetEnemy(MsgTargetEnemy obj)

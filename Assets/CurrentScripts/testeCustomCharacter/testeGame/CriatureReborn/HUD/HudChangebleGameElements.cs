@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using FayvitMessageAgregator;
 using Criatures2021;
-using System;
 
 namespace Criatures2021Hud
 {
@@ -14,6 +13,7 @@ namespace Criatures2021Hud
         [SerializeField] private Image attackImg;
         [SerializeField] private Image containerDeInfoText;
         [SerializeField] private Text infoText;
+        [SerializeField] private Text itemCount;
 
         private float contTime = 0;
         private float timeTohide = 2;
@@ -50,7 +50,10 @@ namespace Criatures2021Hud
                 criatureImg.transform.parent.gameObject.SetActive(false);
 
             if (obj.nameItem != NameIdItem.generico)
-                OnChangeSelectedItem(new MsgChangeSelectedItem() { nameItem = obj.nameItem });
+                OnChangeSelectedItem(new MsgChangeSelectedItem() { 
+                    nameItem = obj.nameItem ,
+                    quantidade = obj.countItem
+                });
             else
                 itemImg.transform.parent.gameObject.SetActive(false);
 
@@ -88,9 +91,14 @@ namespace Criatures2021Hud
 
         private void OnChangeSelectedItem(MsgChangeSelectedItem obj)
         {
-            itemImg.transform.parent.gameObject.SetActive(true);
-            itemImg.sprite = Resources.Load<Sprite>("miniItens/" + obj.nameItem.ToString());
-            ActiveInfoText(ItemBase.NomeEmLinguas(obj.nameItem));
+            if (obj.nameItem != NameIdItem.generico)
+            {
+                itemImg.transform.parent.gameObject.SetActive(true);
+                itemCount.text = obj.quantidade.ToString();
+                itemImg.sprite = Resources.Load<Sprite>("miniItens/" + obj.nameItem.ToString());
+                ActiveInfoText(ItemBase.NomeEmLinguas(obj.nameItem));
+            }else
+                itemImg.transform.parent.gameObject.SetActive(false);
         }
 
         private void OnChangeSelectedPet(MsgChangeSelectedPet obj)
@@ -133,6 +141,7 @@ public struct MsgChangeSelectedPet : IMessageBase {
 }
 public struct MsgChangeSelectedItem : IMessageBase {
     public NameIdItem nameItem;
+    public int quantidade;
 }
 public struct MsgChangeSelectedAttack : IMessageBase {
     public AttackNameId attackName;
@@ -140,4 +149,5 @@ public struct MsgChangeSelectedAttack : IMessageBase {
 public struct MsgStartGameElementsHud : IMessageBase {
     public PetName petname;
     public NameIdItem nameItem;
+    public int countItem;
 }

@@ -8,7 +8,7 @@ using FayvitMove;
 using FayvitMessageAgregator;
 using Criatures2021Hud;
 using TalkSpace;
-using System;
+using TextBankSpace;
 
 namespace Criatures2021
 {
@@ -39,18 +39,16 @@ namespace Criatures2021
                 dados.InicializadorDosDados();
 
                 if (ActivePet == null)
-                    //if(StaticInstanceExistence<IGameController>.SchelduleExistence(
-                    //    SeletaDeCriatures,
-                    //    this,()=> {
-                    //        return AbstractGameController.Instance;
-                    //    }))
                     SeletaDeCriatures();
 
                 ThisState = CharacterState.onFree;
 
+                
                 MessageAgregator<MsgStartGameElementsHud>.Publish(new MsgStartGameElementsHud()
                 {
-                    petname = dados.CriaturesAtivos.Count>1?dados.CriaturesAtivos[dados.CriatureSai+1].NomeID:PetName.nulo
+                    petname = dados.CriaturesAtivos.Count>1?dados.CriaturesAtivos[dados.CriatureSai+1].NomeID:PetName.nulo,
+                    nameItem = dados.Itens.Count>0?dados.Itens[dados.ItemSai].ID:NameIdItem.generico,
+                    countItem = dados.Itens.Count>0?dados.Itens[dados.ItemSai].Estoque:0
                 });
             }
 
@@ -63,6 +61,7 @@ namespace Criatures2021
             MessageAgregator<MsgRequestChangeToPetByReplace>.AddListener(OnRequestChangeToPetByReplace);
             MessageAgregator<MsgRequestChangeSelectedItemWithPet>.AddListener(OnRequestChangeSelectedItem);
             MessageAgregator<MsgRequestUseItem>.AddListener(OnRequestUseItem);
+            MessageAgregator<MsgStartUseItem>.AddListener(OnStartUseItem);
 
         }
 
@@ -77,6 +76,22 @@ namespace Criatures2021
             MessageAgregator<MsgRequestChangeToPetByReplace>.RemoveListener(OnRequestChangeToPetByReplace);
             MessageAgregator<MsgRequestChangeSelectedItemWithPet>.RemoveListener(OnRequestChangeSelectedItem);
             MessageAgregator<MsgRequestUseItem>.RemoveListener(OnRequestUseItem);
+            MessageAgregator<MsgStartUseItem>.RemoveListener(OnStartUseItem);
+        }
+
+        private void OnStartUseItem(MsgStartUseItem obj)
+        {
+            Debug.Log(obj.usuario + " : " + gameObject);
+
+            if (obj.usuario == gameObject)
+            {
+                ThisState = CharacterState.stopedWithStoppedCam;
+                MessageAgregator<MsgChangeSelectedItem>.Publish(new MsgChangeSelectedItem()
+                {
+                    nameItem = dados.Itens.Count > 0 ? dados.Itens[dados.ItemSai].ID : NameIdItem.generico,
+                    quantidade = dados.Itens.Count > 0 ? dados.Itens[dados.ItemSai].Estoque : 0
+                });
+            }
         }
 
         private void OnRequestChangeSelectedItem(MsgRequestChangeSelectedItemWithPet obj)
@@ -92,7 +107,7 @@ namespace Criatures2021
             if (obj.dono == gameObject)
             {
                 StartUseItem(FluxoDeRetorno.criature);
-                ThisState = CharacterState.stopedWithStoppedCam;
+                //ThisState = CharacterState.stopedWithStoppedCam;
             }
         }
 
@@ -152,7 +167,7 @@ namespace Criatures2021
 
         private void OnChangeToHero(MsgChangeToHero obj)
         {
-            if (obj.myHero == gameObject)
+            if (obj.myHero == gameObject && ThisState!=CharacterState.onFree)
             {
                 ThisState = CharacterState.onFree;
                 SetHeroCamera.Set(transform);
@@ -160,12 +175,16 @@ namespace Criatures2021
         }
 
         void ChangeSelectedItem(int change)
-        { 
-            dados.ItemSai = ContadorCiclico.Contar(change, dados.ItemSai, dados.Itens.Count);
-            MessageAgregator<MsgChangeSelectedItem>.Publish(new MsgChangeSelectedItem()
+        {
+            if (dados.Itens.Count > 0)
             {
-                nameItem = dados.Itens[dados.ItemSai].ID
-            });
+                dados.ItemSai = ContadorCiclico.Contar(change, dados.ItemSai, dados.Itens.Count);
+                MessageAgregator<MsgChangeSelectedItem>.Publish(new MsgChangeSelectedItem()
+                {
+                    nameItem = dados.Itens[dados.ItemSai].ID,
+                    quantidade = dados.Itens[dados.ItemSai].Estoque
+                });
+            }
         }
 
         void ChangeSelectedPet()
@@ -202,6 +221,7 @@ namespace Criatures2021
                     ActionCommand();
                 break;
                 case CharacterState.stopedWithStoppedCam:
+                    CurrentCommander.DirectionalVector();
                     mov.MoveApplicator(Vector3.zero);
                 break;
                 case CharacterState.externalPanelOpened:
@@ -294,25 +314,44 @@ namespace Criatures2021
                     //if (g.UsarTempoDeItem == UsarTempoDeItem.sempre || (g.UsarTempoDeItem == UsarTempoDeItem.emLuta && g.estaEmLuta))
                     //    gerente.Dados.TempoDoUltimoUsoDeItem = Time.time;
                     StartUseItem(FluxoDeRetorno.heroi);
-                    ThisState = CharacterState.stopedWithStoppedCam;
+                    //ThisState = CharacterState.stopedWithStoppedCam;
                 }
             }
         }
 
         void StartUseItem(FluxoDeRetorno fluxo)
         {
-            UseItemManager useItem = gameObject.AddComponent<UseItemManager>();
-            useItem.StartFields(gameObject, dados.Itens, dados.ItemSai,fluxo);
-            CameraAplicator.cam.RemoveMira();
+            if (dados.Itens.Count > 0)
+            {
+                UseItemManager useItem = gameObject.AddComponent<UseItemManager>();
+                useItem.StartFields(gameObject, dados.Itens, dados.ItemSai, fluxo);
+                CameraAplicator.cam.RemoveMira();
+            }
         }
 
         void StartReplacePet(FluxoDeRetorno fluxo)
         {
-            PetReplaceManager prm = gameObject.AddComponent<PetReplaceManager>();
-            prm.StartReplace(transform, ActivePet.transform, fluxo,
-                dados.CriaturesAtivos[dados.CriatureSai + 1]
-                );
-            ThisState = CharacterState.stopedWithStoppedCam;
+            if (dados.CriaturesAtivos.Count > 1
+                &&
+                dados.CriaturesAtivos[dados.CriatureSai + 1].PetFeat.meusAtributos.PV.Corrente > 0)
+            {
+                PetReplaceManager prm = gameObject.AddComponent<PetReplaceManager>();
+                prm.StartReplace(transform, ActivePet.transform, fluxo,
+                    dados.CriaturesAtivos[dados.CriatureSai + 1]
+                    );
+                ThisState = CharacterState.stopedWithStoppedCam;
+            }
+            else
+            {
+                if (dados.CriaturesAtivos[dados.CriatureSai + 1].PetFeat.meusAtributos.PV.Corrente <= 0)
+                    MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+                    {
+                        message = string.Format(
+                        TextBank.RetornaListaDeTextoDoIdioma(TextKey.criatureParaMostrador)[1],
+                        dados.CriaturesAtivos[dados.CriatureSai + 1].GetNomeEmLinguas
+                    )
+                    });
+            }
         }
 
         void ControlCamera()

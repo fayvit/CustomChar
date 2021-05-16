@@ -298,6 +298,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChuvaVenenosa.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\SectionsMenu\ColorPanelSelect.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\MyUI_Space\BasicMenu.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\AnimateCapturePose.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\Camera\ShowSinglePointCam.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Suporte\MusicasDeFundo.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Eventos\MbMudeCena.cs" />
@@ -410,6 +411,7 @@
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\ComportamentosDeAtaqueBase\ImpactBase.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\EnemyHud.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\ataquesConsolidados\VentosCortantes.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\FindByOwner.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\MyUI_Space\MyUiObjects\MenuReference.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitUI\MyUiObjects\SupportCreationUi.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\MenuBasico.cs" />
@@ -533,6 +535,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Animacoes\DustInTheWind.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\ColisorDeGolpe.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\PegaCristal.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\CaptureManager.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\ColorPicker\ColorPicker.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\FieldEnemy\ProvisionalEnemyInstantiate.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\PetManagerEnemy.cs" />
@@ -556,6 +559,7 @@
     <Compile Include="Assets\Legacy\BigLegacy\ColorPickerTriangle\Example\example.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\MyUI_Space\TextDisplay.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Suporte\AuxiliarDeInstancia.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\CartaLuva.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\ChaoQueimando.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\SaveDates.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\FlexibleColorPicker\Scripts\FlexibleColorPicker.cs" />
@@ -783,10 +787,9 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbBastao.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitBasicTools\IGameController.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitUI\MyUiObjects\ColorGridMenu.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\CartaLuva.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\CaptureManager.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\AnimateCapturePose.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\FindByOwner.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\RapidInfoHud.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ShowPetHud.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\UpperLargeMessage.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Legacy\BigLegacy\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />

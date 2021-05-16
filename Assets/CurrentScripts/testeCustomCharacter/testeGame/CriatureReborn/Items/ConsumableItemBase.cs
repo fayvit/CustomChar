@@ -2,13 +2,15 @@
 using System.Collections;
 using FayvitMessageAgregator;
 using System.Collections.Generic;
+using Criatures2021Hud;
+using TextBankSpace;
 
 namespace Criatures2021
 {
     [System.Serializable]
     public class ConsumableItemBase : ItemBase
     {
-        //[System.NonSerialized] protected CreatureManager CriatureAlvoDoItem;
+        [System.NonSerialized] protected PetManager CriatureAlvoDoItem;
         private const float TEMPO_DE_ANIMA_CURA_1 = 1.5f;
 
         public ConsumableItemBase(ItemFeatures C) : base(C) { }
@@ -88,8 +90,8 @@ namespace Criatures2021
         protected void IniciaUsoDesseItem(GameObject dono, bool podeUsar, bool temTipo = true, NomeTipos nomeDoTipo = NomeTipos.nulo)
         {
             //Manager = GameController.g.Manager;
-            //CriatureAlvoDoItem = Manager.CriatureAtivo;
-            Transform pet = dono.GetComponent<CharacterManager>().ActivePet.transform;
+            CriatureAlvoDoItem = dono.GetComponent<CharacterManager>().ActivePet;
+            Transform pet = CriatureAlvoDoItem.transform;
             if (podeUsar && temTipo && RetirarUmItem(Lista, this, 1))
             {
                 //GameController.g.HudM.ModoCriature(false);
@@ -102,12 +104,26 @@ namespace Criatures2021
                 if (!temTipo)
                 {
                     Debug.LogError("Uma mensagem de não tem tipo");
+
+                    MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+                    {
+                        message = string.Format(TextBank.RetornaFraseDoIdioma(TextKey.itens),
+                            "<color = orange>"+nomeDoTipo+"</color>")
+                    });
+
                     //GameController.g.HudM.Painel.AtivarNovaMens(string.Format(
                     //   BancoDeTextos.RetornaListaDeTextoDoIdioma(ChaveDeTexto.itens)[3], nomeDoTipo), 30, 5);
                 }
                 else if (!podeUsar)
                 {
                     Debug.LogError("Uma mensagem de não pode usar");
+
+                    MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+                    {
+                        message = string.Format(TextBank.RetornaListaDeTextoDoIdioma(TextKey.mensLuta)[2],
+                        CriatureAlvoDoItem.MeuCriatureBase.GetNomeEmLinguas
+                    )
+                    });
                     //GameController.g.HudM.Painel.AtivarNovaMens(string.Format(
                     //BancoDeTextos.RetornaListaDeTextoDoIdioma(ChaveDeTexto.mensLuta)[2],
                     //    CriatureAlvoDoItem.MeuCriatureBase.NomeEmLinguas), 30, 5);

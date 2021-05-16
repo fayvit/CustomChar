@@ -37,6 +37,10 @@ namespace Criatures2021
             //estouTrocandoDeCriature = true;
             #endregion
             animaB = new AnimateArm(hero, alvo);
+            MessageAgregator<MsgStartReplacePet>.Publish(new MsgStartReplacePet()
+            {
+                dono = hero.gameObject
+            });
         }
 
         public void Update()
@@ -74,5 +78,10 @@ namespace Criatures2021
     {
         public GameObject dono;
         public FluxoDeRetorno fluxo;
+    }
+
+    public struct MsgStartReplacePet : IMessageBase
+    {
+        public GameObject dono;
     }
 }

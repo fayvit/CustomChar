@@ -2,6 +2,7 @@
 using System.Collections;
 using TextBankSpace;
 using System.Collections.Generic;
+using FayvitMessageAgregator;
 
 namespace Criatures2021
 {
@@ -210,6 +211,10 @@ namespace Criatures2021
 
         protected void InicializacaoComum(GameObject dono, Transform alvoDoItem)
         {
+            MessageAgregator<MsgStartUseItem>.Publish(new MsgStartUseItem
+            {
+                usuario = dono
+            });
             //Manager = GameController.g.Manager;
             TempoDecorrido = 0;
 
@@ -221,13 +226,17 @@ namespace Criatures2021
             //    GameController.g.InimigoAtivo.PararCriatureNoLocal();
 
             AnimaB = new AnimateArm(dono.transform, alvoDoItem);
+            
 
         }
 
         protected void FecharMensagem()
         {
             Estado = ItemUseState.finalizaUsaItem;
-            GameController.g.HudM.MenuDePause.ReligarBotoesDoPainelDeItens();
+
+            Debug.LogError("pedindo religamento de botoes");
+
+            //GameController.g.HudM.MenuDePause.ReligarBotoesDoPainelDeItens();
         }
 
         //static IEnumerator VoltarDosItensQuandoNaoTemMais()
@@ -267,6 +276,11 @@ namespace Criatures2021
             this.estoque = 1;
             this.valor = 1;
         }
+    }
+
+    public struct MsgStartUseItem : IMessageBase
+    {
+        public GameObject usuario;
     }
 
     public enum ItemUseState

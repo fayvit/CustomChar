@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FayvitBasicTools;
 using TextBankSpace;
 using FayvitMessageAgregator;
 using FayvitCam;
+using Criatures2021Hud;
+using FayvitCommandReader;
+using FayvitBasicTools;
 
 namespace Criatures2021
 {
     public class AnimateCapturePose
     {
         private GameObject dono;
-        //private PetBase oCapturado;
+        private PetBase oCapturado;
         private FaseDoAnimaPose fase = FaseDoAnimaPose.inicia;
         private bool foiParaArmagedom = false;
         private bool ativarAcao = false;
@@ -23,12 +25,16 @@ namespace Criatures2021
             brilho2,
             insereInfos,
             mensDoArmagedom,
-            finaliza
+            finaliza,
+            umaMensAberta
         }
+
+        public ICommandReader CurrentCommander { get => CommandReader.GetCR(AbstractGlobalController.Instance.Control); }
+
         public AnimateCapturePose(PetBase oCapturado,GameObject dono)
         {
             this.dono = dono;
-            //this.oCapturado = oCapturado;
+            this.oCapturado = oCapturado;
 
             DadosDeJogador dados = dono.GetComponent<CharacterManager>().Dados;
 
@@ -44,7 +50,6 @@ namespace Criatures2021
                 linhas para encher a vida e retirar status quando o Criature for para o Armagedom
                  */
 
-                // statusTemporarioBase.limpaStatus(oCapturado, -1);
                 PetAtributes A = oCapturado.PetFeat.meusAtributos;
                 A.PV.Corrente = A.PV.Maximo;
                 A.PE.Corrente = A.PE.Maximo;
@@ -87,6 +92,16 @@ namespace Criatures2021
                 case FaseDoAnimaPose.insereInfos:
                     if (tempoDecorrido > 0.4f)
                     {
+                        MessageAgregator<MsgRequestUpperLargeMessage>.Publish(new MsgRequestUpperLargeMessage()
+                        {
+                            message = string.Format(TextBank.RetornaListaDeTextoDoIdioma(TextKey.tentaCapturar)[5],
+                                "<color=yellow>"+oCapturado.GetNomeEmLinguas+"</color>")
+                        });
+
+                        MessageAgregator<MsgInsertCaptureInfos>.Publish(new MsgInsertCaptureInfos()
+                        {
+                            pet = oCapturado
+                        });
 
                         //PainelDeCriature PC = GameController.g.HudM.P_Criature;
                         //GameController.g.HudM.Painel.AtivarNovaMens(
@@ -114,11 +129,27 @@ namespace Criatures2021
                     }
                     break;
                 case FaseDoAnimaPose.mensDoArmagedom:
+                    ativarAcao = CurrentCommander.GetButtonDown(CommandConverterInt.humanAction, true);
                     if (ativarAcao || tempoDecorrido > TEMPO_DE_MENS_DE_CAPTURA)
                     {
                         ativarAcao = false;
 
                         Debug.LogError("Mais um Construir a Hud");
+
+                        MessageAgregator<MsgHideShowPetHud>.Publish();
+                        MessageAgregator<MsgRequestHideUpperLargeMessage>.Publish();
+
+                        AbstractGlobalController.Instance.OneMessage.StartMessagePanel(() =>
+                        {
+                            tempoDecorrido = 11;// para finalizar imediatamente
+                            fase = FaseDoAnimaPose.finaliza;
+                        }, string.Format(TextBank.RetornaFraseDoIdioma(TextKey.foiParaArmagedom),
+                         dono.GetComponent<CharacterManager>().Dados.MaxCarregaveis.ToString(),
+                         oCapturado.GetNomeEmLinguas,
+                         oCapturado.PetFeat.mNivel.Nivel
+                         ),infoButtonrText: "Press L");
+
+                        fase = FaseDoAnimaPose.umaMensAberta;
                         //GameController.g.HudM.UmaMensagem.ConstroiPainelUmaMensagem(() =>
                         //{
                         //    tempoDecorrido = 11;// para finalizar imediatamente
@@ -131,7 +162,14 @@ namespace Criatures2021
                         // ));
                     }
                     break;
+                case FaseDoAnimaPose.umaMensAberta:
+
+                    AbstractGlobalController.Instance.OneMessage.
+                        ThisUpdate(CurrentCommander.GetButtonDown(CommandConverterInt.humanAction, true));
+                    
+                break;
                 case FaseDoAnimaPose.finaliza:
+                    ativarAcao = CurrentCommander.GetButtonDown(CommandConverterInt.humanAction,true);
                     if (ativarAcao || tempoDecorrido > TEMPO_DE_MENS_DE_CAPTURA)
                     {
                         ativarAcao = false;
@@ -169,5 +207,9 @@ namespace Criatures2021
     }
     public struct MsgEndOfCaptureAnimate : IMessageBase {
         public GameObject dono;
+    }
+
+    public struct MsgInsertCaptureInfos : IMessageBase {
+        public PetBase pet;
     }
 }

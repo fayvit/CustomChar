@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using FayvitMessageAgregator;
 using FayvitBasicTools;
 using System.Text.RegularExpressions;
+using Criatures2021Hud;
+using TextBankSpace;
+using UnityEditor.VersionControl;
 
 namespace Criatures2021
 {
@@ -27,6 +30,10 @@ namespace Criatures2021
             Estado = ItemUseState.emEspera;
 
             Debug.LogError("painel de info na carta luva menu");
+            MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+            {
+                message = TextBank.RetornaFraseDoIdioma(TextKey.mensLuta)
+            }) ;
             //GameController.g.HudM.UmaMensagem.ConstroiPainelUmaMensagem(FecharMensagem, BancoDeTextos.RetornaFraseDoIdioma(ChaveDeTexto.mensLuta));
 
         }
@@ -91,7 +98,20 @@ namespace Criatures2021
             {
                 Estado = ItemUseState.finalizaUsaItem;
 
+                MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+                {
+                    message = TextBank.RetornaFraseDoIdioma(TextKey.mensLuta)
+                });
+
                 Debug.LogError("Uma mensagem de não pode usar");
+
+                if (!FindByOwner.GetManagerEnemy(Dono))
+                    MessageAgregator<MsgRequestRapidInfo>.Publish(new MsgRequestRapidInfo()
+                    {
+                        message = TextBank.RetornaListaDeTextoDoIdioma(TextKey.mensLuta)[5]
+                    });
+
+
                 //if (!GameController.g.estaEmLuta)
                 //    GameController.g.HudM.Painel.AtivarNovaMens(BancoDeTextos.RetornaListaDeTextoDoIdioma(ChaveDeTexto.mensLuta)[0], 30, 7);
                 //else if (GameController.g.ContraTreinador)
@@ -148,13 +168,14 @@ namespace Criatures2021
                     {
                         if (captura)
                         {
-                            MessageAgregator<MsgChangeToHero>.Publish(new MsgChangeToHero()
-                            {
-                                myHero = Dono
-                            });
-                            Debug.LogError("Retorna para o fluxo de heroi");
+                            //MessageAgregator<MsgChangeToHero>.Publish(new MsgChangeToHero()
+                            //{
+                            //    myHero = Dono
+                            //});
+                            //Debug.LogError("Retorna para o fluxo de heroi");
                             //GameController.g.RetornarParaFluxoDoHeroi();
-                            Estado = ItemUseState.nulo;
+                            //Estado = ItemUseState.nulo;
+                            Estado = ItemUseState.finalizaUsaItem;
                         }
                         else
                         {

@@ -27,6 +27,8 @@ namespace Criatures2021
             get { return tempoSignificativo; }
             set { tempoSignificativo = value; }
         }
+
+        public string GetNomeEmLinguas { get => StatusTemporarioBase.NomeEmLinguas(Tipo); }
     }
 
     public enum StatusType

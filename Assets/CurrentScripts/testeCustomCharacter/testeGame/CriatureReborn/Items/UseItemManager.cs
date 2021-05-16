@@ -20,8 +20,8 @@ namespace Criatures2021
         {
             EstouUsandoItem = true;
             this.dono = dono;
-            
-            esseItem = lista[indexOfUse];
+
+            esseItem = (ItemBase)lista[indexOfUse].Clone();
             this.fluxo = fluxo;
 
             switch (fluxo)
