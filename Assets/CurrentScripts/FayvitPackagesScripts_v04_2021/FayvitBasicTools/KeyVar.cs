@@ -107,7 +107,7 @@ namespace FayvitBasicTools
                 return false;
             }
             else
-            { //Debug.Log(autoShift[key]); 
+            { 
                 return autoShift[key];
             }
         }

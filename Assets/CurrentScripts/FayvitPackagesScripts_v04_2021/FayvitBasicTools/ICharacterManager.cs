@@ -17,6 +17,10 @@ namespace FayvitBasicTools
         stopedWithStoppedCam,
         withPet,
         externalMovement,
-        externalPanelOpened
+        externalPanelOpened,
+        activeSingleMessageOpened,
+        activeConfirmationOpened,
+        stopped,
+        NonBlockPanelOpened
     }
 }

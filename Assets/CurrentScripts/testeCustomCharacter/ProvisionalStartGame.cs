@@ -62,9 +62,9 @@ public class ProvisionalStartGame   : MonoBehaviour
             SetHeroCamera.Set(character);
             
             
-            Destroy(CameraAplicator.cam.GetComponent<CustomizationCamManager>());
-            Destroy(CameraAplicator.cam.transform.GetChild(0).gameObject);
-            CameraAplicator.cam.GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
+            Destroy(CameraApplicator.cam.GetComponent<CustomizationCamManager>());
+            Destroy(CameraApplicator.cam.transform.GetChild(0).gameObject);
+            CameraApplicator.cam.GetComponent<Camera>().rect = new Rect(0, 0, 1, 1);
             
 
             SupportSingleton.Instance.InvokeOnEndFrame(() =>

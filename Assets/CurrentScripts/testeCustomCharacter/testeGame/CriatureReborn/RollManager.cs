@@ -33,7 +33,7 @@ namespace Criatures2021
             {
                 RequestAttack = false;
                 owner = G;
-                startDir = startDir == Vector3.zero ? CameraAplicator.cam.transform.TransformDirection(Vector3.forward) : startDir;
+                startDir = startDir == Vector3.zero ? CameraApplicator.cam.transform.TransformDirection(Vector3.forward) : startDir;
                 DirOfRoll = startDir;
                 timeCount = 0;
                 ultimoRoll = Time.time;

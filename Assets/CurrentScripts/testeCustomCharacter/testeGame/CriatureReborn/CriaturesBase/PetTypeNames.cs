@@ -1,4 +1,6 @@
-﻿public enum PetTypeName
+﻿using TextBankSpace;
+
+public enum PetTypeName
 {
 	nulo = -1,
 	Agua,
@@ -14,4 +16,12 @@
 	Voador,
 	Gas,
 	Gelo
+}
+
+public static class TypeNameInLanguages
+{
+	public static string Get(PetTypeName p)
+	{
+		return TextBank.RetornaListaDeTextoDoIdioma(TextKey.nomeTipos)[(int)p];
+	}
 }

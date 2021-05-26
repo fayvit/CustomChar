@@ -72,7 +72,7 @@ namespace Criatures2021
             switch (fase)
             {
                 case FaseDoAnimaPose.inicia:
-                    CameraAplicator.cam.FocusInPoint(3);
+                    CameraApplicator.cam.FocusInPoint(3);
                     //AplicadorDeCamera.cam.FocarPonto(10);
                     if (tempoDecorrido > 1)
                     {
@@ -147,7 +147,7 @@ namespace Criatures2021
                          dono.GetComponent<CharacterManager>().Dados.MaxCarregaveis.ToString(),
                          oCapturado.GetNomeEmLinguas,
                          oCapturado.PetFeat.mNivel.Nivel
-                         ),infoButtonrText: "Press L");
+                         ),infoButtonText: "Press L");
 
                         fase = FaseDoAnimaPose.umaMensAberta;
                         //GameController.g.HudM.UmaMensagem.ConstroiPainelUmaMensagem(() =>

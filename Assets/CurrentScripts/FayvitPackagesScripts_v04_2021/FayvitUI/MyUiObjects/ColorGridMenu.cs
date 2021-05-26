@@ -60,7 +60,7 @@ namespace FayvitUI
             {
                 ChangeSelectionTo(x);
 
-                MessageAgregator<UiDeOpcoesChangeMessage>.Publish(new UiDeOpcoesChangeMessage()
+                MessageAgregator<MsgChangeOptionUI>.Publish(new MsgChangeOptionUI()
                 {
                     parentOfScrollRect = menuScrollRect.transform.parent.gameObject,
                     selectedOption = SelectedOption

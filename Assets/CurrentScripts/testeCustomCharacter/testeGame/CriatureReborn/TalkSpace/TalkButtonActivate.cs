@@ -32,7 +32,7 @@ namespace TalkSpace
 
         private void OnDestroy()
         {
-            MessageAgregator<MsgSendExternaPanelCommand>.AddListener(OnReceiveCommands);
+            MessageAgregator<MsgSendExternaPanelCommand>.RemoveListener(OnReceiveCommands);
         }
 
         private void OnReceiveCommands(MsgSendExternaPanelCommand obj)
@@ -56,7 +56,7 @@ namespace TalkSpace
 
         protected virtual void OnFinishTalk()
         {
-            MessageAgregator<MsgFinishTalk>.Publish();
+            MessageAgregator<MsgFinishExternalInteraction>.Publish();
             MessageAgregator<MsgReturnRememberedMusic>.Publish();
             inputNext = false;
             inputReturn = false;
@@ -84,7 +84,7 @@ namespace TalkSpace
 
         protected virtual void OnStartTalk()
         {
-            MessageAgregator<MsgStartTalk>.Publish();
+            MessageAgregator<MsgStartExternalInteraction>.Publish();
         }
 
         public override void FuncaoDoBotao()
@@ -92,12 +92,16 @@ namespace TalkSpace
             BotaoConversa();
         }
     }
-
-    public struct MsgSendExternaPanelCommand : IMessageBase {
-        public bool confirmButton;
-        public bool returnButton;
-    }
-
-    public struct MsgStartTalk : IMessageBase { }
-    public struct MsgFinishTalk : IMessageBase { }
+    
 }
+
+public struct MsgSendExternaPanelCommand : IMessageBase
+{
+    public bool confirmButton;
+    public bool returnButton;
+    public int hChange;
+    public int vChange;
+}
+
+public struct MsgStartExternalInteraction : IMessageBase { }
+public struct MsgFinishExternalInteraction : IMessageBase { }

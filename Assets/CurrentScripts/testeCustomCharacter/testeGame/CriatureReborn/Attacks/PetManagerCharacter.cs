@@ -60,8 +60,46 @@ namespace Criatures2021
             base.OnCriatureDefeated(obj);
 
             if (obj.atacker == gameObject)
-            { 
-            
+            {
+                GerenciadorDeExperiencia gXp = MeuCriatureBase.PetFeat.mNivel;
+                gXp.XP += (int)((float)obj.doDerrotado.PetFeat.meusAtributos.PV.Maximo / 2);
+                if (gXp.VerificaPassaNivel())
+                {
+                    gXp.AplicaPassaNivel();
+                    
+
+                    GameObject G = Instantiate(ResourcesFolders.GetGeneralElements(GeneralElements.passouDeNivel), transform.position, Quaternion.identity);
+                    DanoAparecendo d = G.GetComponentInChildren<DanoAparecendo>();
+                    d.dano = "Nivel " + gXp.Nivel;
+                    d.atacado = transform;
+
+                    Destroy(G, 5);
+
+                    PetAtributes P = MeuCriatureBase.PetFeat.meusAtributos;
+                    PetUpLevel.CalculeUpLevel(gXp.Nivel, P);
+
+                    PetAttackDb gp = MeuCriatureBase.GerenteDeGolpes.VerificaGolpeDoNivel(
+                        MeuCriatureBase.NomeID, gXp.Nivel
+                        );
+
+                    if (gp.Nome != AttackNameId.nulo && !MeuCriatureBase.GerenteDeGolpes.TemEsseGolpe(gp.Nome))
+                    {
+                        MeuCriatureBase.GolpesPorAprender.Add(gp);
+                    }
+                    else if (gp.Nome != AttackNameId.nulo)
+                        gp = new PetAttackDb();
+
+                    MessageAgregator<MsgChangeLevel>.Publish(new MsgChangeLevel() { 
+                        newLevel = gXp.Nivel,
+                        gameObject=gameObject,
+                        peCorrente = P.PE.Corrente,
+                        peMaximo = P.PE.Maximo,
+                        pvCorrente = P.PV.Corrente,
+                        pvMax = P.PV.Maximo,
+                        petAtkDb = gp
+                    });
+
+                }
             }
 
             if (Controll.Mov.LockTarget!=null  && obj.defeated == Controll.Mov.LockTarget.gameObject)
@@ -73,8 +111,14 @@ namespace Criatures2021
             }
 
             if (obj.defeated == gameObject)
-            { 
-            
+            {
+                CameraApplicator.cam.RemoveMira();
+                Controll.Mov.LockTarget = null;
+                MessageAgregator<MsgPlayerPetDefeated>.Publish(new MsgPlayerPetDefeated()
+                {
+                    dono = tDono.gameObject,
+                    pet = this
+                });
             }
         }
 
@@ -113,16 +157,16 @@ namespace Criatures2021
                 inControll = true;
                 State = LocalState.onFree;
 
-                Transform T = CameraAplicator.cam.transform;
+                Transform T = CameraApplicator.cam.transform;
                 Vector3 pos = T.position;
                 Quaternion Q = T.rotation;
 
 
-                if (CameraAplicator.cam.Cdir.TargetIs(transform) && Mov.LockTarget == null)
+                if (CameraApplicator.cam.Cdir.TargetIs(transform) && Mov.LockTarget == null)
                 {
                     Debug.Log("pensando na camera");
 
-                    CameraAplicator.cam.FocusForDirectionalCam(transform, MeuCriatureBase.alturaCamera, MeuCriatureBase.distanciaCamera);
+                    CameraApplicator.cam.FocusForDirectionalCam(transform, MeuCriatureBase.alturaCamera, MeuCriatureBase.distanciaCamera);
 
                     T.position = pos;
                     T.rotation = Q;
@@ -132,18 +176,18 @@ namespace Criatures2021
                         T.forward, Vector3.up));
 
 
-                    CameraAplicator.cam.RetornarParaCameraDirecional(V);
+                    CameraApplicator.cam.RetornarParaCameraDirecional(V);
                 }
-                else if (CameraAplicator.cam.Cdir.TargetIs(transform) && Mov.LockTarget != null)
+                else if (CameraApplicator.cam.Cdir.TargetIs(transform) && Mov.LockTarget != null)
                 {
-                    CameraAplicator.cam.StartFightCam(transform, Mov.LockTarget);
+                    CameraApplicator.cam.StartFightCam(transform, Mov.LockTarget);
                     MessageAgregator<MsgTargetEnemy>.Publish(new MsgTargetEnemy()
                     {
                         targetEnemy = Mov.LockTarget
                     });
                 }
                 else
-                    CameraAplicator.cam.FocusForDirectionalCam(transform, MeuCriatureBase.alturaCamera, MeuCriatureBase.distanciaCamera);
+                    CameraApplicator.cam.FocusForDirectionalCam(transform, MeuCriatureBase.alturaCamera, MeuCriatureBase.distanciaCamera);
 
                 PetFeatures P = MeuCriatureBase.PetFeat;
             }
@@ -191,7 +235,7 @@ namespace Criatures2021
                     MeuCriatureBase.StManager.StaminaRegen(false);
                 break;
                 case LocalState.onFree:
-                    Vector3 V = CameraAplicator.cam.SmoothCamDirectionalVector(
+                    Vector3 V = CameraApplicator.cam.SmoothCamDirectionalVector(
                     CurrentCommander.GetAxis(CommandConverterString.moveH),
                     CurrentCommander.GetAxis(CommandConverterString.moveV)
                     );
@@ -225,7 +269,7 @@ namespace Criatures2021
                             if (Mov.LockTarget)
                             {
                                 Mov.LockTarget = null;
-                                CameraAplicator.cam.RemoveMira();
+                                CameraApplicator.cam.RemoveMira();
                             }
                             inControll = false;
                             State = LocalState.following;
@@ -335,8 +379,8 @@ namespace Criatures2021
                 Mov.LockTarget = null;
                 Vector3 V = transform.InverseTransformDirection(
                     Vector3.ProjectOnPlane(
-                    CameraAplicator.cam.transform.forward,Vector3.up));
-                CameraAplicator.cam.RetornarParaCameraDirecional(V);
+                    CameraApplicator.cam.transform.forward,Vector3.up));
+                CameraApplicator.cam.RetornarParaCameraDirecional(V);
             }
             else
             {
@@ -349,7 +393,7 @@ namespace Criatures2021
 
                 if (Mov.LockTarget)
                 {
-                    CameraAplicator.cam.StartFightCam(transform, Mov.LockTarget);
+                    CameraApplicator.cam.StartFightCam(transform, Mov.LockTarget);
                     MessageAgregator<MsgTargetEnemy>.Publish(new MsgTargetEnemy()
                     {
                         targetEnemy = Mov.LockTarget
@@ -380,7 +424,7 @@ namespace Criatures2021
                     );
 
                 bool focar = CurrentCommander.GetButtonDown(CommandConverterInt.camFocus);
-                CameraAplicator.cam.ValoresDeCamera(V.x, V.y, focar, Controll.Mov.Controller.velocity.sqrMagnitude > .1f);
+                CameraApplicator.cam.ValoresDeCamera(V.x, V.y, focar, Controll.Mov.Controller.velocity.sqrMagnitude > .1f);
             }
         }
 
@@ -394,6 +438,15 @@ namespace Criatures2021
 
     }
 
+    public struct MsgChangeLevel : IMessageBase {
+        public GameObject gameObject;
+        public int newLevel;
+        public int pvCorrente;
+        public int pvMax;
+        public int peCorrente;
+        public int peMaximo;
+        public PetAttackDb petAtkDb;
+    }
     public struct MsgChangeToHero : IMessageBase {
         public GameObject myHero;
     }
@@ -411,6 +464,8 @@ namespace Criatures2021
     }
     public struct MsgRequestReplacePet : IMessageBase {
         public GameObject dono;
+        public bool replaceIndex;
+        public int newIndex;
     }
     public struct MsgRequestChangeSelectedItemWithPet : IMessageBase
     {
@@ -420,5 +475,9 @@ namespace Criatures2021
     public struct MsgRequestUseItem : IMessageBase
     {
         public GameObject dono;
+    }
+    public struct MsgPlayerPetDefeated : IMessageBase {
+        public GameObject dono;
+        public PetManagerCharacter pet;
     }
 }

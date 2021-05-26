@@ -19,13 +19,13 @@ namespace FayvitUI
             System.Action closeAction, 
             string messageText, 
             string messageButton = "Ok",
-            string infoButtonrText = "Press Enter")
+            string infoButtonText = "")
         {
             gameObject.SetActive(true);
             this.messageText.text = messageText;
             this.messageButton.text = messageButton;
             onClose = closeAction;
-            infoButtonLabel.text = infoButtonrText;
+            infoButtonLabel.text = infoButtonText;
         }
 
         public void StartMessagePanel(System.Action closeAction)

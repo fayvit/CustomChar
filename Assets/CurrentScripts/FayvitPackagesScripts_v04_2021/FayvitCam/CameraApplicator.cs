@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace FayvitCam
 {
-    public class CameraAplicator : MonoBehaviour
+    public class CameraApplicator : MonoBehaviour
     {
-        public static CameraAplicator cam;
+        public static CameraApplicator cam;
 
         [SerializeField] private bool invetY;
         [SerializeField] private BasicCam basic;
@@ -162,6 +162,9 @@ namespace FayvitCam
 
         public void RemoveMira()
         {
+            if(Style== EstiloDeCamera.fight)
+                Style = EstiloDeCamera.cameraOff;
+
             focarAdv.RemoveMira();
         }
 

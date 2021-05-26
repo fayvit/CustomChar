@@ -37,8 +37,8 @@ public class CustomizationCamManager : MonoBehaviour
             this.setDb = setDb;
             mudandoCam = true;
             tempoDecorrido = 0;
-            startDistance = CameraAplicator.cam.Cdir.SphericalDistance;
-            startHeight = CameraAplicator.cam.Cdir.VarVerticalHeightPoint;
+            startDistance = CameraApplicator.cam.Cdir.SphericalDistance;
+            startHeight = CameraApplicator.cam.Cdir.VarVerticalHeightPoint;
             dtForCam = CustomizatioDatesForCam.GetDates(obj.sdb);
         }
     }
@@ -46,7 +46,7 @@ public class CustomizationCamManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DirectionalCamera cDir = CameraAplicator.cam.Cdir;
+        DirectionalCamera cDir = CameraApplicator.cam.Cdir;
         if (mudandoCam)
         {
             tempoDecorrido += Time.deltaTime;
@@ -65,10 +65,10 @@ public class CustomizationCamManager : MonoBehaviour
                 CommandReader.GetAxis("Ycam", Controlador.teclado)
                 );
 
-            if (CameraAplicator.cam)
+            if (CameraApplicator.cam)
             {
                 
-                CameraAplicator.cam.ValoresDeCamera(V.x, 0, false, false);
+                CameraApplicator.cam.ValoresDeCamera(V.x, 0, false, false);
                 float f = cDir.SphericalDistance + V.z * velMinMaxZ.x * Time.deltaTime;
                 cDir.SphericalDistance = Mathf.Clamp(f, velMinMaxZ.y, velMinMaxZ.z);
                 f = cDir.VarVerticalHeightPoint + V.y * velMinMaxY.x * Time.deltaTime;

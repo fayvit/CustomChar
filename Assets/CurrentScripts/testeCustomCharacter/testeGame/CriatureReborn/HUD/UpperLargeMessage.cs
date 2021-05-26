@@ -18,6 +18,7 @@ namespace Criatures2021Hud
             MessageAgregator<MsgRequestHideUpperLargeMessage>.AddListener(OnRequestHide);
             MessageAgregator<MsgRequestUpperLargeMessage>.AddListener(OnRequestMessage);
             MessageAgregator<MsgEndOfCaptureAnimate>.AddListener(OnEndCaptureAnimate);
+            MessageAgregator<MsgGetChestItem>.AddListener(OnGetChestItem);
         }
 
 
@@ -26,6 +27,12 @@ namespace Criatures2021Hud
             MessageAgregator<MsgRequestHideUpperLargeMessage>.RemoveListener(OnRequestHide);
             MessageAgregator<MsgRequestUpperLargeMessage>.RemoveListener(OnRequestMessage);
             MessageAgregator<MsgEndOfCaptureAnimate>.RemoveListener(OnEndCaptureAnimate);
+            MessageAgregator<MsgGetChestItem>.RemoveListener(OnGetChestItem);
+        }
+
+        private void OnGetChestItem(MsgGetChestItem obj)
+        {
+            OnRequestMessage(new MsgRequestUpperLargeMessage() { message = obj.message });
         }
 
         private void OnEndCaptureAnimate(MsgEndOfCaptureAnimate obj)

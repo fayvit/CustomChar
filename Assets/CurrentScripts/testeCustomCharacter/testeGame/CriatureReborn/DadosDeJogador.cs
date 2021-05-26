@@ -32,13 +32,13 @@ namespace Criatures2021
                 new PetBase(PetName.Batler,10),
                 new PetBase(PetName.Florest,9),
                 new PetBase(PetName.Xuash,8),
-                new PetBase(PetName.Florest,9),
+                new PetBase(PetName.Arpia,9),
                 new PetBase(PetName.Xuash,8),
                 //new PetBase(PetName.Iruin,2),
                 //new PetBase(PetName.Cabecu,10)
             };
 
-            criaturesAtivos[0].PetFeat.meusAtributos.PV.Corrente = 1;
+            criaturesAtivos[0].PetFeat.mNivel.ParaProxNivel = criaturesAtivos[0].PetFeat.mNivel.XP + 1;
 
             //CriaturesArmagedados = new List<PetBase>() {
             //    new PetBase(PetName.Onarac,1),
@@ -61,6 +61,103 @@ namespace Criatures2021
             //ItemFactory.Get(NameIdItem.pergAlana,1)
         };
 
+        }
+
+        public bool TemGolpesPorAprender()
+        {
+            bool retorno = false;
+            for (int i = 0; i < criaturesAtivos.Count; i++)
+            {
+                retorno |= criaturesAtivos[i].GolpesPorAprender.Count > 0;
+            }
+
+            return retorno;
+        }
+
+        public PetBase PrimeiroComGolpePorAprender()
+        {
+             
+            for (int i = 0; i < criaturesAtivos.Count; i++)
+                if (criaturesAtivos[i].GolpesPorAprender.Count > 0)
+                    return criaturesAtivos[i];
+
+            return PetFactory.GetPet(PetName.nulo); 
+        }
+
+        public bool TemAlgumPetAtivoVivo()
+        {
+            for (int i = 0; i < criaturesAtivos.Count; i++)
+            {
+                if (criaturesAtivos[i].PetFeat.meusAtributos.PV.Corrente > 0)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public int TemItem(NameIdItem nome)
+        {
+            int tanto = 0;
+            for (int i = 0; i < Itens.Count; i++)
+            {
+                if (Itens[i].ID == nome)
+                    tanto += Itens[i].Estoque;
+            }
+
+            return tanto;
+        }
+
+        public void AdicionaItem(NameIdItem nomeItem, int quantidade)
+        {
+            if (nomeItem != NameIdItem.cristais)
+            {
+                for (int i = 0; i < quantidade; i++)
+                {
+                    AdicionaItem(nomeItem);
+                }
+            }
+            else
+            {
+                cristais += quantidade;
+            }
+        }
+
+        public void AdicionaItem(NameIdItem nomeItem)
+        {
+            ItemBase I = ItemFactory.Get(nomeItem);
+            bool foi = false;
+            if (I.Acumulavel > 1)
+            {
+
+                int ondeTem = -1;
+                for (int i = 0; i < Itens.Count; i++)
+                {
+                    if (Itens[i].ID == I.ID)
+                    {
+                        if (Itens[i].Estoque < Itens[i].Acumulavel)
+                        {
+                            if (!foi)
+                            {
+                                ondeTem = i;
+                                foi = true;
+                            }
+                        }
+                    }
+                }
+
+                if (foi)
+                {
+                    Itens[ondeTem].Estoque++;
+                }
+                else
+                {
+                    Itens.Add(ItemFactory.Get(nomeItem));
+                }
+            }
+            else
+            {
+                Itens.Add(ItemFactory.Get(nomeItem));
+            }
         }
     }
 }

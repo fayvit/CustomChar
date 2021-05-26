@@ -56,7 +56,7 @@ namespace Criatures2021
             new PetAttackDb()
             {
                 Nome = AttackNameId.sobreVoo,
-                NivelDoGolpe = 17,
+                NivelDoGolpe = 11,
                 Colisor = new colisor("esqueleto/corpo/coxaD/pernaD/peD",
                                                    new Vector3(0,0,0),
                                                    new Vector3(-0.11f,-0,0.244f)),

@@ -174,11 +174,13 @@
     <Compile Include="Assets\Legacy\BigLegacy\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\CommandReaderSpace\N3DS\N3DS_KeysDic.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\InformacoesDeCarregamento.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ShowItemHudManager.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\ataquesConsolidados\RajadaDeFogo.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\CharacterManager.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\encontros\PassouDeNivelEmLuta.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\ComportamentoInimigo\DisparadorDoGolpe.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\MbRegador.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\UpperLargeMessage.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\GerenciadorDeExperiencia.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\FindBestTarget.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\PergGosmaAcida.cs" />
@@ -188,7 +190,7 @@
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Items\ItemBase.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Textos\EN_GOOGLE\TextosDeBarreirasEN_G.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
-    <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitCam\CameraAplicator.cs" />
+    <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitCam\CameraApplicator.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\MyUI_Space\ConfirmationPanel.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\CommandReaderSpace\Android\MyButtonEvents.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\SectionsMenu\CustomizationContainerDates.cs" />
@@ -347,6 +349,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\NPCs\MovimentoControladoParaNPC.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\CriaturesBase\PetNames.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\Dano\Dano.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\ResourcesFolders.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitCam\BasicCam.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\MbQuartzo.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\FerramentasDeHud.cs" />
@@ -355,6 +358,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Textos\InterfaceLanguageConverter.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\AmuletoDaCoragem.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ListPetHudManager.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\Movimentacao\MoveSupportSingleton.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\ChangeShaderEditMode.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\CriaturesBase\PetTypeNames.cs" />
@@ -364,6 +368,7 @@
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitUI\MyUiObjects\SingleMessagePanelBehaviour.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\PropsPorScript.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Textos\PT_BR\TextosDeInfoPT_BR.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\ChestManager.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\encontros\InsereInimigoEmCampo.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaComDerek.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\ataquesConsolidados\RajadaDeAgua.cs" />
@@ -376,8 +381,10 @@
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\CommandReaderSpace\Keyboard\KeyboardCommandReader.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbTempestadeEletrica.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Suporte\IntervaloDeGolpeView.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\YesOrNoMenu.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbEletricidade.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Eventos\TriggerFinalDeCapitulo.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ListPetHud.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Encontravel.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitBasicTools\KeyVar.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v10_2020\MyUI_Space\InteractiveUiBase.cs" />
@@ -623,6 +630,7 @@
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\ShowConvertTime.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Textos\BancoDeTextos.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\StandardImpactUpdate.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ShowPetHud.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbChicoteDeMao.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\WaterBase.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\AttackDiferentialId.cs" />
@@ -642,6 +650,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Itens\Tonico.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\DbColors.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\PsicoseG2.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\OptionPetForListHud.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\WrapUiAnchor.cs" />
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\Attacks\ataquesConsolidados\HidroBomba.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\InicializadorDoJogo.cs" />
@@ -650,6 +659,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\FuracaoDeFolhasG2.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\Utility\ForcedReset.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\Ativadores\AtivadorDaConversaComOpcoes.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\AnimationBehaviour\AnimationPoint.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\Utility\ParticleSystemDestroyer.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbMultiplicar.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitBasicTools\AbstractGameController.cs" />
@@ -676,6 +686,7 @@
     <Compile Include="Assets\CurrentScripts\testeCustomCharacter\ColorDbManager.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Animacoes\caindoNaArmadilhaChao.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Eventos\BarrierEventManager.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\NoveltyForLevel.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\MbOnarac.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\RedimensionarUI.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\NPCs\VisaoDeTreinadorEspecial.cs" />
@@ -769,6 +780,7 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Animacoes\ControleDosOlhos.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\HUD\ImageMenu.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\Animacoes\eletricidade\Perlin.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\RapidInfoHud.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitUI\BasicMenu.cs" />
     <Compile Include="Assets\Legacy\BigLegacy\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\StatusTemporarios\Fraco.cs" />
@@ -787,9 +799,9 @@
     <Compile Include="Assets\Legacy\CriaturesLegacy\Orion Criatures scripts\datesAndManagers\Criatures\golpesG2\MbBastao.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitBasicTools\IGameController.cs" />
     <Compile Include="Assets\CurrentScripts\FayvitPackagesScripts_v04_2021\FayvitUI\MyUiObjects\ColorGridMenu.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\RapidInfoHud.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ShowPetHud.cs" />
-    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\UpperLargeMessage.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\TryLearnNewAttackHud.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\NewAttackHudManager.cs" />
+    <Compile Include="Assets\CurrentScripts\testeCustomCharacter\testeGame\CriatureReborn\HUD\ShowNewAttackHud.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Legacy\BigLegacy\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />

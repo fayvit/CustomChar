@@ -183,7 +183,7 @@ public class Dano
         GameObject visaoDeDano = GameController.g.El.retorna("visaoDeDano");
         visaoDeDano = (GameObject)MonoBehaviour.Instantiate(visaoDeDano, doAtacado.transform.position, Quaternion.identity);
         DanoAparecendo danoAp = visaoDeDano.GetComponent<DanoAparecendo>();
-        danoAp.dano = dano;
+        danoAp.dano = dano.ToString();
         danoAp.atacado = doAtacado.transform;
 
         /* INSERIDO PARA ATUALIZAR A HUD VIDA */

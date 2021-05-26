@@ -9,9 +9,12 @@ namespace Criatures2021Hud
     public abstract class ButtonActivate : MonoBehaviour
     {
         //[SerializeField] protected GameObject btn;
+        [SerializeField] private bool debug;
         [SerializeField] protected float distanciaParaAcionar = 1.5f;
         protected string textoDoBotao = "";
         private bool estaNoTrigger = false;
+
+        
 
         //public GameObject Btn { get { return btn; } }
 
@@ -30,6 +33,17 @@ namespace Criatures2021Hud
         // Update is called once per frame
         protected virtual void Update()
         {
+            if (debug)
+            {
+                Debug.Log(AbstractGlobalController.Instance);
+                Debug.Log(AbstractGlobalController.Instance.Players);
+                Debug.Log(AbstractGlobalController.Instance.Players.Count);
+                Debug.Log(Vector3.Distance(AbstractGlobalController.Instance.Players[0].Manager.transform.position, transform.position));
+                Debug.Log(estaNoTrigger);
+                Debug.Log(AbstractGlobalController.Instance.Players[0].Manager.ThisState);
+
+            }
+
             if (AbstractGlobalController.Instance!=null 
                 && AbstractGlobalController.Instance.Players!=null 
                 && AbstractGlobalController.Instance.Players.Count > 0
@@ -51,14 +65,18 @@ namespace Criatures2021Hud
                         MessageAgregator<MsgRequestShowActionHud>.Publish(
                             new MsgRequestShowActionHud() { 
                             infoCommand = "L",
-                            infoText = "Conversar"
+                            infoText = textoDoBotao,
+                            request = gameObject
                             }
                             );
                         //btn.SetActive(true);
                     }
                     else
                     {
-                        MessageAgregator<MsgRequestHideActionHud>.Publish();
+                    MessageAgregator<MsgRequestHideActionHud>.Publish(new MsgRequestHideActionHud()
+                    {
+                        request = gameObject
+                    });
                         /*
                         if (Vector3.Distance(GameController.g.Manager.transform.position, transform.position) >= distanciaParaAcionar)
                         {*/
@@ -92,6 +110,14 @@ namespace Criatures2021Hud
             {
                 estaNoTrigger = false;
             }
+        }
+
+        public virtual void SomDoIniciar()
+        {
+            MessageAgregator<MsgRequestSfx>.Publish(new MsgRequestSfx()
+            {
+                sfxId = FayvitSounds.SoundEffectID.Decision1
+            });
         }
 
         /*

@@ -79,12 +79,15 @@ namespace Criatures2021Hud
                 if (obj.petToGoOut != PetName.nulo)
                 {
                     criatureImg.gameObject.SetActive(true);
-                    criatureImg.sprite = Resources.Load<Sprite>("miniCriatures/" + obj.petToGoOut.ToString());
+                    criatureImg.sprite = ResourcesFolders.GetMiniPet(obj.petToGoOut);
+                    //= Resources.Load<Sprite>("miniCriatures/" + obj.petToGoOut.ToString());
                 }
             }
 
             attackImg.transform.parent.gameObject.SetActive(true);
-            attackImg.sprite = Resources.Load<Sprite>("miniGolpes/" + obj.atkSelected.ToString());
+            attackImg.sprite = ResourcesFolders.GetMiniAttack(obj.atkSelected);
+            
+            //= Resources.Load<Sprite>("miniGolpes/" + obj.atkSelected.ToString());
         }
 
 
@@ -95,7 +98,8 @@ namespace Criatures2021Hud
             {
                 itemImg.transform.parent.gameObject.SetActive(true);
                 itemCount.text = obj.quantidade.ToString();
-                itemImg.sprite = Resources.Load<Sprite>("miniItens/" + obj.nameItem.ToString());
+                itemImg.sprite = ResourcesFolders.GetMiniItem(obj.nameItem);
+                    //= Resources.Load<Sprite>("miniItens/" + obj.nameItem.ToString());
                 ActiveInfoText(ItemBase.NomeEmLinguas(obj.nameItem));
             }else
                 itemImg.transform.parent.gameObject.SetActive(false);
@@ -104,13 +108,16 @@ namespace Criatures2021Hud
         private void OnChangeSelectedPet(MsgChangeSelectedPet obj)
         {
             criatureImg.transform.parent.gameObject.SetActive(true);
-            criatureImg.sprite = Resources.Load<Sprite>("miniCriatures/" + obj.petname.ToString());
+            criatureImg.sprite = ResourcesFolders.GetMiniPet(obj.petname);
+                
+                //= Resources.Load<Sprite>("miniCriatures/" + obj.petname.ToString());
             ActiveInfoText(PetBase.NomeEmLinguas(obj.petname));
         }
 
         private void OnChangeAttack(MsgChangeSelectedAttack obj)
         {
-            attackImg.sprite = Resources.Load<Sprite>("miniGolpes/" + obj.attackName.ToString());
+            attackImg.sprite = ResourcesFolders.GetMiniAttack(obj.attackName);
+                //= Resources.Load<Sprite>("miniGolpes/" + obj.attackName.ToString());
             ActiveInfoText(PetAttackBase.NomeEmLinguas(obj.attackName));
         }
 
@@ -150,4 +157,5 @@ public struct MsgStartGameElementsHud : IMessageBase {
     public PetName petname;
     public NameIdItem nameItem;
     public int countItem;
+    public bool temGolpePorAprender;
 }

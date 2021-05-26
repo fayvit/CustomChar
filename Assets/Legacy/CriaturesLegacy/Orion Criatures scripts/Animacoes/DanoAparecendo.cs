@@ -4,7 +4,7 @@ using System.Collections;
 
 public class DanoAparecendo : MonoBehaviour {
 
-	public int dano = 0;
+	public string dano = "0";
     public Transform atacado;
 
 	//private Text oTexto;
@@ -16,7 +16,7 @@ public class DanoAparecendo : MonoBehaviour {
 		transform.localScale = Vector3.zero;
         transform.SetParent(atacado);
 		cam = GameObject.Find("Main Camera").transform;
-		GetComponentInChildren<Text>().text = dano.ToString();
+		GetComponentInChildren<Text>().text = dano;
 	}
 	
 	// Update is called once per frame

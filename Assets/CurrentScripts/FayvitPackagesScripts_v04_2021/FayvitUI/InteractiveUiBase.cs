@@ -415,7 +415,7 @@ namespace FayvitUI
                 else
                     Debug.Log("erro no scrool");
 
-                MessageAgregator<UiDeOpcoesChangeMessage>.Publish(new UiDeOpcoesChangeMessage()
+                MessageAgregator<MsgChangeOptionUI>.Publish(new MsgChangeOptionUI()
                 {
                     parentOfScrollRect = menuScrollRect.transform.parent.gameObject,
                     selectedOption = SelectedOption

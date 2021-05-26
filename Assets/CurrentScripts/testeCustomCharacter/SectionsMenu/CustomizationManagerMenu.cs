@@ -7,7 +7,6 @@ using FayvitEventAgregator;
 using FayvitCommandReader;
 using FayvitCam;
 using FayvitBasicTools;
-using System;
 
 public class CustomizationManagerMenu : MonoBehaviour
 {
@@ -170,7 +169,7 @@ public class CustomizationManagerMenu : MonoBehaviour
         }
     }
 
-    private void OnUiChange(UiDeOpcoesChangeMessage obj)
+    private void OnUiChange(MsgChangeOptionUI obj)
     {
 
         if (cMenu.GetTransformContainer.gameObject == obj.parentOfScrollRect)
@@ -553,9 +552,9 @@ public class CustomizationManagerMenu : MonoBehaviour
             if (secManager == secManagerH_Base)
             {
                 ChangeBaseCharacter(false);
-                DirectionalCamera cDir = CameraAplicator.cam.Cdir;
+                DirectionalCamera cDir = CameraApplicator.cam.Cdir;
                 //CameraAplicator.cam.FocusBasicCam(secManager.transform, 0.2f, .7f);
-                CameraAplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
+                CameraApplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
                 SupportSingleton.Instance.InvokeOnEndFrame(() =>
                 {
 
@@ -565,12 +564,12 @@ public class CustomizationManagerMenu : MonoBehaviour
             else if (secManager == secManagerM_Base)
             {
                 ChangeBaseCharacter(true);
-                DirectionalCamera cDir = CameraAplicator.cam.Cdir;
+                DirectionalCamera cDir = CameraApplicator.cam.Cdir;
                 //CameraAplicator.cam.FocusBasicCam(secManager.transform, 0.2f, .7f);
-                CameraAplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
+                CameraApplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
                 SupportSingleton.Instance.InvokeOnEndFrame(() =>
                 {
-                    CameraAplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
+                    CameraApplicator.cam.Cdir.VarVerticalHeightPoint = .7f;
                     secManager.SetColorsByAssign(secManagerM_Base.ColorAssign);
                 });
             }
@@ -692,7 +691,7 @@ public class CustomizationManagerMenu : MonoBehaviour
             });
         });
 
-        MessageAgregator<UiDeOpcoesChangeMessage>.AddListener(OnUiChange);
+        MessageAgregator<MsgChangeOptionUI>.AddListener(OnUiChange);
         MessageAgregator<MsgSelectedColorByClick>.AddListener(OnSelectColorByClick);
         MessageAgregator<MsgFinishEdition>.AddListener(OnFinishEdition);
     }
@@ -716,7 +715,7 @@ public class CustomizationManagerMenu : MonoBehaviour
 
     private void OnDestroy()
     {
-        MessageAgregator<UiDeOpcoesChangeMessage>.RemoveListener(OnUiChange);
+        MessageAgregator<MsgChangeOptionUI>.RemoveListener(OnUiChange);
         MessageAgregator<MsgSelectedColorByClick>.RemoveListener(OnSelectColorByClick);
         MessageAgregator<MsgFinishEdition>.RemoveListener(OnFinishEdition);
     }
@@ -734,10 +733,12 @@ public class CustomizationManagerMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            MessageAgregator<MsgNegativeUiInput>.Publish();
             MainAction(cMenu.SelectedOption);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            MessageAgregator<MsgNegativeUiInput>.Publish();
             EscapeAction(cMenu.SelectedOption);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))

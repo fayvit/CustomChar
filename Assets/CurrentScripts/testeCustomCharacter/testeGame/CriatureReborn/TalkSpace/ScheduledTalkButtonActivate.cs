@@ -2,6 +2,7 @@
 using System.Collections;
 using FayvitBasicTools;
 using FayvitMessageAgregator;
+using TextBankSpace;
 
 namespace TalkSpace
 {
@@ -45,6 +46,7 @@ namespace TalkSpace
 
             //myKeys.MudaAutoShift(ID, true);// Herika buga com esse mudaShift aqui
             myKeys.MudaShift(KeyShift.sempretrue, true);
+            textoDoBotao = TextBank.RetornaFraseDoIdioma(TextKey.textoBaseDeAcao);
 
             NPC = esseNpc;
             base.Start();
@@ -57,6 +59,7 @@ namespace TalkSpace
 
         public override void FuncaoDoBotao()
         {
+            SomDoIniciar();
             if (condicoesComplementares != null)
                 for (int i = 0; i < condicoesComplementares.Length; i++)
                     AbstractGameController.Instance.MyKeys.MudaShift(condicoesComplementares[i], true);

@@ -43,25 +43,28 @@ namespace Criatures2021
 
                 ThisState = CharacterState.onFree;
 
-                
+
                 MessageAgregator<MsgStartGameElementsHud>.Publish(new MsgStartGameElementsHud()
                 {
-                    petname = dados.CriaturesAtivos.Count>1?dados.CriaturesAtivos[dados.CriatureSai+1].NomeID:PetName.nulo,
-                    nameItem = dados.Itens.Count>0?dados.Itens[dados.ItemSai].ID:NameIdItem.generico,
-                    countItem = dados.Itens.Count>0?dados.Itens[dados.ItemSai].Estoque:0
+                    petname = dados.CriaturesAtivos.Count > 1 ? dados.CriaturesAtivos[dados.CriatureSai + 1].NomeID : PetName.nulo,
+                    nameItem = dados.Itens.Count > 0 ? dados.Itens[dados.ItemSai].ID : NameIdItem.generico,
+                    countItem = dados.Itens.Count > 0 ? dados.Itens[dados.ItemSai].Estoque : 0,
+                    temGolpePorAprender = dados.TemGolpesPorAprender()
                 });
             }
 
             MessageAgregator<MsgChangeToHero>.AddListener(OnChangeToHero);
             MessageAgregator<MsgRequestChangeSelectedPetWithPet>.AddListener(OnRequestChangePet);
-            MessageAgregator<MsgStartTalk>.AddListener(OnStartTalk);
-            MessageAgregator<MsgFinishTalk>.AddListener(OnFinishTalk);
+            MessageAgregator<MsgStartExternalInteraction>.AddListener(OnStartTalk);
+            MessageAgregator<MsgFinishExternalInteraction>.AddListener(OnFinishTalk);
             MessageAgregator<MsgChangeActivePet>.AddListener(OnChangeActivePet);
             MessageAgregator<MsgRequestReplacePet>.AddListener(OnRequestReplacePet);
             MessageAgregator<MsgRequestChangeToPetByReplace>.AddListener(OnRequestChangeToPetByReplace);
             MessageAgregator<MsgRequestChangeSelectedItemWithPet>.AddListener(OnRequestChangeSelectedItem);
             MessageAgregator<MsgRequestUseItem>.AddListener(OnRequestUseItem);
             MessageAgregator<MsgStartUseItem>.AddListener(OnStartUseItem);
+            MessageAgregator<MsgPlayerPetDefeated>.AddListener(OnPlayerPetDefeated);
+            MessageAgregator<MsgGetChestItem>.AddListener(OnGetChestItem);
 
         }
 
@@ -69,14 +72,53 @@ namespace Criatures2021
         {
             MessageAgregator<MsgChangeToHero>.RemoveListener(OnChangeToHero);
             MessageAgregator<MsgRequestChangeSelectedPetWithPet>.RemoveListener(OnRequestChangePet);
-            MessageAgregator<MsgStartTalk>.RemoveListener(OnStartTalk);
-            MessageAgregator<MsgFinishTalk>.RemoveListener(OnFinishTalk);
+            MessageAgregator<MsgStartExternalInteraction>.RemoveListener(OnStartTalk);
+            MessageAgregator<MsgFinishExternalInteraction>.RemoveListener(OnFinishTalk);
             MessageAgregator<MsgChangeActivePet>.RemoveListener(OnChangeActivePet);
             MessageAgregator<MsgRequestReplacePet>.RemoveListener(OnRequestReplacePet);
             MessageAgregator<MsgRequestChangeToPetByReplace>.RemoveListener(OnRequestChangeToPetByReplace);
             MessageAgregator<MsgRequestChangeSelectedItemWithPet>.RemoveListener(OnRequestChangeSelectedItem);
             MessageAgregator<MsgRequestUseItem>.RemoveListener(OnRequestUseItem);
             MessageAgregator<MsgStartUseItem>.RemoveListener(OnStartUseItem);
+            MessageAgregator<MsgPlayerPetDefeated>.RemoveListener(OnPlayerPetDefeated);
+            MessageAgregator<MsgGetChestItem>.RemoveListener(OnGetChestItem);
+        }
+
+        private void OnGetChestItem(MsgGetChestItem obj)
+        {
+            dados.AdicionaItem(obj.nameItem, obj.quantidade);
+            ChangeSelectedItem(0);
+        }
+
+        private void OnPlayerPetDefeated(MsgPlayerPetDefeated obj)
+        {
+            //if(obj.dono==donoDessaHud)
+            if (obj.pet == ActivePet)
+            {
+                if (Dados.TemAlgumPetAtivoVivo())
+                {
+
+                    List<string> ls = TextBank.RetornaListaDeTextoDoIdioma(TextKey.apresentaDerrota);
+                    string message = string.Format(ls[0], obj.pet.MeuCriatureBase.GetNomeEmLinguas) + " \n\r " + ls[1];
+                    AbstractGlobalController.Instance.OneMessage.StartMessagePanel(() =>
+                    {
+                    //StartFields(obj.dono);
+                    ThisState = CharacterState.stopedWithStoppedCam;
+
+                        MessageAgregator<MsgOpenPetList>.Publish(new MsgOpenPetList()
+                        {
+                            armagedom = false,
+                            dono = this
+                        });
+                    }, message, infoButtonText: "Press L");
+
+                    ThisState = CharacterState.activeSingleMessageOpened;
+                }
+                else
+                {
+                    Debug.LogError("Ir para o armagedom");
+                }
+            }
         }
 
         private void OnStartUseItem(MsgStartUseItem obj)
@@ -85,6 +127,12 @@ namespace Criatures2021
 
             if (obj.usuario == gameObject)
             {
+                if (dados.Itens.Count > 0)
+                {
+                    if (dados.ItemSai > dados.Itens.Count - 1)
+                        dados.ItemSai = 0;
+                }
+
                 ThisState = CharacterState.stopedWithStoppedCam;
                 MessageAgregator<MsgChangeSelectedItem>.Publish(new MsgChangeSelectedItem()
                 {
@@ -123,6 +171,9 @@ namespace Criatures2021
         {
             if (obj.dono == gameObject)
             {
+                if (obj.replaceIndex)
+                    dados.CriatureSai = obj.newIndex;
+
                 StartReplacePet(FluxoDeRetorno.criature);
             }
         }
@@ -146,12 +197,12 @@ namespace Criatures2021
             }
         }
 
-        private void OnFinishTalk(MsgFinishTalk obj)
+        private void OnFinishTalk(MsgFinishExternalInteraction obj)
         {
             ThisState = CharacterState.onFree;
         }
 
-        private void OnStartTalk(MsgStartTalk obj)
+        private void OnStartTalk(MsgStartExternalInteraction obj)
         {
             mov.MoveApplicator(Vector3.zero);
             ThisState = CharacterState.externalPanelOpened;
@@ -229,16 +280,62 @@ namespace Criatures2021
                     mov.MoveApplicator(Vector3.zero);
                     MessageAgregator<MsgSendExternaPanelCommand>.Publish(new MsgSendExternaPanelCommand()
                     {
-                        confirmButton = CurrentCommander.GetButtonDown(CommandConverterInt.confirmButton),
-                        returnButton = CurrentCommander.GetButtonDown(CommandConverterInt.returnButton),
+                        confirmButton = CurrentCommander.GetButtonDown(CommandConverterInt.confirmButton,true),
+                        returnButton = CurrentCommander.GetButtonDown(CommandConverterInt.returnButton,true),
+                        hChange = CurrentCommander.GetIntTriggerDown(CommandConverterString.moveH) +
+                            CurrentCommander.GetIntTriggerDown(CommandConverterString.alternativeH_Change),
+                        vChange = CurrentCommander.GetIntTriggerDown(CommandConverterString.moveV) +
+                            CurrentCommander.GetIntTriggerDown(CommandConverterString.alternativeV_Change)
                     });
+                break;
+                case CharacterState.activeSingleMessageOpened:
+
+                    bool press =CurrentCommander.GetButtonDown(CommandConverterInt.confirmButton,true) ||
+                        CurrentCommander.GetButtonDown(CommandConverterInt.returnButton,true);
+
+                    AbstractGlobalController.Instance.OneMessage.ThisUpdate(press);
+
+                break;
+                case CharacterState.NonBlockPanelOpened:
+                    SingleCommands();
+
+                    MessageAgregator<MsgSendExternaPanelCommand>.Publish(new MsgSendExternaPanelCommand()
+                    {
+                        confirmButton = CurrentCommander.GetButtonDown(CommandConverterInt.confirmButton, true),
+                        returnButton = CurrentCommander.GetButtonDown(CommandConverterInt.returnButton, true),
+                        hChange = CurrentCommander.GetIntTriggerDown(CommandConverterString.alternativeH_Change),
+                        vChange = CurrentCommander.GetIntTriggerDown(CommandConverterString.alternativeV_Change)
+                    });
+
                 break;
             }
             
         }
 
+        void OpenUpdateMenu(FluxoDeRetorno fluxo)
+        {
+            if (dados.TemGolpesPorAprender())
+            {
+                if (fluxo == FluxoDeRetorno.heroi)
+                    ThisState = CharacterState.NonBlockPanelOpened;
+                else
+                    ThisState = CharacterState.externalPanelOpened;
+
+                MessageAgregator<MsgRequestNewAttackHud>.Publish(new MsgRequestNewAttackHud()
+                {
+                    fluxo = fluxo,
+                    oAprendiz = dados.CriaturesAtivos[0]
+                });
+            }
+        }
+
         void ActionCommand()
         {
+            if (CurrentCommander.GetButtonDown(CommandConverterInt.updateMenu))
+            {
+                Debug.Log("update commander");
+                OpenUpdateMenu(FluxoDeRetorno.heroi);
+            }else
             if (mov.IsGrounded && CurrentCommander.GetButtonDown(CommandConverterInt.humanAction,true))
             {
                 MessageAgregator<MsgInvokeActionFromHud>.Publish();
@@ -270,19 +367,25 @@ namespace Criatures2021
             });
         }
 
-        void MoveControl()
+        void SingleCommands()
         {
-            Vector3 V = CameraAplicator.cam.SmoothCamDirectionalVector(
-                CurrentCommander.GetAxis(CommandConverterString.moveH),
-                CurrentCommander.GetAxis(CommandConverterString.moveV)
-                );
+            Vector3 V = CameraApplicator.cam.SmoothCamDirectionalVector(
+                    CurrentCommander.GetAxis(CommandConverterString.moveH),
+                    CurrentCommander.GetAxis(CommandConverterString.moveV)
+                    );
 
             bool run = CurrentCommander.GetButton(CommandConverterInt.run);
             bool startJump = CurrentCommander.GetButtonDown(CommandConverterInt.jump);
             bool pressJump = CurrentCommander.GetButton(CommandConverterInt.jump);
 
-            if(mov!=null)
+            if (mov != null)
                 mov.MoveApplicator(V, run, startJump, pressJump);
+
+        }
+
+        void MoveControl()
+        {
+            SingleCommands();
 
             int itemchange = CurrentCommander.GetIntTriggerDown(CommandConverterString.itemChange);
 
@@ -325,7 +428,7 @@ namespace Criatures2021
             {
                 UseItemManager useItem = gameObject.AddComponent<UseItemManager>();
                 useItem.StartFields(gameObject, dados.Itens, dados.ItemSai, fluxo);
-                CameraAplicator.cam.RemoveMira();
+                CameraApplicator.cam.RemoveMira();
             }
         }
 
@@ -364,7 +467,7 @@ namespace Criatures2021
                     );
 
                 bool focar = CurrentCommander.GetButtonDown(CommandConverterInt.camFocus);
-                CameraAplicator.cam.ValoresDeCamera(V.x, V.y, focar, mov.Controller.velocity.sqrMagnitude > .1f);
+                CameraApplicator.cam.ValoresDeCamera(V.x, V.y, focar, mov.Controller.velocity.sqrMagnitude > .1f);
             }
         }
     }
@@ -385,5 +488,9 @@ namespace Criatures2021
         public PetName petName;
         public PetName petToGoOut;
         public Transform dono;
+    }
+    public struct MsgOpenPetList : IMessageBase {
+        public CharacterManager dono;
+        public bool armagedom;
     }
 }

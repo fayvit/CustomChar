@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FayvitSupportSingleton;
 using Criatures2021Hud;
 using FayvitBasicTools;
 using FayvitMessageAgregator;

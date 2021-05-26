@@ -18,5 +18,15 @@ namespace Criatures2021
                 return null;
         }
 
+        public static PetManager GetHeroActivePet(GameObject owner)
+        {
+            return owner.GetComponent<CharacterManager>().ActivePet;
+        }
+
+        public static PetManager GetAnyHeroActivePet()
+        {
+            return GameObject.FindWithTag("Player").GetComponent<CharacterManager>().ActivePet;
+        }
+
     }
 }

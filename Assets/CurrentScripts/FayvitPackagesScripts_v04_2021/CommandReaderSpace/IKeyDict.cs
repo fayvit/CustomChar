@@ -12,8 +12,8 @@ namespace FayvitCommandReader
 
     public interface ICommandConverter
     {
-        Dictionary<CommandConverterInt, int> DicCommandConverterInt { get; }
-        Dictionary<CommandConverterString, string> DicCommandConverterString { get; }
+        Dictionary<CommandConverterInt, List<int>> DicCommandConverterInt { get; }
+        Dictionary<CommandConverterString, List<string>> DicCommandConverterString { get; }
     }
 
     public enum CommandConverterInt
@@ -29,7 +29,8 @@ namespace FayvitCommandReader
         camFocus,
         confirmButton,
         returnButton,
-        humanAction
+        humanAction,
+        updateMenu
     }
 
     public enum CommandConverterString
@@ -41,7 +42,9 @@ namespace FayvitCommandReader
         attack,
         focusInTheEnemy,
         selectAttack_selectCriature,
-        itemChange
+        itemChange,
+        alternativeV_Change,
+        alternativeH_Change
     }
 }
 /*

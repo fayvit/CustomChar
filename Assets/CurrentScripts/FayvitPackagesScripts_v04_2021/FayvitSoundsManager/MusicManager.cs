@@ -13,8 +13,8 @@ namespace FayvitSounds
 
         private string cenaIniciada = "";
         private bool parando;
-        private float volumeAlvo = 0.5f;
-        private float volumeBase = 0.75f;
+        private float volumeAlvo = 0.45f;
+        private float volumeBase = 0.5f;
         private float velAtiva = 0.25f;
         private const float VELOCIDADE_DE_MUDANCA = 0.25f;
 

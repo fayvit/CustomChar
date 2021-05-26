@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using FayvitSupportSingleton;
+using FayvitMessageAgregator;
 
 namespace FayvitUI
 {
@@ -59,4 +60,8 @@ namespace FayvitUI
             //Seria preciso uma finalização especifica??
         }
     }
+
+    public struct MsgPositiveUiInput : IMessageBase { }
+    public struct MsgNegativeUiInput : IMessageBase { }
+    
 }

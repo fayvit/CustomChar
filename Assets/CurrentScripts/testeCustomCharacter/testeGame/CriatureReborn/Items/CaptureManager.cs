@@ -35,7 +35,7 @@ namespace Criatures2021
             CriatureAlvoDoItem = FindByOwner.GetEnemy(dono).gameObject;
             //animator = CriatureAlvoDoItem.GetComponent<Animator>();
 
-            CameraAplicator.cam.StartShowPointCamera(CriatureAlvoDoItem.transform, new SinglePointCameraProperties()
+            CameraApplicator.cam.StartShowPointCamera(CriatureAlvoDoItem.transform, new SinglePointCameraProperties()
             {
                 velOrTimeFocus = .85f,
                 withTime=true
@@ -55,7 +55,7 @@ namespace Criatures2021
 
                     PetManager enemyManager = FindByOwner.GetManagerEnemy(dono);
                     //AplicadorDeCamera.cam.FocarPonto(10, enemyManager.MeuCriatureBase.distanciaCameraLuta);
-                    CameraAplicator.cam.FocusInPoint(enemyManager.MeuCriatureBase.distanciaCameraLuta);
+                    CameraApplicator.cam.FocusInPoint(enemyManager.MeuCriatureBase.distanciaCameraLuta);
                     int arredondado = Mathf.RoundToInt(tempoDecorrido);
                     Vector3 variacao = arredondado % 2 == 1 ? Vector3.zero : new Vector3(1.5f, 1.5f, 1.5f);
 
@@ -106,7 +106,7 @@ namespace Criatures2021
                 case FaseDoAnimaCaptura.cameraDoHeroi:
                     if (tempoDecorrido > 1.5f)
                     {
-                        CameraAplicator.cam.StartShowPointCamera(dono.transform, new SinglePointCameraProperties()
+                        CameraApplicator.cam.StartShowPointCamera(dono.transform, new SinglePointCameraProperties()
                         {
                             velOrTimeFocus=.85f,
                             characterHeight = 1.75f,

@@ -24,7 +24,8 @@ namespace Criatures2021
         };
 
         private ControlledMoveForCharacter controll;
-        private GameObject heroPet;
+        private PetManager heroPet;
+        private GameObject petOwner;
         private Vector3 movePosition;
         private Vector3 originalPosition;
         private PetBase myPet;
@@ -45,15 +46,38 @@ namespace Criatures2021
         { 
             stand,
             standMove,
-            rivalElectedWithAgressive
+            rivalElectedWithAgressive,
+            rivalDefeated
         }
 
         public bool PodeAtualizar { get; set; } = true;
 
-        public Dictionary<DetectHeroResponse,float> DetectResponse => detectResponse;
+        public Dictionary<DetectHeroResponse, float> DetectResponse => detectResponse;
 
-        public GameObject HeroPet { get => heroPet; }
+        public GameObject HeroPet_GO { get => heroPet.gameObject; }
 
+        public void OnDefeatedPlayerPet(PetManagerCharacter pet)
+        {
+            if (pet == heroPet)
+            {
+                petOwner = pet.T_Dono.gameObject;
+                state = IaState.rivalDefeated;
+                MessageAgregator<MsgChangeToPet>.AddListener(OnChangeToPet);
+            }
+        }
+
+        private void OnChangeToPet(MsgChangeToPet obj)
+        {
+            if (obj.dono == petOwner.transform)
+            {
+                state = IaState.rivalElectedWithAgressive;
+
+                SupportSingleton.Instance.InvokeOnEndFrame(()=> {
+                    MessageAgregator<MsgChangeToPet>.RemoveListener(OnChangeToPet);
+                });
+            }
+        }
+        
         public void Start(Transform T,PetBase P, ControlledMoveForCharacter controll)
         {
             this.controll = controll;
@@ -74,20 +98,21 @@ namespace Criatures2021
 
                 if (P is PetManagerCharacter)
                 {
-                    heroPet = atacante;
+                    heroPet = P;
                     AproximeEnquantoEspera();
                 }
                 else
                 {
                     ProcuraCriatureDoJogador();
                     AproximeEnquantoEspera();
+                    
                 }
             }
         }
 
         void GetMovePosition()
         {
-            Vector2 V = Random.insideUnitCircle;
+            Vector2 V = UnityEngine.Random.insideUnitCircle;
             movePosition = originalPosition + distanceMove*new Vector3(V.x, 0, V.y);
             movePosition = MelhoraInstancia.ProcuraPosNoMapa(movePosition);
             
@@ -107,8 +132,10 @@ namespace Criatures2021
                     PetManager P = cm.ActivePet;
 
                     Debug.Log("ActivePet: " + P);
+
                     if (P)
-                        heroPet = P.gameObject;
+                        if(P.MeuCriatureBase.PetFeat.meusAtributos.PV.Corrente>0)
+                            heroPet = P;
                 }
             }
 
@@ -131,7 +158,7 @@ namespace Criatures2021
         {
             if (heroPet == null)
             {
-                heroPet = MonoBehaviour.FindObjectOfType<CharacterManager>().ActivePet.gameObject;
+                heroPet = MonoBehaviour.FindObjectOfType<CharacterManager>().ActivePet;
             }
 
             if (Vector3.SqrMagnitude(heroPet.transform.position - transform.position) < detectDistance * detectDistance)
@@ -168,12 +195,15 @@ namespace Criatures2021
 
                     controll.Mov.MoveApplicator(Vector3.zero);
                 break;
+                case IaState.rivalDefeated:
+                    controll.Mov.MoveApplicator(Vector3.zero);
+                break;
                 case IaState.standMove:
                     if (controll.UpdatePosition())
                     {
                         timeCount = 0;
                         state = IaState.stand;
-                        currenStandTime = Random.Range(standTimeToMoveMin, standTimeToMoveMax);
+                        currenStandTime = UnityEngine.Random.Range(standTimeToMoveMin, standTimeToMoveMax);
                     }
                 break;
                 case IaState.rivalElectedWithAgressive:
@@ -348,6 +378,11 @@ namespace Criatures2021
 
         protected void AplicaIaDeAtaque()
         {
+            if (heroPet && heroPet.MeuCriatureBase.PetFeat.meusAtributos.PV.Corrente <= 0)
+            {
+                OnDefeatedPlayerPet(heroPet as PetManagerCharacter);
+            }
+                
             if (PodeAtualizar)
                 coolDown += Time.deltaTime;
 

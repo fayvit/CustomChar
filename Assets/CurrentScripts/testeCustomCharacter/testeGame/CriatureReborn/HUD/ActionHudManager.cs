@@ -11,6 +11,7 @@ namespace Criatures2021Hud
         [SerializeField] private Text infoText;
         [SerializeField] private Text infoCommand;
 
+        private GameObject hudRequest;
 
         static ActionHudManager instance;
 
@@ -32,13 +33,15 @@ namespace Criatures2021Hud
 
         private void OnRequestHide(MsgRequestHideActionHud obj)
         {
-            mainObject.SetActive(false);
+            if(obj.request == hudRequest)
+                mainObject.SetActive(false);
         }
 
         private void OnRequestShow(MsgRequestShowActionHud obj)
         {
             this.infoCommand.text = obj.infoCommand;
             this.infoText.text = obj.infoText;
+            hudRequest = obj.request;
 
             mainObject.SetActive(true);
         }
@@ -61,7 +64,10 @@ namespace Criatures2021Hud
     {
         public string infoText;
         public string infoCommand;
+        public GameObject request;
     }
 
-    public struct MsgRequestHideActionHud : IMessageBase { }
+    public struct MsgRequestHideActionHud : IMessageBase {
+        public GameObject request;
+    }
 }

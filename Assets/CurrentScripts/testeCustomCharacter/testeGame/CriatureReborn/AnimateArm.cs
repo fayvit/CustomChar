@@ -33,7 +33,7 @@ namespace Criatures2021
             this.treinador = treinador;
             this.oAnimado = oAnimado;
 
-            CameraAplicator.cam.StartShowPointCamera(oAnimado, new SinglePointCameraProperties()
+            CameraApplicator.cam.StartShowPointCamera(oAnimado, new SinglePointCameraProperties()
             {
                 withTime=true,
                 dodgeCam = true,
@@ -192,7 +192,7 @@ namespace Criatures2021
             {
                 case EstadoDoAnimaBraco.manipulandoCamera:
                     
-                    if(CameraAplicator.cam.FocusInPoint(height:3))
+                    if(CameraApplicator.cam.FocusInPoint(height:3))
                         estado = EstadoDoAnimaBraco.animaTroca;
                     break;
                 case EstadoDoAnimaBraco.animaTroca:
@@ -227,7 +227,7 @@ namespace Criatures2021
                         else
                         {
 
-                            CameraAplicator.cam.StartShowPointCamera(alvo.transform, new SinglePointCameraProperties()
+                            CameraApplicator.cam.StartShowPointCamera(alvo.transform, new SinglePointCameraProperties()
                             {
                                 velOrTimeFocus = VELOCIDADE_DE_MOVIMENTO_DE_CAMERA *
                                     Mathf.Max(Vector3.Distance(oAnimado.position, alvo.transform.position),
@@ -268,7 +268,7 @@ namespace Criatures2021
                     if (eItem)
                     {
                         
-                        if (CameraAplicator.cam.FocusInPoint(height: 3))
+                        if (CameraApplicator.cam.FocusInPoint(height: 3))
                         {
                             MudarParaAnimaBracoFinalizado();
                             return false;

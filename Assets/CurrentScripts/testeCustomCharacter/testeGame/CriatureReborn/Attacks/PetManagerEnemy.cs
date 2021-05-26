@@ -30,6 +30,7 @@ namespace Criatures2021
             base.Start();
 
             MessageAgregator<MsgEnemyRequestAttack>.AddListener(OnRequestAttack);
+            MessageAgregator<MsgPlayerPetDefeated>.AddListener(OnPlayerDefeated);
         }
 
         protected override void OnDestroy()
@@ -37,13 +38,19 @@ namespace Criatures2021
             base.OnDestroy();
 
             MessageAgregator<MsgEnemyRequestAttack>.RemoveListener(OnRequestAttack);
+            MessageAgregator<MsgPlayerPetDefeated>.RemoveListener(OnPlayerDefeated);
+        }
+
+        private void OnPlayerDefeated(MsgPlayerPetDefeated obj)
+        {
+            enemyIa.OnDefeatedPlayerPet(obj.pet);
         }
 
         private void OnRequestAttack(MsgEnemyRequestAttack obj)
         {
             if (obj.gameObject == gameObject)
             {
-                EfetiveApplyAttack(obj.atk,enemyIa.HeroPet);
+                EfetiveApplyAttack(obj.atk,enemyIa.HeroPet_GO);
             }
         }
 

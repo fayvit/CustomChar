@@ -14,6 +14,22 @@ namespace TextBankSpace
                         "bom diaaaaaaaaaaa....",
                         "bom dia pra você"
                     }},
+                {TextKey.nomeTipos, new List<string>()
+                    {
+                        "Agua",
+                        "Fogo",
+                        "Planta",
+                        "Terra",
+                        "Pedra",
+                        "Psiquico",
+                        "Eletrico",
+                        "Normal",
+                        "Veneno",
+                        "Inseto",
+                        "Voador",
+                        "Gas",
+                        "Gelo"
+                } },
                 {
                     TextKey.apresentaInimigo,new List<string>()
                     {
@@ -37,14 +53,14 @@ namespace TextBankSpace
      //                   e Cesar Corean recebeu {2} <color=#FF4500> CRISTAIS</color>"
      //               }
      //           },
-     //           {
-     //               TextKey.apresentaDerrota,new List<string>()
-     //               {
-     //                   "{0} foi derrotado",
-     //                   "Qual criature sairá para continuar a batalha?",
-     //                   "Todos os seus criatures foram derrotados.\n\r Agora você deve voltar para o armagedom, curar seus criatures e voltar para a sua aventura"
-     //               }
-     //           },
+                {
+                    TextKey.apresentaDerrota,new List<string>()
+                    {
+                        "<color=orange>{0}</color> foi derrotado",
+                        "Qual criature sairá para continuar a batalha?",
+                        "Todos os seus criatures foram derrotados.\n\r Agora você deve voltar para o armagedom, curar seus criatures e voltar para a sua aventura"
+                    }
+                },
                 {
                     TextKey.criatureParaMostrador,new List<string>()
                     {
@@ -142,30 +158,30 @@ namespace TextBankSpace
      //                   "No que posso te ajudar?"
      //               }
      //           },
-     //           {TextKey.simOuNao,new List<string>()
-     //               {
-     //                   "Sim",
-     //                   "Não"
-     //               }},
+                {TextKey.simOuNao,new List<string>()
+                    {
+                        "Sim",
+                        "Não"
+                    }},
      //           {TextKey.comprarOuVender,new List<string>()
      //               {
      //                   "Comprar",
      //                   "Vender"
      //               }},
-     //           {
-     //               TextKey.frasesDeArmagedom,new List<string>()
-     //               {
-     //                   "Seus criatures estão curados, estranho!!",
-     //                   "Me desculpe estranho, mas parece que não há criatures teus guardados no armagedom",
-     //                   "Seus Criatures Armagedados",
-     //                   "O criature <color=orange>{0}</color> nivel {1} entrou para o seu time",
-     //                   "Seu time já tem o número máximo de Criatures. Para colocar <color=orange>{0}</color> nivel {1} no time você precisa retirar um Criature do seu time",
-     //                   "Qual Criature sairá do seu time?",
-     //                   "O Criature {0} nivel {1} entrou no seu time no lugar do Criature {2} nivel {3}",
-     //                   "Tem certeza que retirará {0} nivel {1} do seu time?",
-     //                   "Eu posso lhe vender cada pergaminho de armagedom por <color=yellow>{0}</color> Cristais. Você quer comprar?"
-     //               }
-     //           },
+                {
+                    TextKey.frasesDeArmagedom,new List<string>()
+                    {
+                        "Seus criatures estão curados, estranho!!",
+                        "Me desculpe estranho, mas parece que não há criatures teus guardados no armagedom",
+                        "Seus Criatures Armagedados",
+                        "O criature <color=orange>{0}</color> nivel {1} entrou para o seu time",
+                        "Seu time já tem o número máximo de Criatures. Para colocar <color=orange>{0}</color> nivel {1} no time você precisa retirar um Criature do seu time",
+                        "Qual Criature sairá do seu time?",
+                        "O Criature {0} nivel {1} entrou no seu time no lugar do Criature {2} nivel {3}",
+                        "Tem certeza que retirará {0} nivel {1} do seu time?",
+                        "Eu posso lhe vender cada pergaminho de armagedom por <color=yellow>{0}</color> Cristais. Você quer comprar?"
+                    }
+                },
      //           {
      //               TextKey.shopBasico,new List<string>()
      //               {
@@ -220,13 +236,13 @@ namespace TextBankSpace
                     "{0} não precisa usar esse item nesse momento",
                     "Você não pode usar itens pelo menu enquanto estiver em luta"
                 }},
-     //           {TextKey.bau,new List<string>()
-     //           {
-     //               "Você encontrou um báu. Quer abri-lo?",
-     //               "O báu está vazio",
-     //               "Dentro do báu Cesar Corean consegue <color=cyan>{0} {1}</color>",
-     //               "Com a vitória Cesar Corean consegue <color=cyan>{0} {1}</color>"
-     //           }},
+                {TextKey.bau,new List<string>()
+                {
+                    "Você encontrou um báu. Quer abri-lo?",
+                    "O báu está vazio",
+                    "Dentro do báu Cesar Corean consegue <color=cyan>{0} {1}</color>",
+                    "Com a vitória Cesar Corean consegue <color=cyan>{0} {1}</color>"
+                }},
      //           {TextKey.resetPuzzle,new List<string>()
      //           {
      //               "Gostaria de retornar os elementos as suas posições iniciais?"
@@ -279,64 +295,64 @@ namespace TextBankSpace
                     "Trave a mira em um criature para usar esse item"
                 }},
 
-     //           {TextKey.shopInfoItem,new List<string>()
-     //           {
-     //               " Maçã recupera 40 PV de um Criature",
-     //               " Burguer recupera 100 PV de um Criature",
-     //               " Carta Luva é usada para tentar capturar novos Criatures",
-     //               " Gasolina recupera 40 PE de um Criature do tipo Fogo",
-     //               " Água Tônica recupera 40 PE de um Criature do tipo Água",
-     //               " Regador recupera 40 PE de um Criature do tipo Planta",
-     //               " Estrela recupera 40 PE de um Criature do tipo Normal",
-     //               " Quartzo recupera 40 PE de um Criature do tipo Pedra",
-     //               " Adubo recupera 40 PE de um Criature do tipo Terra",
-     //               " Seiva recupera 40 PE de um Criature do tipo Inseto",
-     //               " Inseticida recupera 40 PE de um Criature do tipo Veneno",
-     //               " Aura recupera 40 PE de um Criature do tipo Psiquico",
-     //               " Repolho com Ovo recupera 40 PE de um Criature do tipo Gás",
-     //               " Ventilador recupera 40 PE de um Criature do tipo Voador",
-     //               " Pilha recupera 40 PE de um Criature do tipo Eletrico",
-     //               " Gelo Seco recupera 40 PE de um Criature do tipo Gelo",
-     //               " Quando lido esse pergaminho invoca uma magia para expulsar o oponente da luta ",
-     //               " Um item muito suspeito encostado no fundo da loja",
-     //               " Uma estatua feita de pedra amarelada em pose imponente",
-     //               " Cristais é a unidade monetaria de Orion",
-     //               " Quando lido esse pergaminho, o criature alvo recupera totalmente os PVs e os PEs além de remover os status negativos ",
-     //               " O Antidoto cura Criatures que estão envenenados ",
-     //               " O Amuleto devolve a coragem para Criatures amedrontados ",
-     //               " O Tônico cura Criatures enfraquecidos",
-     //               " O pergaminho de Rajada de Agua ajuda um Criature do tipo Agua a aprender o golpe Rajada de Agua",
-     //               " Pode ser usado em lugares fechado para te teletransportar para fora",
-     //               " A condecoração que Cesar Corean recebeu do Capitão Atos Aramis.",
-     //               " O pergaminho de Armagedom te teletransporta para o um Armagedom que você visitou.",
-     //               "O pergaminho de Sabre ajuda um Criature a aprender o golpe Sabre",
-     //               " O pergaminho da Gosma de Inseto ajuda um Criature Inseto a aprender o golpe Gosma de Inseto",
-     //               " O pergaminho da Gosma Acida ajuda um Criature Inseto a aprender o golpe Gosma Acida",
-     //               " O pergaminho do Multiplicar insetos ajuda um Criature Inseto a aprender o golpe Multiplicar",
-     //               " O pergaminho da Ventânia ajuda um Criature Voador a aprender o golpe Ventânia",
-     //               " O pergaminho dos Ventos Cortantes ajuda um Criature Voador a aprender o golpe Ventos Cortantes",
-     //               " O pergaminho do Olhar Enfraquecedor ajuda um Criature a aprender o golpe Olhar Enfraquecedor",
-     //               " O pergaminho do Olhar Mal ajuda um Criature a aprender o golpe Olhar Mal",
-     //               " A condecoração que Cesar Corean recebeu do Capitão Espinha de Peixe.",
-     //               " O pergaminho do Furacão de Folhas pode ensinar o golpe Furacão de Folhas para um Criature do tipo Planta",
-     //               "Os Explosivos necessários para desobstruir o caminho para Afarenga",
-     //               "O medalhão das Águas do Deus Drag conseguido com Omar Water",
-     //               "Um recipiente contendo a tinta utilizada pelos sacerdotes de Log para escrever pergaminhos",
-     //               "O pergaminho em nome de Laurense o deus da força, quando lido, aumenta 1 ponto de ataque de um criature",
-     //               "O pergaminho em nome de Boutijoi o deus da natureza, quando lido, aumenta 1 ponto de defesa de um criature",
-     //               "O pergaminho em nome de Ananda a deusa da magia, quando lido, aumenta 1 ponto de poder de um criature",
-     //               "A caneta usada por sacerdotes de Log para escrever pergaminhos mágicos",
-     //               "O pergaminho em nome de Sinara, deusa mãe dos criatures, quando lido, aumenta em 4 pontos a vida máximo de um criature",
-     //               "O pergaminho em nome de Alana, deusa da fertilidade, quando lido, aumenta em 4 pontos a energia máxima de um criature",
-     //               "O pergaminho de Sabre pode ensinar a habilidade Sabre para um Criature com a capacidade de aprende-la"
+                {TextKey.shopInfoItem,new List<string>()
+                {
+                    " Maçã recupera 40 PV de um Criature",
+                    " Burguer recupera 100 PV de um Criature",
+                    " Carta Luva é usada para tentar capturar novos Criatures",
+                    " Gasolina recupera 40 PE de um Criature do tipo Fogo",
+                    " Água Tônica recupera 40 PE de um Criature do tipo Água",
+                    " Regador recupera 40 PE de um Criature do tipo Planta",
+                    " Estrela recupera 40 PE de um Criature do tipo Normal",
+                    " Quartzo recupera 40 PE de um Criature do tipo Pedra",
+                    " Adubo recupera 40 PE de um Criature do tipo Terra",
+                    " Seiva recupera 40 PE de um Criature do tipo Inseto",
+                    " Inseticida recupera 40 PE de um Criature do tipo Veneno",
+                    " Aura recupera 40 PE de um Criature do tipo Psiquico",
+                    " Repolho com Ovo recupera 40 PE de um Criature do tipo Gás",
+                    " Ventilador recupera 40 PE de um Criature do tipo Voador",
+                    " Pilha recupera 40 PE de um Criature do tipo Eletrico",
+                    " Gelo Seco recupera 40 PE de um Criature do tipo Gelo",
+                    " Quando lido esse pergaminho invoca uma magia para expulsar o oponente da luta ",
+                    " Um item muito suspeito encostado no fundo da loja",
+                    " Uma estatua feita de pedra amarelada em pose imponente",
+                    " Cristais é a unidade monetaria de Orion",
+                    " Quando lido esse pergaminho, o criature alvo recupera totalmente os PVs e os PEs além de remover os status negativos ",
+                    " O Antidoto cura Criatures que estão envenenados ",
+                    " O Amuleto devolve a coragem para Criatures amedrontados ",
+                    " O Tônico cura Criatures enfraquecidos",
+                    " O pergaminho de Rajada de Agua ajuda um Criature do tipo Agua a aprender o golpe Rajada de Agua",
+                    " Pode ser usado em lugares fechado para te teletransportar para fora",
+                    " A condecoração que Cesar Corean recebeu do Capitão Atos Aramis.",
+                    " O pergaminho de Armagedom te teletransporta para o um Armagedom que você visitou.",
+                    "O pergaminho de Sabre ajuda um Criature a aprender o golpe Sabre",
+                    " O pergaminho da Gosma de Inseto ajuda um Criature Inseto a aprender o golpe Gosma de Inseto",
+                    " O pergaminho da Gosma Acida ajuda um Criature Inseto a aprender o golpe Gosma Acida",
+                    " O pergaminho do Multiplicar insetos ajuda um Criature Inseto a aprender o golpe Multiplicar",
+                    " O pergaminho da Ventânia ajuda um Criature Voador a aprender o golpe Ventânia",
+                    " O pergaminho dos Ventos Cortantes ajuda um Criature Voador a aprender o golpe Ventos Cortantes",
+                    " O pergaminho do Olhar Enfraquecedor ajuda um Criature a aprender o golpe Olhar Enfraquecedor",
+                    " O pergaminho do Olhar Mal ajuda um Criature a aprender o golpe Olhar Mal",
+                    " A condecoração que Cesar Corean recebeu do Capitão Espinha de Peixe.",
+                    " O pergaminho do Furacão de Folhas pode ensinar o golpe Furacão de Folhas para um Criature do tipo Planta",
+                    "Os Explosivos necessários para desobstruir o caminho para Afarenga",
+                    "O medalhão das Águas do Deus Drag conseguido com Omar Water",
+                    "Um recipiente contendo a tinta utilizada pelos sacerdotes de Log para escrever pergaminhos",
+                    "O pergaminho em nome de Laurense o deus da força, quando lido, aumenta 1 ponto de ataque de um criature",
+                    "O pergaminho em nome de Boutijoi o deus da natureza, quando lido, aumenta 1 ponto de defesa de um criature",
+                    "O pergaminho em nome de Ananda a deusa da magia, quando lido, aumenta 1 ponto de poder de um criature",
+                    "A caneta usada por sacerdotes de Log para escrever pergaminhos mágicos",
+                    "O pergaminho em nome de Sinara, deusa mãe dos criatures, quando lido, aumenta em 4 pontos a vida máximo de um criature",
+                    "O pergaminho em nome de Alana, deusa da fertilidade, quando lido, aumenta em 4 pontos a energia máxima de um criature",
+                    "O pergaminho de Sabre pode ensinar a habilidade Sabre para um Criature com a capacidade de aprende-la"
 
-     //           }},
-     //           {TextKey.textoBaseDeAcao,new List<string>()
-     //           {
-     //               "Conversar",
-     //               "Examinar"
-     //           }
-     //           },
+                }},
+                {TextKey.textoBaseDeAcao,new List<string>()
+                {
+                    "Conversar",
+                    "Examinar"
+                }
+                },
      //   {
      //       TextKey.usarPergaminhoDeLaurense,new List<string>()
      //       {

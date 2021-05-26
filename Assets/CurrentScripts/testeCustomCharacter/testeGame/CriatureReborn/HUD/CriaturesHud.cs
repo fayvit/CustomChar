@@ -39,6 +39,7 @@ namespace Criatures2021Hud
             MessageAgregator<MsgChangeST>.AddListener(OnChangeSt);
             MessageAgregator<MsgZeroedStamina>.AddListener(OnZeroedStamina);
             MessageAgregator<MsgRegenZeroedStamina>.AddListener(OnRegenZeroedStamina);
+            MessageAgregator<MsgChangeLevel>.AddListener(OnChangeLvel);
         }
 
         private void OnDestroy()
@@ -52,7 +53,20 @@ namespace Criatures2021Hud
             MessageAgregator<MsgChangeST>.RemoveListener(OnChangeSt);
             MessageAgregator<MsgZeroedStamina>.RemoveListener(OnZeroedStamina);
             MessageAgregator<MsgRegenZeroedStamina>.RemoveListener(OnRegenZeroedStamina);
+            MessageAgregator<MsgChangeLevel>.RemoveListener(OnChangeLvel);
 
+        }
+
+        private void OnChangeLvel(MsgChangeLevel obj)
+        {
+            if (obj.gameObject== dono)
+            {
+                numberLevel.text = obj.newLevel.ToString();
+                hpNumber.text = obj.pvCorrente + " / " + obj.pvMax;
+                mpNumber.text = obj.peCorrente + " / " + obj.peMaximo;
+                hpBar.fillAmount = (float)obj.pvCorrente / obj.pvMax;
+                mpBar.fillAmount = (float)obj.peCorrente / obj.peMaximo;
+            }
         }
 
         private void OnChangeToHero(MsgChangeToHero obj)

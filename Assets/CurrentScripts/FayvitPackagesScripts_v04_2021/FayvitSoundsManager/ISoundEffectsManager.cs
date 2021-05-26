@@ -26,6 +26,14 @@ namespace FayvitSounds
         Shot1 = 7,
         Slash2 = 8,
         Slash1 = 9,
-        Shot3 = 10
+        Shot3 = 10,
+        VinhetinhaCurta=11,
+        VinhetinhaCompletaComFim=12,
+        vinhetinhaMedia=13,
+        Decision1 = 14,
+        paraBau = 15,
+        Cursor1 = 16,
+        Book1 = 17,
+        Decision2 = 18
     }
 }

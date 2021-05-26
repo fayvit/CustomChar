@@ -10,6 +10,7 @@ namespace FayvitUI_10_2020
         // Start is called before the first frame update
         void Start()
         {
+
             RectTransform rt = GetComponent<RectTransform>();
             RectTransform rtt = transform.parent.GetComponent<RectTransform>();
 

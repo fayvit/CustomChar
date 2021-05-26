@@ -49,7 +49,7 @@ namespace Criatures2021
             {
                 GameObject deMelhorVisao = null;
                 GameObject maisPerto = null;
-                Transform camT = melhorVisaoDaCamera? CameraAplicator.cam.transform:T;
+                Transform camT = melhorVisaoDaCamera? CameraApplicator.cam.transform:T;
                 float targetDist = melhorVisaoDaCamera ? -0.25f : 0.5f;
 
                 foreach (GameObject criature in inimigosPerto)

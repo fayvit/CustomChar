@@ -14,6 +14,8 @@ namespace Criatures2021
         [SerializeField] private List<DatesForTemporaryStatus> statusTemporarios = new List<DatesForTemporaryStatus>();
         [SerializeField] private StaminaManager stManager;
 
+        public List<PetAttackDb> GolpesPorAprender { get; private set; } = new List<PetAttackDb>();
+
         public float alturaCamera = .25f;
         public float distanciaCamera = 5.5f;
         public float alturaCameraLuta = .25f;

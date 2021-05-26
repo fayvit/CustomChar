@@ -34,6 +34,8 @@ namespace FayvitBasicTools
         public float SfxVolume { get => sfx.BaseVolume; set => sfx.BaseVolume=value; }
         public bool EmTeste { get; set; }
 
+        protected SoundEffectsManager Sfx => sfx;
+
         public Vector3 InitialGamePosition => new Vector3(0, 0, 0);
 
         protected virtual void Awake()

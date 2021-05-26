@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using FayvitMessageAgregator;
 using Criatures2021;
-using System;
 
 namespace Criatures2021Hud
 {

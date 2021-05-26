@@ -112,6 +112,13 @@ namespace TextBankSpace
         mensLuta,
         tentaCapturar,
         foiParaArmagedom,
-        criatureParaMostrador
+        criatureParaMostrador,
+        frasesDeArmagedom,
+        apresentaDerrota,
+        shopInfoItem,
+        bau,
+        textoBaseDeAcao,
+        simOuNao,
+        nomeTipos
     }
 }

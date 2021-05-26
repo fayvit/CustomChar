@@ -105,16 +105,24 @@ namespace FayvitCommandReader
 
         public bool GetButton(CommandConverterInt cci)
         {
-            return CR.GetButton(CC.DicCommandConverterInt[cci]);
+            bool retorno = false;
+            foreach (var v in CC.DicCommandConverterInt[cci])
+                retorno |= CR.GetButton(v);
+
+            return retorno;
         }
 
         public bool GetButtonDown(CommandConverterInt cci,bool travaQuadro = false)
         {
-            bool retorno = CR.GetButtonDown(CC.DicCommandConverterInt[cci]); ;
-            
-            if(travaQuadro && retorno)
+            bool retorno = false;
+            foreach (var v in CC.DicCommandConverterInt[cci])
+                retorno |= CR.GetButtonDown(v);
+
+            bool verificaTrava = !VerificaTravarQuadro(cci, TravarQuadro.down);
+
+            if (travaQuadro && retorno)
             {
-               retorno = !VerificaTravarQuadro(cci, TravarQuadro.down);        
+                retorno = verificaTrava;
             }
 
             return retorno;
@@ -122,11 +130,15 @@ namespace FayvitCommandReader
 
         public bool GetButtonUp(CommandConverterInt cci,bool travaQuadro = false)
         {
-            bool retorno = CR.GetButtonDown(CC.DicCommandConverterInt[cci]); ;
+            bool retorno = false;
+            foreach (var v in CC.DicCommandConverterInt[cci])
+                retorno |= CR.GetButtonUp(v);
+
+            bool verificaTrava = !VerificaTravarQuadro(cci, TravarQuadro.up);
 
             if (travaQuadro && retorno)
             {
-                retorno = !VerificaTravarQuadro(cci, TravarQuadro.up);
+                retorno = verificaTrava;
             }
 
             return retorno;
@@ -153,12 +165,18 @@ namespace FayvitCommandReader
 
         public float GetAxis(CommandConverterString ccs)
         {
-            return CR.GetAxis(CC.DicCommandConverterString[ccs]);
+            float retorno = 0;
+            foreach (var v in CC.DicCommandConverterString[ccs])
+                retorno = Mathf.Clamp(retorno+CR.GetAxis(v),-1,1);
+            return retorno;
         }
 
         public int GetIntTriggerDown(CommandConverterString ccs)
         {
-            return CR.GetIntTriggerDown(CC.DicCommandConverterString[ccs]);
+            int retorno = 0;
+            foreach (var v in CC.DicCommandConverterString[ccs])
+                retorno = Mathf.Clamp(retorno + CR.GetIntTriggerDown(v), -1, 1);
+            return retorno;
         }
 
     }
